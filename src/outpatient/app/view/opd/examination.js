@@ -6,7 +6,7 @@ Ext.define('Jss.Outpatient.view.opd.examination', {
     id: 'examination-panel',
     config: {
         layout: {
-            type: 'card'
+            type: 'vbox'
         },
         title: 'Examination',
         activeItem: 0,
