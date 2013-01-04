@@ -2,102 +2,91 @@ Ext.define('Jss.Outpatient.view.opd.examination', {
     extend: 'Ext.Container',
     alias: 'widget.examination',
     xtype: 'examination-panel',
-    requires: ['Jss.Outpatient.view.opd.examinationlist'],
     id: 'examination-panel',
     config: {
         layout: {
-            type: 'vbox'
+            type: 'card'
         },
         title: 'Examination',
         activeItem: 0,
         items: [{
-            xtype: 'container',
-            layout: {
-                type: 'hbox'
-            },
-            items: [{
                 xtype: 'container',
-                flex: 1,
                 layout: {
-                    type: 'vbox'
+                    type: 'slide'
                 },
+            listeners: {
+                tap: {
+                    element: 'innerElement',
+                    fn: function(event, div, listener) {
+                        var cmp2 = Ext.getCmp('examination-panel');
+                        var cmp1 = Ext.getCmp('history-panel');
+                        var cmp3 = Ext.getCmp('patient-panel');
+                        var cmp4 = Ext.getCmp('bottom-panel');
+                        cmp1.hide();
+                        cmp3.hide();
+                        cmp4.hide();
+
+                        var backbutton = Ext.getCmp('back-button');
+                        backbutton.show();
+                    }
+                }
+            },
                 items: [{
                     xtype: 'formpanel',
-                    border: '0 0 1 0',
-                    padding: '0 0 0 0',
-                    style: 'border:solid #DADADA;',
-                    scrollable: false,
-                    height: 93,
-                    items: [{
-                        xtype: 'selectfield',
-                        label: 'Search In',
-                        id: 'signFilter',
-                        hidden: true,
-                        border: '0 0 1 0',
-                        style: 'border:solid #DADADA;',
-                        valueField: 'filterBy',
-                        displayField: 'title',
-                        store: {
-                            data: [{
-                                filterBy: 'all',
-                                title: 'All',
-                            }]
-                        }
-                    }, {
-                        xtype: 'searchfield',
-                        id: 'signfilterbysearchfield',
-                    }]
-                }, {
-                    xtype: 'container',
                     flex: 1,
-                }]
-            }, {
-                xtype: 'container',
-                flex: 1,
-                items: [{
-                    xtype: 'container',
-                    margin: '0 0 20 0',
-                    border: '0 0 0 3',
-                    style: 'border:solid #DADADA;',
-                    height: 576,
-                    layout: {
-                        type: 'fit'
-                    },
+                    id: 'examinationPanel',
+                    scrollable: 'false',
                     items: [{
-                        xtype: 'Examination-List'
-                    }, {
-                        xtype: 'actionsheet',
-                        id: 'durationPicker',
-                        hidden: true,
+                        xtype: 'fieldset',
+                        title: 'Examination',
                         items: [{
-                            xtype: 'formpanel',
-                            height: 100,
-                            width: '100%',
-                            items: [{
-                                xtype: 'numberfield',
-                                label: 'Duration',
-                                id: 'durationfield'
-                            }]
-                        }, {
-                            xtype: 'toolbar',
-                            docked: 'top',
-                            items: [{
-                                xtype: 'button',
-                                text: 'Save',
-                                id: 'saveDuration'
-                            }, {
-                                xtype: 'spacer'
-                            }, {
-                                xtype: 'button',
-                                text: 'Cancel',
-                                handler: function () {
-                                    Ext.getCmp('durationPicker').setHidden(true);// to hide the duration picker field
-                                }
-                            }]
+                            xtype: 'selectfield',
+                            label: 'Chief Complaint',
+                            valueField: 'chiefcomplaint',
+                            displayField: 'title',
+                            id: 'chiefcomplaint',
+                            store: {
+                                data: [{
+                                    complaint : 'Abdominal Pain',
+                                    id: '1'
+                                }, {
+                                    complaint : 'Nausea',
+                                    id: '2'
+                                }, {
+                                    complaint: 'Vomiting',
+                                    id: '3'
+                                }, {
+                                    complaint: 'weakness',
+                                    id: '4'
+                                }]
+                            }
                         }]
+
                     }]
                 }]
-            }]
         }]
-    }
-});
+    },
+    resizePanels:function(panelToBeMaximized){
+    var cmp2 = Ext.getCmp('examination-panel');
+    var cmp1 = Ext.getCmp('history-panel');
+    var cmp3 = Ext.getCmp('patient-panel');
+    var cmp4 = Ext.getCmp('bottom-panel');
+
+    cmp1.setWidth(0);
+    cmp1.setHeight(0);
+
+    cmp2.setWidth(0);
+    cmp2.setHeight(0);
+
+    cmp3.setWidth(0);
+    cmp3.setHeight(0);
+
+    cmp4.setWidth(0);
+    cmp4.setHeight(0);
+
+    panelToBeMaximized.setWidth('100%');
+    panelToBeMaximized.setHeight(800);
+
+}
+
+})

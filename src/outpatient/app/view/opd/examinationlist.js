@@ -6,8 +6,8 @@ Ext.define('Jss.Outpatient.view.opd.examinationlist', {
     config: {
         cls: 'x-exam',
         id: 'examList',
-        store: 'chiefcomplaint',
-        itemTpl: ['<div id="{id}">', '<strong>{complain}{duration}</strong>', '</div>'],
+        store: 'chiefcomplaints',
+        itemTpl: ['<div id="{id}">', '<strong>{complaint}{duration}</strong>', '</div>'],
         items: [{
             xtype: 'toolbar',
             docked: 'top',
