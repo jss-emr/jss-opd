@@ -7,7 +7,7 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
       layout: {
             type: 'card'
       },
-      title: 'Consultation-Card',
+      title: 'Consultation',
       items:[{
         layout: {
             type: 'vbox'
