@@ -1,41 +1,23 @@
-
 Ext.define('Jss.Outpatient.view.opd.consultation', {
     extend: 'Ext.Container',
     alias: 'widget.consultation',
     id: 'opd-panel',
-    requires: ['Jss.Outpatient.view.opd.patient','Jss.Outpatient.view.opd.examination','Jss.Outpatient.view.opd.history'],
+    requires: ['Jss.Outpatient.view.opd.patient','Jss.Outpatient.view.opd.examination','Jss.Outpatient.view.opd.history','Jss.Outpatient.view.opd.diagnosis','Jss.Outpatient.view.opd.treatment','Jss.Outpatient.view.opd.instruction'],
     config: {
+      layout: {
+            type: 'card'
+      },
+      title: 'Consultation-Card',
+      items:[{
         layout: {
             type: 'vbox'
         },
         style: 'background-color: #FFFFFF',
         title: 'Consultation',
+        id:'consultation',
         activeItem: 0,
         items: [
-          {
-            xtype: 'button',
-            text: 'Back',
-            width: 150 ,
-            id :'back-button',
-            hidden:true,
-            listeners: {
-                tap: {
-                    fn: function(event, div, listener) {
-                        var cmp2 = Ext.getCmp('examination-panel');
-                        var cmp1 = Ext.getCmp('history-panel');
-                        var cmp3 = Ext.getCmp('patient-panel');
-                        var cmp4 = Ext.getCmp('bottom-panel');
 
-                        cmp1.show();
-                        cmp2.show();
-                        cmp3.show();
-                        cmp4.show();
-
-                        this.hide();
-                    }
-                }
-            },
-          },
           {
             xtype: 'container',
             flex: 1,
@@ -48,14 +30,12 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
             items: [{
                 xtype: 'history',
                 flex: 2,
-                html: 'History',
                 margin: 5,
                 border: 1,
                 style: 'background-color: #7FADCF'
             },{
                 xtype: 'examination',
                 flex: 2,
-                html: 'Examination',
                 margin: 5,
                 border: 1,
                 style: 'background-color: #7FADCF'
@@ -65,8 +45,7 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
                 margin: 5,
                 border: 1,
                 style: 'background-color: #7FADCF'
-            }],
-            style: 'background-color: #FFFFFF'
+            }]
         },
         {
             xtype: 'container',
@@ -80,25 +59,22 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
                  type: 'hbox'
              } ,
                 items: [{
-                    xtype: 'container',
+                    xtype: 'diagnosis',
                     flex: 2,
-                    html: 'Diagnosis',
                     margin: 5,
                     border: 1,
                     id: 'diagnosis-panel',
                     style: 'background-color: #7FADCF'
                 },{
-                    xtype: 'container',
+                    xtype: 'treatment',
                     flex: 2,
-                    html: 'Treatment',
                     margin: 5,
                     border: 1,
                     id: 'instruction-panel',
                     style: 'background-color: #7FADCF'
                 },{
-                    xtype: 'container',
+                    xtype: 'instruction',
                     flex: 1,
-                    html: 'Instruction',
                     margin: 5,
                     border: 1,
                     id: 'treatment-panel',
@@ -106,6 +82,91 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
                 }]
             }
         ]
+      },{
+          layout: {
+              type: 'vbox'
+          },
+          style: 'background-color: #FFFFFF',
+          title: 'Examination-card',
+          id: 'examination-card',
+          items: [
+              {
+                  xtype: 'examination-edit',
+                  flex: 2,
+                  html: 'Examination-Card',
+                  margin: 5,
+                  border: 1,
+                  style: 'background-color: #7FADCF'
+              }]
+      },{
+          layout: {
+              type: 'vbox'
+          },
+          style: 'background-color: #FFFFFF',
+          title: 'History-Edit',
+          id: 'history-card',
+          items: [
+              {
+                  xtype: 'history-edit',
+                  flex: 2,
+                  html: 'History',
+                  margin: 5,
+                  border: 1,
+                  style: 'background-color: #7FADCF'
+              }]
+      } ,
+          {
+              layout: {
+                  type: 'vbox'
+              },
+              style: 'background-color: #FFFFFF',
+              title: 'Diagnosis-Edit',
+              id: 'diagnosis-card',
+              items: [
+                  {
+                      xtype: 'diagnosis-edit',
+                      flex: 2,
+                      html: 'Diagnosis',
+                      margin: 5,
+                      border: 1,
+                      style: 'background-color: #7FADCF'
+                  }]
+          },
+          {
+              layout: {
+                  type: 'vbox'
+              },
+              style: 'background-color: #FFFFFF',
+              title: 'Treatment-Edit',
+              id: 'treatment-card',
+              items: [
+                  {
+                      xtype: 'treatment-edit',
+                      flex: 2,
+                      html: 'Treatment',
+                      margin: 5,
+                      border: 1,
+                      style: 'background-color: #7FADCF'
+                  }]
+          },
+          {
+              layout: {
+                  type: 'vbox'
+              },
+              style: 'background-color: #FFFFFF',
+              title: 'Instruction-Edit',
+              id: 'instruction-card',
+              items: [
+                  {
+                      xtype: 'instruction-edit',
+                      flex: 2,
+                      html: 'Instruction',
+                      margin: 5,
+                      border: 1,
+                      style: 'background-color: #7FADCF'
+                  }]
+          }
+      ]
     }
     }
 

@@ -1,27 +1,39 @@
 Ext.define('Jss.Outpatient.view.opd.patient', {
     extend: 'Ext.Container',
-    alias: 'widget.patient',
+    xtype: 'patient-panel',
+    alias:'widget.patient',
     id: 'patient-panel',
     config: {
-        title: 'patient',
-        style: 'background-color: #7FADCF',
+        layout: {
+            type: 'vbox'
+        },
+        activeItem: 1,
         items: [{
-            xtype: 'textfield',
-            name : 'first',
-            label: 'First name'
-        },{
-            xtype: 'textfield',
-            name : 'last',
-            label: 'Last name'
-        },{
-            xtype: 'textfield',
-            name : 'age',
-            label: 'Age'
-        },{
-            xtype: 'textfield',
-            name : 'gender',
-            label: 'Gender'
-        } ]
+            xtype: 'formpanel',
+            flex: 1,
+            id: 'examinationPanel',
+            scrollable: 'false',
+            items: [{
+                xtype: 'textfield',
+                name : 'first',
+                label: 'First name'
+                },
+                {
+                  xtype: 'textfield',
+                  name : 'last',
+                  label: 'Last name'
+                },
+                {
+                 xtype: 'textfield',
+                 name : 'age',
+                 label: 'Age'
+                },
+                {
+                 xtype: 'textfield',
+                 name : 'gender',
+                 label: 'Gender'
+                } ]
+      }]
     }
 })
 

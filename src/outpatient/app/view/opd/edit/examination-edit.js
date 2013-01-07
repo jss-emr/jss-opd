@@ -1,31 +1,34 @@
-Ext.define('Jss.Outpatient.view.opd.examination', {
+Ext.define('Jss.Outpatient.view.opd.edit.examination-edit', {
     extend: 'Ext.Container',
-    alias: 'widget.examination',
-    xtype: 'examination-panel',
-    id: 'examination-panel',
+    alias: 'widget.examination-edit',
+    xtype: 'examination-editpanel',
+    id: 'examination-editpanel',
     config: {
         layout: {
             type: 'vbox'
         },
-//        title: 'Examination',
+//        title: 'History',
         activeItem: 1,
         items: [{
             xtype: 'formpanel',
-            listeners: {
-                tap: {
-                    element: 'innerElement',
-                    fn: function(event, div, listener)
-                    {
-                        var l = Ext.getCmp('opd-panel');
-                        l.setActiveItem(Ext.getCmp('examination-card'));
-                    }
-                }
-            },
             flex: 1,
-            id: 'examinationPanel',
+            id: 'historyPanel',
             scrollable: 'false',
             items: [{
-                        xtype: 'fieldset',
+                xtype: 'button',
+                text: 'Back',
+                width: 150 ,
+                id :'back-button',
+                listeners: {
+                    tap: {
+                        fn: function(event, div, listener) {
+                            var l = Ext.getCmp('opd-panel');
+                            l.setActiveItem(Ext.getCmp('consultation'));
+                        }
+                    }
+                }
+            },{
+                xtype: 'fieldset',
                         title: 'Examination',
                         items: [{
                             xtype: 'selectfield',
@@ -50,8 +53,7 @@ Ext.define('Jss.Outpatient.view.opd.examination', {
                             }
                         }]
 
-                    } ]
-        }]
+                    }]
+                }]
     }
-
 })
