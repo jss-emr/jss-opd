@@ -1,0 +1,20 @@
+[
+	{
+		medicine: "med1", 
+		mg: 700, 
+		days: 3
+	}, 
+	{
+		medicine: "med2", 
+		mg: 700, 
+		instruction: "After Meals"
+	},
+	{
+		medicine: "med3", 
+		mg: 700, 
+		morning: 1, 
+		noon: 0, 
+		evening: 0, 
+		night: 1
+	}
+]
