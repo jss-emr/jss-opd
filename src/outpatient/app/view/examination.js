@@ -5,53 +5,32 @@ Ext.define('Jss.Outpatient.view.examination', {
     id: 'examination-panel',
     config: {
         layout: {
-            type: 'vbox'
+            type: 'card'
         },
 //        title: 'Examination',
-        activeItem: 1,
-        items: [{
-            xtype: 'formpanel',
-            listeners: {
-                tap: {
-                    element: 'innerElement',
-                    fn: function(event, div, listener)
-                    {
-                        var l = Ext.getCmp('opd-panel');
-                        l.setActiveItem(Ext.getCmp('examination-card'));
-                    }
-                }
-            },
+            activeItem: 0,
             flex: 1,
             id: 'examinationPanel',
-            scrollable: 'false',
+//            scrollable: 'false',
             items: [{
-                        xtype: 'fieldset',
-                        title: 'Examination',
-                        items: [{
-                            xtype: 'selectfield',
-                            label: 'Chief Complaint',
-                            valueField: 'complaint',
-                            displayField: 'complaint',
-                            id: 'chiefcomplaint',
-                            store: {
-                                data: [{
-                                    complaint : 'Abdominal Pain',
-                                    id: '1'
-                                }, {
-                                    complaint : 'Nausea',
-                                    id: '2'
-                                }, {
-                                    complaint: 'Vomiting',
-                                    id: '3'
-                                }, {
-                                    complaint: 'weakness',
-                                    id: '4'
-                                }]
-                            }
-                        }]
-
-                    } ]
-        }]
+                title: 'Examination',
+                xtype: 'list',
+                html:'<b>Examination</b>',
+                id: 'examinationViewPanel',
+                listeners: {
+                    tap: {
+                        element: 'innerElement',
+                        fn: function(event, div, listener)
+                        {
+                            var l = Ext.getCmp('opd-panel');
+                            l.setActiveItem(Ext.getCmp('examination-card'));
+                        }
+                    }
+                },
+                // scrollable: 'false',
+                itemTpl: '{complaint}:&nbsp{duration},&nbsp;',
+                store: 'examination'
+            }]
     }
 
 })

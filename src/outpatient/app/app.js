@@ -12,8 +12,8 @@ Ext.Loader.setConfig({
 Ext.application({
     name: 'Jss.Outpatient',
     // models, stores, controller and views used in the OPD directly
-    models: ['Patient', 'Visit', 'VitalStats', 'ChiefComplaint','sign','Diagnosis'],
-    stores: ['patients', 'chiefcomplaints','sign','diagnosis','patient'],
+    models: ['Patient', 'Visit', 'VitalStats', 'ChiefComplaint','sign','Diagnosis','Treatment'],
+    stores: ['patients', 'chiefcomplaints','sign','diagnosis','patient','treatment','examination'],
     views: ['Viewport'],
     controllers: ['examination'],
     // to launch the module view

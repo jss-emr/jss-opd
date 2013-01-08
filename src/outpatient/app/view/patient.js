@@ -14,7 +14,7 @@ Ext.define('Jss.Outpatient.view.patient', {
 //            html : 'Hello',
             id: 'patientPanel',
             scrollable: 'false',
-            itemTpl: '{firstName}, {lastName}</br>age :{age}</br>gender:M',
+            itemTpl: '<table><tr><td>{firstName}, {lastName}</br>age :{age}</br>gender:M </br></td> <td><img src=\'../outpatient/resources/images/headshots/ram.png\'/></td></tr></table>' ,
             store: 'patient'
 
       }]

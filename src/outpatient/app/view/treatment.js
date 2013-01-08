@@ -5,49 +5,43 @@ Ext.define('Jss.Outpatient.view.treatment', {
     id: 'treatment-panel',
     config: {
         layout: {
-            type: 'vbox'
+            type: 'card'
         },
-//        title: 'Treatment',
-        items: [ {
-            xtype: 'formpanel',
-            flex: 1,
-            scrollable: 'false',
-            listeners: {
-                tap: {
+        activeItem: 0,
+        title: 'Treatment',
+//        items: [ {
+//            xtype: 'formpanel',
+//            flex: 1,
+//            scrollable: 'false',
+//            listeners: {
+//                tap: {
+//                    element: 'innerElement',
+//                    fn: function(event, div, listener)
+//                    {
+//                        var l = Ext.getCmp('opd-panel');
+//                        l.setActiveItem(Ext.getCmp('treatment-card'));
+//                    }
+//                }
+//            },
+                items: [{
+                    title: 'Treatment',
+                    xtype: 'list',
+                    html:'<b>Treatment</b>',
+                    id: 'treatmentViewPanel',
+                    listeners: {
+                    tap: {
                     element: 'innerElement',
                     fn: function(event, div, listener)
-                    {
+                     {
                         var l = Ext.getCmp('opd-panel');
                         l.setActiveItem(Ext.getCmp('treatment-card'));
+                     }
                     }
-                }
-            },
-            items: [{
-                xtype: 'fieldset',
-                title: 'Treatment',
-                items: [{
-                    xtype: 'selectfield',
-                    label: 'Drug',
-                    valueField: 'complaint',
-                    displayField: 'complaint',
-                    id: 'selectedDrug',
-                    store: {
-                        data: [{
-                            complaint : 'Paracetamol',
-                            id: '1'
-                        }, {
-                            complaint : 'Crocin',
-                            id: '2'
-                        }, {
-                            complaint: 'Calpol',
-                            id: '3'
-                        }, {
-                            complaint: 'Bricanyl',
-                            id: '4'
-                        }]
-                    }
+                   } ,
+                   // scrollable: 'false',
+                    itemTpl: '<table><tr><td>{name},{dosage},&nbsp;</td></br><td>{quantity}&nbsp;</td></br><td>{time}</td></tr></table>',
+                    store: 'treatment'
                 }]
-            }]
-        }]
+//            }]
     }
 })

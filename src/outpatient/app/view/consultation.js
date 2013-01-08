@@ -10,7 +10,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
       title: 'Consultation',
       items:[{
         layout: {
-            type: 'vbox'
+            type: 'hbox'
         },
         style: 'background-color: #FFFFFF',
         title: 'Consultation',
@@ -25,7 +25,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
             margin: 5,
             border: 1,
             layout: {
-                type: 'hbox'
+                type: 'vbox'
             } ,
             items: [{
                 xtype: 'history',
@@ -34,16 +34,18 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 border: 1,
                 style: 'background-color: #7FADCF'
             },{
-                xtype: 'examination',
-                flex: 2,
-                margin: 5,
-                border: 1,
-                style: 'background-color: #7FADCF'
-            },{
-                xtype: 'patient',
+                xtype: 'diagnosis',
                 flex: 1,
                 margin: 5,
                 border: 1,
+                id: 'diagnosis-panel',
+                style: 'background-color: #7FADCF'
+            },{
+                xtype: 'instruction',
+                flex: 2,
+                margin: 5,
+                border: 1,
+                id: 'treatment-panel',
                 style: 'background-color: #7FADCF'
             }]
         },
@@ -56,14 +58,19 @@ Ext.define('Jss.Outpatient.view.consultation', {
             style: 'background-color: #FFFFFF',
             id: 'bottom-panel',
             layout: {
-                 type: 'hbox'
+                 type: 'vbox'
              } ,
                 items: [{
-                    xtype: 'diagnosis',
+                    xtype: 'patient',
+                    flex: 1,
+                    margin: 5,
+                    border: 1,
+                    style: 'background-color: #7FADCF'
+                },{
+                    xtype: 'examination',
                     flex: 2,
                     margin: 5,
                     border: 1,
-                    id: 'diagnosis-panel',
                     style: 'background-color: #7FADCF'
                 },{
                     xtype: 'treatment',
@@ -72,14 +79,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
                     border: 1,
                     id: 'instruction-panel',
                     style: 'background-color: #7FADCF'
-                },{
-                    xtype: 'instruction',
-                    flex: 1,
-                    margin: 5,
-                    border: 1,
-                    id: 'treatment-panel',
-                    style: 'background-color: #7FADCF'
-                }]
+                },]
             }
         ]
       },{
