@@ -20,8 +20,8 @@ Ext.application({
     name: 'Jss.Treatment',
     models: ['MedicineDetail', 'TreatmentAdvice'],
     stores: ['MedicineDetails', 'TreatmentAdvice'],
-    views: ['Viewport'],
-    // controllers: ['examination'],
+    views: ['Viewport', 'TreatmentAdviceGrid', 'new.AddTreatmentAdvice', 'new.AutocompleteListBox', 'new.AutocompleteContainer'],
+    controllers: ['SelectTreatmentAdvice', 'DrugSearchAutocomplete'],
 
     launch: function () {
         Ext.create('Jss.Treatment.view.Viewport');

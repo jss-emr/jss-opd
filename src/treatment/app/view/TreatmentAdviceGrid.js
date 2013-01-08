@@ -2,6 +2,7 @@ Ext.define('Jss.Treatment.view.TreatmentAdviceGrid', {
 	extend: 'Ext.ux.touch.grid.List',
     alias: 'widget.treatment_advice_grid',
 
+
     config: {
 	    store: 'TreatmentAdvice',
 	    features   : [
@@ -10,6 +11,7 @@ Ext.define('Jss.Treatment.view.TreatmentAdviceGrid', {
                 launchFn : 'initialize'
             }
         ],
+
         columns   : [
             {
                 header    : 'Medicine',
