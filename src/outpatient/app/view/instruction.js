@@ -29,8 +29,8 @@ Ext.define('Jss.Outpatient.view.instruction', {
                 items: [{
                     xtype: 'selectfield',
                     label: 'Chief Instruction',
-                    valueField: 'chiefinstruction',
-                    displayField: 'title',
+                    valueField: 'complaint',
+                    displayField: 'complaint',
                     id: 'chiefinstruction',
                     store: {
                         data: [{

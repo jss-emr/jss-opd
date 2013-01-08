@@ -30,8 +30,8 @@ Ext.define('Jss.Outpatient.view.examination', {
                         items: [{
                             xtype: 'selectfield',
                             label: 'Chief Complaint',
-                            valueField: 'chiefcomplaint',
-                            displayField: 'title',
+                            valueField: 'complaint',
+                            displayField: 'complaint',
                             id: 'chiefcomplaint',
                             store: {
                                 data: [{

@@ -28,8 +28,8 @@ Ext.define('Jss.Outpatient.view.treatment', {
                 items: [{
                     xtype: 'selectfield',
                     label: 'Drug',
-                    valueField: 'drug',
-                    displayField: 'title',
+                    valueField: 'complaint',
+                    displayField: 'complaint',
                     id: 'selectedDrug',
                     store: {
                         data: [{
