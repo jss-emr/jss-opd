@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.opd.edit.diagnosis-edit', {
+Ext.define('Jss.Outpatient.view.edit.diagnosis-edit', {
     extend: 'Ext.Container',
     alias: 'widget.diagnosis-edit',
     xtype: 'diagnosis-edit-panel',
@@ -32,24 +32,10 @@ Ext.define('Jss.Outpatient.view.opd.edit.diagnosis-edit', {
                     items: [{
                     xtype: 'selectfield',
                     label: 'Disease',
-                    valueField: 'disease',
-                    displayField: 'title',
-                    id: 'disease',
-                    store: {
-                        data: [{
-                            complaint : 'Viral Fever',
-                            id: '1'
-                            }, {
-                            complaint : 'Dysentry',
-                            id: '2'
-                            }, {
-                            complaint: 'Cold',
-                             id: '3'
-                            }, {
-                            complaint: 'Malaria',
-                            id: '4'
-                        }]
-                    }
+                    valueField: 'sign',
+                    displayField: 'sign',
+                    id: 'disease-edit',
+                    store: 'diagnosis'
                 }]
              }]
         }]

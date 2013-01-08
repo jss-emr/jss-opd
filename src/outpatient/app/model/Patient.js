@@ -6,9 +6,12 @@ Ext.define('Jss.Outpatient.model.Patient', {
                 name: 'id',
                 type: 'string'
             }, {
-                name: 'name',
+                name: 'firstName',
                 type: 'string'
             }, {
+                name: 'lastName',
+                type: 'string'
+            },{
                 name: 'gender',
                 type: 'string'
             }, {

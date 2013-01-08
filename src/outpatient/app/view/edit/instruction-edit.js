@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.opd.edit.instruction-edit', {
+Ext.define('Jss.Outpatient.view.edit.instruction-edit', {
     extend: 'Ext.Container',
     alias: 'widget.instruction-edit',
     xtype: 'instruction-edit-panel',

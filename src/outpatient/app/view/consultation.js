@@ -1,8 +1,8 @@
-Ext.define('Jss.Outpatient.view.opd.consultation', {
+Ext.define('Jss.Outpatient.view.consultation', {
     extend: 'Ext.Container',
     alias: 'widget.consultation',
     id: 'opd-panel',
-    requires: ['Jss.Outpatient.view.opd.patient','Jss.Outpatient.view.opd.examination','Jss.Outpatient.view.opd.history','Jss.Outpatient.view.opd.diagnosis','Jss.Outpatient.view.opd.treatment','Jss.Outpatient.view.opd.instruction'],
+    requires: ['Jss.Outpatient.view.patient','Jss.Outpatient.view.examination','Jss.Outpatient.view.history','Jss.Outpatient.view.diagnosis','Jss.Outpatient.view.treatment','Jss.Outpatient.view.instruction'],
     config: {
       layout: {
             type: 'card'
@@ -126,7 +126,6 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
                   {
                       xtype: 'diagnosis-edit',
                       flex: 2,
-                      html: 'Diagnosis',
                       margin: 5,
                       border: 1,
                       style: 'background-color: #7FADCF'
@@ -143,7 +142,6 @@ Ext.define('Jss.Outpatient.view.opd.consultation', {
                   {
                       xtype: 'treatment-edit',
                       flex: 2,
-                      html: 'Treatment',
                       margin: 5,
                       border: 1,
                       style: 'background-color: #7FADCF'

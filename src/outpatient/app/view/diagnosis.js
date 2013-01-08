@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.opd.diagnosis', {
+Ext.define('Jss.Outpatient.view.diagnosis', {
     extend: 'Ext.Container',
     alias: 'widget.diagnosis',
     xtype: 'diagnosis-panel',
@@ -29,24 +29,26 @@ Ext.define('Jss.Outpatient.view.opd.diagnosis', {
                     items: [{
                     xtype: 'selectfield',
                     label: 'Disease',
-                    valueField: 'disease',
-                    displayField: 'title',
+                    valueField: 'sign',
+                    displayField: 'sign',
                     id: 'disease',
-                    store: {
-                        data: [{
-                            complaint : 'Viral Fever',
-                            id: '1'
-                            }, {
-                            complaint : 'Dysentry',
-                            id: '2'
-                            }, {
-                            complaint: 'Cold',
-                             id: '3'
-                            }, {
-                            complaint: 'Malaria',
-                            id: '4'
-                        }]
-                    }
+                    store: 'diagnosis'
+
+//                    store: {
+//                        data: [{
+//                            complaint : 'Viral Fever',
+//                            id: '1'
+//                            }, {
+//                            complaint : 'Dysentry',
+//                            id: '2'
+//                            }, {
+//                            complaint: 'Cold',
+//                             id: '3'
+//                            }, {
+//                            complaint: 'Malaria',
+//                            id: '4'
+//                        }]
+//                    }
                 }]
              }]
         }]

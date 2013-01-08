@@ -1,37 +1,31 @@
-Ext.define('Jss.Outpatient.view.opd.edit.treatment-edit', {
+Ext.define('Jss.Outpatient.view.treatment', {
     extend: 'Ext.Container',
-    alias: 'widget.treatment-edit',
-    xtype: 'treatment-edit-panel',
-    id: 'treatment-edit',
+    alias: 'widget.treatment',
+    xtype: 'treatment-panel',
+    id: 'treatment-panel',
     config: {
         layout: {
             type: 'vbox'
         },
-//        title: 'History',
-        activeItem: 1,
-        items: [{
+//        title: 'Treatment',
+        items: [ {
             xtype: 'formpanel',
             flex: 1,
-            id: 'historyPanel',
             scrollable: 'false',
-            items: [{
-                xtype: 'button',
-                text: 'Back',
-                width: 150 ,
-                id :'back-button',
-                listeners: {
-                    tap: {
-                        fn: function(event, div, listener) {
-                            var l = Ext.getCmp('opd-panel');
-                            l.setActiveItem(Ext.getCmp('consultation'));
-                        }
+            listeners: {
+                tap: {
+                    element: 'innerElement',
+                    fn: function(event, div, listener)
+                    {
+                        var l = Ext.getCmp('opd-panel');
+                        l.setActiveItem(Ext.getCmp('treatment-card'));
                     }
                 }
-                },
-                {
-                 xtype: 'fieldset',
-                 title: 'Treatment',
-                 items: [{
+            },
+            items: [{
+                xtype: 'fieldset',
+                title: 'Treatment',
+                items: [{
                     xtype: 'selectfield',
                     label: 'Drug',
                     valueField: 'drug',
@@ -53,7 +47,7 @@ Ext.define('Jss.Outpatient.view.opd.edit.treatment-edit', {
                         }]
                     }
                 }]
-                }]
+            }]
         }]
     }
-});
+})

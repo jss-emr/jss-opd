@@ -1,34 +1,31 @@
-    Ext.define('Jss.Outpatient.view.opd.edit.history-edit', {
-        extend: 'Ext.Container',
-        xtype: 'history-edit-panel',
-        alias:'widget.history-edit',
-        id: 'history-edit-panel',
-        config: {
-            layout: {
-                type: 'vbox'
-            },
+
+Ext.define('Jss.Outpatient.view.history', {
+    extend: 'Ext.Container',
+    xtype: 'history-panel',
+    alias:'widget.history',
+    id: 'history-panel',
+    config: {
+        layout: {
+            type: 'vbox'
+        },
 //        title: 'History',
-            activeItem: 1,
-            items: [{
-                xtype: 'formpanel',
-                flex: 1,
-                id: 'historyPanel',
-                scrollable: 'false',
-                items: [{
-                    xtype: 'button',
-                    text: 'Back',
-                    width: 150 ,
-                    id :'back-button',
-                    listeners: {
-                        tap: {
-                            fn: function(event, div, listener) {
-                                var l = Ext.getCmp('opd-panel');
-                                l.setActiveItem(Ext.getCmp('consultation'));
-                            }
-                        }
-                    }
-                    },
+        activeItem: 1,
+        items: [{
+            xtype: 'formpanel',
+            listeners: {
+                tap: {
+                    element: 'innerElement',
+                    fn: function(event, div, listener)
                     {
+                        var l = Ext.getCmp('opd-panel');
+                        l.setActiveItem(Ext.getCmp('history-card'));
+                    }
+                }
+            },
+            flex: 1,
+            id: 'historyPanel',
+            scrollable: 'false',
+                items: [{
                     xtype: 'fieldset',
                     title: 'History',
                     items: [{
@@ -86,7 +83,7 @@
                                     title: 'Past'
                                 }]
                             }
-                        }, {
+                    }, {
                             xtype: 'selectfield',
                             border: 0,
                             flex: 7,
@@ -135,7 +132,7 @@
                             }
                         }]
                     }]
+                 }]
                 }]
-            }]
-        }
-    });
+    }
+});

@@ -1,34 +1,31 @@
-Ext.define('Jss.Outpatient.view.opd.edit.examination-edit', {
+Ext.define('Jss.Outpatient.view.examination', {
     extend: 'Ext.Container',
-    alias: 'widget.examination-edit',
-    xtype: 'examination-editpanel',
-    id: 'examination-editpanel',
+    alias: 'widget.examination',
+    xtype: 'examination-panel',
+    id: 'examination-panel',
     config: {
         layout: {
             type: 'vbox'
         },
-//        title: 'History',
+//        title: 'Examination',
         activeItem: 1,
         items: [{
             xtype: 'formpanel',
-            flex: 1,
-            id: 'historyPanel',
-            scrollable: 'false',
-            items: [{
-                xtype: 'button',
-                text: 'Back',
-                width: 150 ,
-                id :'back-button',
-                listeners: {
-                    tap: {
-                        fn: function(event, div, listener) {
-                            var l = Ext.getCmp('opd-panel');
-                            l.setActiveItem(Ext.getCmp('consultation'));
-                        }
+            listeners: {
+                tap: {
+                    element: 'innerElement',
+                    fn: function(event, div, listener)
+                    {
+                        var l = Ext.getCmp('opd-panel');
+                        l.setActiveItem(Ext.getCmp('examination-card'));
                     }
                 }
-            },{
-                xtype: 'fieldset',
+            },
+            flex: 1,
+            id: 'examinationPanel',
+            scrollable: 'false',
+            items: [{
+                        xtype: 'fieldset',
                         title: 'Examination',
                         items: [{
                             xtype: 'selectfield',
@@ -53,7 +50,8 @@ Ext.define('Jss.Outpatient.view.opd.edit.examination-edit', {
                             }
                         }]
 
-                    }]
-                }]
+                    } ]
+        }]
     }
+
 })
