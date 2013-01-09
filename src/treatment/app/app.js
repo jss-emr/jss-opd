@@ -17,7 +17,7 @@ Ext.Loader.setConfig({
 });
 
 Ext.application({
-    name: 'Jss.Treatment',
+    name: 'Jss.Outpatient.Treatment',
     models: ['MedicineDetail', 'TreatmentAdvice'],
     stores: ['MedicineDetails', 'TreatmentAdvice'],
     views: [
@@ -32,6 +32,6 @@ Ext.application({
     controllers: ['DrugSearchAutocomplete'],
 
     launch: function () {
-        Ext.create('Jss.Treatment.view.Viewport');
+        Ext.create('Jss.Outpatient.Treatment.view.Viewport');
     }
 });

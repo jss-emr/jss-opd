@@ -1,4 +1,4 @@
-Ext.define('Jss.Treatment.view.new.AddTreatmentAdviceDetailsPanel', {
+Ext.define('Jss.Outpatient.Treatment.view.new.AddTreatmentAdviceDetailsPanel', {
 	extend: 'Ext.Panel',
 	alias: 'widget.addTreatmentAdviceDetailsPanel',
 
@@ -108,7 +108,7 @@ Ext.define('Jss.Treatment.view.new.AddTreatmentAdviceDetailsPanel', {
 	},
 
 	getTreatmentAdvice: function() {
-		return Ext.create('Jss.Treatment.model.TreatmentAdvice', {
+		return Ext.create('Jss.Outpatient.Treatment.model.TreatmentAdvice', {
 			medicine: Ext.getCmp('drugAutocompleteSearchField').getValue(),
 			mg: Ext.getCmp('drugStrengthSelectionBox').getSelectedValue(),
 			morning: Ext.getCmp('morningDosageSelectionBox').getSelectedValue(),

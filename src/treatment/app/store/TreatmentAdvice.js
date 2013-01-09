@@ -1,7 +1,7 @@
-Ext.define('Jss.Treatment.store.TreatmentAdvice', {
+Ext.define('Jss.Outpatient.Treatment.store.TreatmentAdvice', {
 	extend: 'Ext.data.Store',
 	config: {
-		model: 'Jss.Treatment.model.TreatmentAdvice',
+		model: 'Jss.Outpatient.Treatment.model.TreatmentAdvice',
 	}
 
 });

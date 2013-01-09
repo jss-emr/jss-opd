@@ -1,4 +1,4 @@
-Ext.define('Jss.Treatment.view.Viewport', {
+Ext.define('Jss.Outpatient.Treatment.view.Viewport', {
     extend: 'Ext.Panel',
 
     config: {

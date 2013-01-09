@@ -1,7 +1,7 @@
-Ext.define('Jss.Treatment.store.MedicineDetails', {
+Ext.define('Jss.Outpatient.Treatment.store.MedicineDetails', {
 	extend: 'Ext.data.Store',
 	config: {
-		model: 'Jss.Treatment.model.MedicineDetail',
+		model: 'Jss.Outpatient.Treatment.model.MedicineDetail',
 		autoLoad: true,
 		proxy: {
             type: 'ajax',

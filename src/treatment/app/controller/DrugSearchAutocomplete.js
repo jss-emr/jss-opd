@@ -1,4 +1,4 @@
-Ext.define('Jss.Treatment.controller.DrugSearchAutocomplete', {
+Ext.define('Jss.Outpatient.Treatment.controller.DrugSearchAutocomplete', {
 	extend: 'Ext.app.Controller',
 
 	config: {
