@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteListBox', {
+Ext.define('Jss.Outpatient.view.treatment.new.AutocompleteListBox', {
 	extend: 'Ext.Panel',
 	alias: 'widget.autocompleteListBox',
 

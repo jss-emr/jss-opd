@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.Treatment.view.TreatmentAdviceGrid', {
+Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
 	extend: 'Ext.ux.touch.grid.List',
     alias: 'widget.treatment_advice_grid',
 

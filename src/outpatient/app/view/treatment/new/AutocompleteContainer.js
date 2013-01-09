@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteContainer', {
+Ext.define('Jss.Outpatient.view.treatment.new.AutocompleteContainer', {
 	extend: 'Ext.Container',
 	alias: 'widget.autocomplete',
 
@@ -30,7 +30,7 @@ Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteContainer', {
 
 	createListBox: function(keyword) {
 		this.removeListBox();
-		this.listbox = Ext.create('Jss.Outpatient.Treatment.view.new.AutocompleteListBox', {id: 'autocompleteListBox'});
+		this.listbox = Ext.create('Jss.Outpatient.view.treatment.new.AutocompleteListBox', {id: 'autocompleteListBox'});
 		this.listbox.loadData(keyword);
 
 		this.add(this.listbox);

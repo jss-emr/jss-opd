@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.Treatment.model.MedicineDetail', {
+Ext.define('Jss.Outpatient.model.treatment.MedicineDetail', {
 	extend: 'Ext.data.Model',
 	config: {
 		fields: [

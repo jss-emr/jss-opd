@@ -140,7 +140,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
               id: 'treatment-card',
               items: [
                   {
-                      xtype: 'treatment-edit',
+                      xtype: 'treatmentEdit',
                       flex: 2,
                       margin: 5,
                       border: 1,

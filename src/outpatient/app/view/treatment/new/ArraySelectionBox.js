@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.Treatment.view.new.ArraySelectionBox', {
+Ext.define('Jss.Outpatient.view.treatment.new.ArraySelectionBox', {
 	extend: 'Ext.List',
 	alias : 'widget.arraySelectionBox',
 
