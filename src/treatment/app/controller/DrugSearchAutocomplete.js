@@ -8,7 +8,8 @@ Ext.define('Jss.Outpatient.Treatment.controller.DrugSearchAutocomplete', {
 
 		control: {
 			searchField: {
-				keyup: 'onSearchFieldKeyup'
+				keyup: 'onSearchFieldKeyup',
+				change: 'clearOnEmpty',
 			},
 		},
 
@@ -25,6 +26,12 @@ Ext.define('Jss.Outpatient.Treatment.controller.DrugSearchAutocomplete', {
 			listbox.hide(); 
 			this.onDrugSelection(drug);
 		}, this)
+	},
+
+	clearOnEmpty: function(textField, newValue, oldValue) {
+		if(textField.getValue().length == 0) {
+			Ext.getCmp('addTreatmentAdvice').clear();
+		}
 	},
 
 	onAddTreatmentAdvice: function() {

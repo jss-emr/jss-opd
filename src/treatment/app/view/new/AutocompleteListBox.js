@@ -3,7 +3,6 @@ Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteListBox', {
 	alias: 'widget.autocompleteListBox',
 
 	config: {
-		id: 'autocompleteListBox',
 		cls: "x-simulator-popup",
 		floating: true,
 		top: 50,

@@ -29,11 +29,8 @@ Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteContainer', {
 	},
 
 	createListBox: function(keyword) {
-		if(this.listbox != null) {
-			this.remove(this.listbox);
-		}
-
-		this.listbox = Ext.create('Jss.Outpatient.Treatment.view.new.AutocompleteListBox');
+		this.removeListBox();
+		this.listbox = Ext.create('Jss.Outpatient.Treatment.view.new.AutocompleteListBox', {id: 'autocompleteListBox'});
 		this.listbox.loadData(keyword);
 
 		this.add(this.listbox);
@@ -43,5 +40,12 @@ Ext.define('Jss.Outpatient.Treatment.view.new.AutocompleteContainer', {
 
 	clear: function() {
 		this.setSearchFieldValue('');
+		this.removeListBox();
+	},
+
+	removeListBox: function() {
+		if(this.listbox != null) {
+			this.remove(this.listbox);
+		}
 	}
 })
