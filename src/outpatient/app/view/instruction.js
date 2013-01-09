@@ -14,7 +14,7 @@ Ext.define('Jss.Outpatient.view.instruction', {
             id: 'instructionPanel',
             scrollable: 'false',
             listeners: {
-                tap: {
+                touchstart: {
                     element: 'innerElement',
                     fn: function(event, div, listener)
                     {

@@ -13,7 +13,7 @@ Ext.define('Jss.Outpatient.view.history', {
         items: [{
             xtype: 'formpanel',
             listeners: {
-                tap: {
+                touchstart: {
                     element: 'innerElement',
                     fn: function(event, div, listener)
                     {
@@ -86,6 +86,7 @@ Ext.define('Jss.Outpatient.view.history', {
                     }, {
                             xtype: 'selectfield',
                             border: 0,
+                            label: 'Tobacco-Mode',
                             flex: 7,
                             valueField: 'way',
                             id: 'tobaccoRouteofIntake',
@@ -109,9 +110,10 @@ Ext.define('Jss.Outpatient.view.history', {
                                 }]
                             }
                         }, {
-                            xtype: 'selectfield',
+                            xtype: 'field',
                             border: 0,
                             flex: 7,
+                            label: 'Frequency',
                             valueField: 'amount',
                             id: 'tobaccoFrequency',
                             displayField: 'title',

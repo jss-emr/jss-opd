@@ -18,7 +18,7 @@ Ext.define('Jss.Outpatient.view.examination', {
                 html:'<b>Examination</b>',
                 id: 'examinationViewPanel',
                 listeners: {
-                    tap: {
+                    touchstart: {
                         element: 'innerElement',
                         fn: function(event, div, listener)
                         {

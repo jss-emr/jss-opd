@@ -11,7 +11,7 @@ Ext.define('Jss.Outpatient.view.diagnosis', {
         items: [ {
             xtype: 'formpanel',
             listeners: {
-                    tap: {
+                touchstart: {
                             element: 'innerElement',
                             fn: function(event, div, listener)
                             {
