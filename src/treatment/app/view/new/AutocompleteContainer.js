@@ -14,8 +14,8 @@ Ext.define('Jss.Treatment.view.new.AutocompleteContainer', {
 				items: [
 					{
 		                xtype: 'textfield',
-		                placeHolder: 'Search Drugs .. ',
 		                id: 'drugAutocompleteSearchField',
+		                placeHolder: 'Search Drugs .. ',
         				height:50,
 	            	}
 				]
@@ -39,5 +39,9 @@ Ext.define('Jss.Treatment.view.new.AutocompleteContainer', {
 		this.add(this.listbox);
 
 		return this.listbox;
+	},
+
+	clear: function() {
+		this.setSearchFieldValue('');
 	}
 })

@@ -4,6 +4,7 @@ Ext.define('Jss.Treatment.view.TreatmentAdviceGrid', {
 
 
     config: {
+        id: 'treatmentAdviceGrid',
 	    store: 'TreatmentAdvice',
 	    features   : [
             {

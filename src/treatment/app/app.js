@@ -20,8 +20,16 @@ Ext.application({
     name: 'Jss.Treatment',
     models: ['MedicineDetail', 'TreatmentAdvice'],
     stores: ['MedicineDetails', 'TreatmentAdvice'],
-    views: ['Viewport', 'TreatmentAdviceGrid', 'new.AddTreatmentAdvice', 'new.AutocompleteListBox', 'new.AutocompleteContainer'],
-    controllers: ['SelectTreatmentAdvice', 'DrugSearchAutocomplete'],
+    views: [
+        'Viewport', 
+        'TreatmentAdviceGrid', 
+        'AddTreatmentAdvice',
+        'new.AddTreatmentAdviceDetailsPanel', 
+        'new.AutocompleteListBox', 
+        'new.AutocompleteContainer',
+        'new.ArraySelectionBox'
+    ],
+    controllers: ['DrugSearchAutocomplete'],
 
     launch: function () {
         Ext.create('Jss.Treatment.view.Viewport');
