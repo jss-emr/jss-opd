@@ -3,14 +3,10 @@ Ext.define('Jss.Outpatient.controller.examination', {
     config: {
         refs: { // all the fields are accessed in the controller through the id of the components
             name: '#name',
-            chiefcomplaint: '#chiefcomplaint'
+            chiefcomplaint: '#chiefcomplaint',
         },
 
         control: { //to perform action on specific component accessed through it's id above
-            main: {
-                push: 'onMainPush',
-                pop: 'onMainPop'
-            },
             chiefcomplaint: {
                 change: 'addChiefComplaint',
             },
@@ -22,7 +18,7 @@ Ext.define('Jss.Outpatient.controller.examination', {
             },
             addduration: {
                 tap: 'addduration',
-             }
+            },
         }
     },
     //this function starts on the load of the module

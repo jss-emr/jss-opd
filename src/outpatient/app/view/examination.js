@@ -4,9 +4,7 @@ Ext.define('Jss.Outpatient.view.examination', {
     xtype: 'examination-panel',
     id: 'examination-panel',
     config: {
-        layout: {
-            type: 'card'
-        },
+        layout: 'fit',
 //        title: 'Examination',
             activeItem: 0,
             flex: 1,
@@ -22,8 +20,8 @@ Ext.define('Jss.Outpatient.view.examination', {
                         element: 'innerElement',
                         fn: function(event, div, listener)
                         {
-                            var l = Ext.getCmp('opd-panel');
-                            l.setActiveItem(Ext.getCmp('examination-card'));
+                            var l = Ext.getCmp('mainview');
+                            l.push(Ext.getCmp('examination-card'));
                         }
                     }
                 },

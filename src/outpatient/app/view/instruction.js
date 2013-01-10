@@ -18,8 +18,8 @@ Ext.define('Jss.Outpatient.view.instruction', {
                     element: 'innerElement',
                     fn: function(event, div, listener)
                     {
-                        var l = Ext.getCmp('opd-panel');
-                        l.setActiveItem(Ext.getCmp('instruction-card'));
+                        var l = Ext.getCmp('mainview');
+                        l.push(Ext.getCmp('instruction-card'));
                     }
                 }
             },

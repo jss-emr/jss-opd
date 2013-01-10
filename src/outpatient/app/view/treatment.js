@@ -33,8 +33,8 @@ Ext.define('Jss.Outpatient.view.treatment', {
                     element: 'innerElement',
                     fn: function(event, div, listener)
                      {
-                        var l = Ext.getCmp('opd-panel');
-                        l.setActiveItem(Ext.getCmp('treatment-card'));
+                        var l = Ext.getCmp('mainview');
+                        l.push(Ext.getCmp('treatmentEdit'));
                      }
                     }
                    } ,

@@ -14,20 +14,7 @@
                 flex: 1,
                 id: 'historyPanel',
                 scrollable: 'false',
-                items: [{
-                    xtype: 'button',
-                    text: 'Back',
-                    width: 150 ,
-                    id :'back-button',
-                    listeners: {
-                        tap: {
-                            fn: function(event, div, listener) {
-                                var l = Ext.getCmp('opd-panel');
-                                l.setActiveItem(Ext.getCmp('consultation'));
-                            }
-                        }
-                    }
-                    },
+                items: [
                     {
                     xtype: 'fieldset',
                     title: 'History',

@@ -15,8 +15,8 @@ Ext.define('Jss.Outpatient.view.diagnosis', {
                             element: 'innerElement',
                             fn: function(event, div, listener)
                             {
-                                var l = Ext.getCmp('opd-panel');
-                                l.setActiveItem(Ext.getCmp('diagnosis-card'));
+                                var l = Ext.getCmp('mainview');
+                                l.push(Ext.getCmp('diagnosis-card'));
                             }
                         }
                         },

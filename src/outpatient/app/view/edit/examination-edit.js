@@ -15,45 +15,32 @@ Ext.define('Jss.Outpatient.view.edit.examination-edit', {
             id: 'historyPanel',
             scrollable: 'false',
             items: [{
-                xtype: 'button',
-                text: 'Back',
-                width: 150 ,
-                id :'back-button',
-                listeners: {
-                    tap: {
-                        fn: function(event, div, listener) {
-                            var l = Ext.getCmp('opd-panel');
-                            l.setActiveItem(Ext.getCmp('consultation'));
-                        }
-                    }
-                }
-            },{
                 xtype: 'fieldset',
-                        title: 'Examination',
-                        items: [{
-                            xtype: 'selectfield',
-                            label: 'Chief Complaint',
-                            valueField: 'chiefcomplaint',
-                            displayField: 'title',
-                            id: 'chiefcomplaint',
-                            store: {
-                                data: [{
-                                    complaint : 'Abdominal Pain',
-                                    id: '1'
-                                }, {
-                                    complaint : 'Nausea',
-                                    id: '2'
-                                }, {
-                                    complaint: 'Vomiting',
-                                    id: '3'
-                                }, {
-                                    complaint: 'weakness',
-                                    id: '4'
-                                }]
-                            }
+                title: 'Examination',
+                items: [{
+                    xtype: 'selectfield',
+                    label: 'Chief Complaint',
+                    valueField: 'chiefcomplaint',
+                    displayField: 'title',
+                    id: 'chiefcomplaint',
+                    store: {
+                        data: [{
+                            complaint : 'Abdominal Pain',
+                            id: '1'
+                        }, {
+                            complaint : 'Nausea',
+                            id: '2'
+                        }, {
+                            complaint: 'Vomiting',
+                            id: '3'
+                        }, {
+                            complaint: 'weakness',
+                            id: '4'
                         }]
-
-                    }]
+                    }
                 }]
+
+            }]
+        }]
     }
 })
