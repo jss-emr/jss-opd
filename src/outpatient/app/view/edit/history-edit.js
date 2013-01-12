@@ -4,11 +4,7 @@
         alias:'widget.history-edit',
         id: 'history-edit-panel',
         config: {
-            layout: {
-                type: 'vbox'
-            },
-//        title: 'History',
-            activeItem: 1,
+            layout: 'vbox',
             items: [{
                 xtype: 'formpanel',
                 flex: 1,

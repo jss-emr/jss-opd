@@ -1,5 +1,5 @@
 Ext.Loader.setPath({
-    'Ext.ux.touch.grid': '../lib/touch/Ext.ux.touch.grid',//Path to grid code so that grid fuctionalities and view can be accessed
+    'Ext.ux.touch.grid': '../lib/touch/Ext.ux.touch.grid',
 });
 
 Ext.require([
@@ -12,37 +12,36 @@ Ext.require([
 Ext.Loader.setConfig({
     enabled: true,
     paths: {
-        'Ext.i18n': 'lib/i18n' //Path to the i18n library
+        'Ext.i18n': 'lib/i18n'
     }
 });
 
 Ext.application({
     name: 'Jss.Outpatient',
-    // models, stores, controller and views used in the OPD directly
     models: [
         'Patient', 
         'Visit', 
         'VitalStats', 
-        'ChiefComplaint',
-        'sign','Diagnosis',
-        'Treatment', 
-        'treatment.MedicineDetail', 
+        'sign',
+        'Diagnosis',
+        'examination.Complaint',
+        'examination.Examination',
+        'treatment.MedicineDetail',
         'treatment.TreatmentAdvice',
     ],
     stores: [
         'patients', 
-        'chiefcomplaints',
         'sign',
         'diagnosis',
         'patient',
-        'treatment',
-        'examination',
+        'examination.AllComplaints',
+        'examination.Examinations',
         'treatment.TreatmentAdvice',
         'treatment.MedicineDetails',
     ],
-    views: ['Viewport', 'treatment.TreatmentEdit'],
+    views: ['Viewport'],
     controllers: ['examination', 'TreatmentAdviceController'],
-    // to launch the module view
+
     launch: function () {
         Ext.create('Jss.Outpatient.view.Viewport');
     }

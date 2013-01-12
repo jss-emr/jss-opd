@@ -3,12 +3,14 @@ Ext.define('Jss.Outpatient.controller.examination', {
     config: {
         refs: { // all the fields are accessed in the controller through the id of the components
             name: '#name',
-            chiefcomplaint: '#chiefcomplaint',
+            patientComplaints: '#patientComplaints',
+            examinationPanel: '#examinationPanel',
         },
 
         control: { //to perform action on specific component accessed through it's id above
-            chiefcomplaint: {
-                change: 'addChiefComplaint',
+            patientComplaints: {
+                initialize: 'flagInitialize',
+                change: 'addComplaint', //this is fired even when selectbox loads.
             },
             deletecomplaint: {
                 tap: 'deleteComplaint',
@@ -25,19 +27,25 @@ Ext.define('Jss.Outpatient.controller.examination', {
     init: function () {
         this.loadPatient();
     },
+
     loadPatient: function (){
 
-    }
-    ,
-    addChiefComplaint: function () {
-        var combo = Ext.getCmp('chiefComplaint');
-        examlist = Ext.getCmp('examList');
-        examlist.getStore().add({
-            complain: combo.getValue(),
-            id: combo.getValue()
-        });
-        Ext.getCmp('maintabs').setActiveItem(TABS.EXAMINATION);
     },
+
+    flagInitialize: function() {
+        this.patientComplaintsJustInitialized = true;
+    },
+
+    addComplaint: function () {
+        if(this.patientComplaintsJustInitialized == true) {
+            this.patientComplaintsJustInitialized = false;
+            return;
+        }
+        var combo = Ext.getCmp('patientComplaints');
+        var examinationSummary = Ext.getCmp('examinationSummaryPanel');
+        examinationSummary.addComplaint(combo.getRecord());
+    },
+
     // called after selection of the examination list
     onExamListSelect: function (list, index, node, record) {
         Ext.getCmp('deleteComplaint').setHidden(false);

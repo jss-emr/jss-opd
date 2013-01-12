@@ -2,7 +2,14 @@ Ext.define('Jss.Outpatient.view.consultation', {
     extend: 'Ext.Container',
     alias: 'widget.consultation',
     id: 'opd-panel',
-    requires: ['Jss.Outpatient.view.patient','Jss.Outpatient.view.examination','Jss.Outpatient.view.history','Jss.Outpatient.view.diagnosis','Jss.Outpatient.view.treatment','Jss.Outpatient.view.instruction'],
+
+    requires: [
+        'Jss.Outpatient.view.patient',
+        'Jss.Outpatient.view.history',
+        'Jss.Outpatient.view.diagnosis',
+        'Jss.Outpatient.view.instruction'
+    ],
+
     config: {
         layout: 'card',
         title: 'Consultation',
@@ -11,12 +18,11 @@ Ext.define('Jss.Outpatient.view.consultation', {
             style: 'background-color: #FFFFFF',
             title: 'Consultation',
             id:'consultation',
-            activeItem: 0,
             items: [
                 {
                     xtype: 'container',
                     flex: 1,
-                    html: '',
+                    // html: '',
                     margin: 5,
                     border: 1,
                     layout: 'vbox',
@@ -60,36 +66,27 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         border: 1,
                         style: 'background-color: #7FADCF'
                     },{
-                        xtype: 'examination',
-                        flex: 2,
+                        xtype: 'examinationSummary',
+                        id: 'examinationSummaryPanel',
+                        flex: 1,
                         margin: 5,
                         border: 1,
                         style: 'background-color: #7FADCF'
                     },{
-                        xtype: 'treatment',
-                        flex: 2,
+                        xtype: 'treatmentSummary',
+                        id: 'treatment-summarypanel',
+                        flex: 1,
                         margin: 5,
                         border: 1,
-                        id: 'instruction-panel',
-                        style: 'background-color: #7FADCF'
                     }]
                 }
             ]
         },{
-            layout: 'vbox',
-            style: 'background-color: #FFFFFF',
-            title: 'Examination-card',
-            id: 'examination-card',
-            items: [
-                {
-                    xtype: 'examination-edit',
-                    flex: 2,
-                    html: 'Examination-Card',
-                    margin: 5,
-                    border: 1,
-                    style: 'background-color: #7FADCF'
-                }
-            ]
+            xtype: 'examinationEdit',
+            id: 'examination-editpanel',
+            margin: 5,
+            border: 1,
+            style: 'background-color: #7FADCF'
         },{
           layout: 'vbox',
           style: 'background-color: #FFFFFF',

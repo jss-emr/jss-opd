@@ -6,5 +6,5 @@ Ext.define('Jss.Outpatient.model.treatment.MedicineDetail', {
 			{name: "possibleStrengths", type: "auto"},
 			{name: "possibleDosages", type: "auto"}
 		]
-	}
+	},
 });

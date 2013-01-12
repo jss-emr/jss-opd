@@ -13,6 +13,13 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
             }
         ],
 
+        listeners: {
+            itemswipe: function(grid, index, target, record) {
+                grid.getStore().remove(record);
+
+            }
+        },
+
         columns   : [
             {
                 header    : 'Medicine',

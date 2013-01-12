@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.model.treatment.TreatmentAdvice', {
+var x = Ext.define('Jss.Outpatient.model.treatment.TreatmentAdvice', {
 	extend: 'Ext.data.Model',
 	config: {
 
@@ -12,6 +12,6 @@ Ext.define('Jss.Outpatient.model.treatment.TreatmentAdvice', {
 			{name: "days", type: "integer"},
 			{name: "instruction"}
 		]
-	}
+	},
 
 });
