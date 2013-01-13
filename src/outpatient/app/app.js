@@ -24,6 +24,7 @@ Ext.application({
         'VitalStats', 
         'sign',
         'Diagnosis',
+        'Instruction',
         'examination.Complaint',
         'examination.Examination',
         'treatment.MedicineDetail',
@@ -39,9 +40,11 @@ Ext.application({
         'examination.Examinations',
         'treatment.TreatmentAdvice',
         'treatment.MedicineDetails',
+        'instruction.AllInstructions',
+        'instruction.Instructions',
     ],
     views: ['Viewport'],
-    controllers: ['examination', 'TreatmentAdviceController', 'DiagnosisController'],
+    controllers: ['ExaminationController', 'TreatmentAdviceController', 'DiagnosisController', 'InstructionController'],
 
     launch: function () {
         Ext.create('Jss.Outpatient.view.Viewport');

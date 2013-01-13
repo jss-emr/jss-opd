@@ -1,7 +1,6 @@
 Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
 	extend: 'Ext.Container',
 	alias: 'widget.treatmentSummary',
-    requires: ['Jss.Outpatient.view.treatment.SummaryTemplate'],
 
 	config: {
 		layout: 'fit',

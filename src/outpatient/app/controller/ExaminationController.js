@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.controller.examination', {
+Ext.define('Jss.Outpatient.controller.ExaminationController', {
     extend: 'Ext.app.Controller',
     config: {
         refs: { // all the fields are accessed in the controller through the id of the components

@@ -4,15 +4,20 @@ Ext.define('Jss.Outpatient.view.Viewport', {
     id: 'mainview',
 
     requires: [
+        'Jss.Outpatient.view.patient',
         'Jss.Outpatient.view.consultation',
-        'Jss.Outpatient.view.edit.instruction-edit',
         'Jss.Outpatient.view.history.HistoryEdit',
+        'Jss.Outpatient.view.history.HistorySummary',
         'Jss.Outpatient.view.examination.ExaminationSummary',
+        'Jss.Outpatient.view.examination.SummaryTemplate',
         'Jss.Outpatient.view.examination.ExaminationEdit',
-        'Jss.Outpatient.view.treatment.TreatmentEdit',
         'Jss.Outpatient.view.treatment.TreatmentSummary',
+        'Jss.Outpatient.view.treatment.SummaryTemplate',
+        'Jss.Outpatient.view.treatment.TreatmentEdit',
+        'Jss.Outpatient.view.diagnosis.DiagnosisSummary',
         'Jss.Outpatient.view.diagnosis.DiagnosisEdit',
-
+        'Jss.Outpatient.view.instruction.InstructionSummary',
+        'Jss.Outpatient.view.instruction.InstructionEdit'
     ],
 
     config: {

@@ -1,0 +1,5 @@
+[
+    {type: 'BP'},
+    {type: 'Temperature'},
+    {type: 'BloodTest', description: 'Find Haemoglobin count'}
+]

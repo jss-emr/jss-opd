@@ -4,10 +4,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
     id: 'opd-panel',
 
     requires: [
-        'Jss.Outpatient.view.patient',
-        'Jss.Outpatient.view.instruction',
-        'Jss.Outpatient.view.history.HistorySummary',
-        'Jss.Outpatient.view.diagnosis.DiagnosisSummary',
     ],
 
     config: {
