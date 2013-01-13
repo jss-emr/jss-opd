@@ -1,15 +1,9 @@
 
-Ext.define('Jss.Outpatient.view.history', {
+Ext.define('Jss.Outpatient.view.history.HistorySummary', {
     extend: 'Ext.Container',
-    xtype: 'history-panel',
-    alias:'widget.history',
-    id: 'history-panel',
+    alias:'widget.historySummary',
     config: {
-        layout: {
-            type: 'vbox'
-        },
-//        title: 'History',
-        activeItem: 1,
+        layout: 'fit',
         items: [{
             xtype: 'formpanel',
             listeners: {
@@ -18,7 +12,7 @@ Ext.define('Jss.Outpatient.view.history', {
                     fn: function(event, div, listener)
                     {
                         var l = Ext.getCmp('mainview');
-                        l.push(Ext.getCmp('history-card'));
+                        l.push(Ext.getCmp('historyEditPanel'));
                     }
                 }
             },

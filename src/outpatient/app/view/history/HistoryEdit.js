@@ -1,8 +1,6 @@
-    Ext.define('Jss.Outpatient.view.edit.history-edit', {
+    Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
         extend: 'Ext.Container',
-        xtype: 'history-edit-panel',
-        alias:'widget.history-edit',
-        id: 'history-edit-panel',
+        alias:'widget.historyEdit',
         config: {
             layout: 'vbox',
             items: [{

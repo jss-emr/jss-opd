@@ -5,9 +5,9 @@ Ext.define('Jss.Outpatient.view.consultation', {
 
     requires: [
         'Jss.Outpatient.view.patient',
-        'Jss.Outpatient.view.history',
         'Jss.Outpatient.view.diagnosis',
-        'Jss.Outpatient.view.instruction'
+        'Jss.Outpatient.view.instruction',
+        'Jss.Outpatient.view.history.HistorySummary'
     ],
 
     config: {
@@ -22,13 +22,12 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 {
                     xtype: 'container',
                     flex: 1,
-                    // html: '',
                     margin: 5,
                     border: 1,
                     layout: 'vbox',
                     items: [{
-                        xtype: 'history',
-                        id: 'historyTest',
+                        xtype: 'historySummary',
+                        id: 'historySummaryPanel',
                         flex: 2,
                         margin: 5,
                         border: 1,
@@ -94,7 +93,8 @@ Ext.define('Jss.Outpatient.view.consultation', {
           id: 'history-card',
           items: [
               {
-                  xtype: 'history-edit',
+                  xtype: 'historyEdit',
+                  id: 'historyEditPanel',
                   flex: 2,
                   html: 'History',
                   margin: 5,
