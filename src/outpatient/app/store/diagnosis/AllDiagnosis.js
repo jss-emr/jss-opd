@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.store.diagnosis', {
+Ext.define('Jss.Outpatient.store.diagnosis.AllDiagnosis', {
     extend: 'Ext.data.Store',
 
     config: {

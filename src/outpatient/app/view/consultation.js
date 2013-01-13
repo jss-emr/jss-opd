@@ -5,9 +5,9 @@ Ext.define('Jss.Outpatient.view.consultation', {
 
     requires: [
         'Jss.Outpatient.view.patient',
-        'Jss.Outpatient.view.diagnosis',
         'Jss.Outpatient.view.instruction',
-        'Jss.Outpatient.view.history.HistorySummary'
+        'Jss.Outpatient.view.history.HistorySummary',
+        'Jss.Outpatient.view.diagnosis.DiagnosisSummary',
     ],
 
     config: {
@@ -34,10 +34,10 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         style: 'background-color: #7FADCF'
                     },{
                         xtype: 'diagnosis',
+                        id: 'diagnosisSummaryPanel',
                         flex: 1,
                         margin: 5,
                         border: 1,
-                        id: 'diagnosis-panel',
                         style: 'background-color: #7FADCF'
                     },{
                         xtype: 'instruction',

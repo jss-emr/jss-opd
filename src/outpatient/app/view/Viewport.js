@@ -5,13 +5,14 @@ Ext.define('Jss.Outpatient.view.Viewport', {
 
     requires: [
         'Jss.Outpatient.view.consultation',
-        'Jss.Outpatient.view.edit.diagnosis-edit',
         'Jss.Outpatient.view.edit.instruction-edit',
         'Jss.Outpatient.view.history.HistoryEdit',
         'Jss.Outpatient.view.examination.ExaminationSummary',
         'Jss.Outpatient.view.examination.ExaminationEdit',
         'Jss.Outpatient.view.treatment.TreatmentEdit',
         'Jss.Outpatient.view.treatment.TreatmentSummary',
+        'Jss.Outpatient.view.diagnosis.DiagnosisEdit',
+
     ],
 
     config: {

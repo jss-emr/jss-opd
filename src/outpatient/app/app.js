@@ -32,15 +32,16 @@ Ext.application({
     stores: [
         'patients', 
         'sign',
-        'diagnosis',
         'patient',
+        'diagnosis.Diagnosis',
+        'diagnosis.AllDiagnosis',
         'examination.AllComplaints',
         'examination.Examinations',
         'treatment.TreatmentAdvice',
         'treatment.MedicineDetails',
     ],
     views: ['Viewport'],
-    controllers: ['examination', 'TreatmentAdviceController'],
+    controllers: ['examination', 'TreatmentAdviceController', 'DiagnosisController'],
 
     launch: function () {
         Ext.create('Jss.Outpatient.view.Viewport');
