@@ -14,18 +14,21 @@ Ext.define('Jss.Outpatient.view.treatment.new.AutocompleteListBox', {
 
 	loadData: function(keyword) {
 		var self = this;
-		this.add({
-			xtype: 'list',
-			store: 'MedicineDetails',
-			height: 180,
-			itemTpl: '{name}',
-			listeners: {
-				select: function(list, record) {
-					self.selectedRecord = record;
-					self.fireEvent('drugSelected', record);
-				}
-			}
-		});
+        var list = Ext.create('Ext.dataview.List', {
+            store: 'MedicineDetails',
+            height: 180,
+            itemTpl: '{name}',
+            listeners: {
+                select: function(list, record) {
+                    self.selectedRecord = record;
+                    self.fireEvent('drugSelected', record);
+                }
+            }
+        });
+
+        list.getStore().filter('name', keyword);
+        list.getStore().load();
+		this.add(list);
 	},
 
 	getSelectedRecord: function() {

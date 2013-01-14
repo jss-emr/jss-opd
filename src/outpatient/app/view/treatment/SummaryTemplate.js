@@ -7,7 +7,7 @@ Ext.define('Jss.Outpatient.view.treatment.SummaryTemplate', {
                         '<td>{[this.strength(values)]}</td>',
                         '<td>{[this.dosageTimings(values)]}</td>',
                         '<td>{[this.days(values)]}</td>',
-                        '<td>{instructions}</td>',
+                        '<td>{instruction}</td>',
                     '</tr>',
             '</table>'],
 
