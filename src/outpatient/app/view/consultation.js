@@ -39,7 +39,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         flex: 2,
                         margin: 5,
                         border: 1,
-                        id: 'treatment-panel',
+                        id: 'instructionSummaryPanel',
                         style: 'background-color: #7FADCF'
                     }
                     ]
@@ -68,7 +68,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         style: 'background-color: #7FADCF'
                     },{
                         xtype: 'treatmentSummary',
-                        id: 'treatment-summarypanel',
+                        id: 'treatmentSummaryPanel',
                         flex: 1,
                         margin: 5,
                         border: 1,

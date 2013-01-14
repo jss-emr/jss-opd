@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
-    extend: 'Ext.Container',
+    extend: 'Jss.Outpatient.view.util.TouchableContainer',
     alias: 'widget.examinationSummary',
     config: {
         layout: 'fit',
@@ -11,17 +11,6 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
             itemTpl: Ext.create('Jss.Outpatient.view.examination.SummaryTemplate'),
             store: 'Examinations',
             inline: true,
-
-            listeners: {
-                touchstart: {
-                    element: 'innerElement',
-                    fn: function(event, div, listener) {
-                        var l = Ext.getCmp('mainview');
-                        l.push(Ext.getCmp('examination-editpanel'));
-                    }
-                }
-            },
-
         }]
     },
 

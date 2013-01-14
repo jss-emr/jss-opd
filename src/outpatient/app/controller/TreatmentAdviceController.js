@@ -4,15 +4,17 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 	config: {
 		refs: {
 			searchField: '#drugAutocompleteSearchField',
+            treatmentSummaryPanel: '#treatmentSummaryPanel',
 		},
-
 		control: {
-			searchField: {
+            treatmentSummaryPanel: {
+                jsstouchstart: 'gotoEditPage'
+            },
+            searchField: {
 				keyup: 'onSearchFieldKeyup',
 				change: 'clearOnEmpty',
-			},
-		},
-
+			}
+        },
 	},
 
 	onSearchFieldKeyup : function(textField) {
@@ -46,6 +48,9 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 		Ext.getCmp('addTreatmentAdviceButton').addListener('tap', this.onAddTreatmentAdvice, this);
 	},
 
+    gotoEditPage: function() {
+        Ext.getCmp('mainview').push(Ext.getCmp('treatmentEdit'));
+    }
 })
 
 

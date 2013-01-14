@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
-    extend: 'Ext.Container',
+    extend: 'Jss.Outpatient.view.util.TouchableContainer',
     alias: 'widget.diagnosis',
     config: {
         layout: 'fit',
@@ -12,16 +12,6 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
             html: '<b>Diagnosis</b>',
             inline: true,
             itemTpl: '<table><tr class="summary"><td>{sign}</td></tr></table>',
-
-            listeners: {
-                touchstart: {
-                    element: 'innerElement',
-                    fn: function(event, div, listener) {
-                        var l = Ext.getCmp('mainview');
-                        l.push(Ext.getCmp('diagnosis-card'));
-                    }
-                }
-            }
         }]
-    }
+    },
  })

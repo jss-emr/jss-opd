@@ -43,8 +43,17 @@ Ext.application({
         'instruction.AllInstructions',
         'instruction.Instructions',
     ],
-    views: ['Viewport'],
-    controllers: ['ExaminationController', 'TreatmentAdviceController', 'DiagnosisController', 'InstructionController'],
+    views: [
+        'util.TouchableContainer',
+        'Viewport'
+    ],
+    controllers: [
+        'ExaminationController',
+        'TreatmentAdviceController',
+        'DiagnosisController',
+        'InstructionController',
+        'HistoryController',
+    ],
 
     launch: function () {
         Ext.create('Jss.Outpatient.view.Viewport');

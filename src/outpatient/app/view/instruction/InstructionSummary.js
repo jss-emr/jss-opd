@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
-    extend: 'Ext.Container',
+    extend: 'Jss.Outpatient.view.util.TouchableContainer',
     alias: 'widget.instruction',
 
     config: {
@@ -13,16 +13,6 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
             html: '<b>Instructions</b>',
             inline: true,
             itemTpl: '<table><tr class="summary"><td>{type}</td></tr></table>',
-
-            listeners: {
-                touchstart: {
-                    element: 'innerElement',
-                    fn: function(event, div, listener) {
-                        var l = Ext.getCmp('mainview');
-                        l.push(Ext.getCmp('instruction-card'));
-                    }
-                }
-            }
         }]
     }
 });

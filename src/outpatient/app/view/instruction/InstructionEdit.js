@@ -24,7 +24,7 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
                         label: 'Chief Instruction',
                         valueField: 'type',
                         displayField: 'type',
-                        store: 'AllInstructions'
+                        store: 'AllInstructions',
                     }]
                 }
             ]

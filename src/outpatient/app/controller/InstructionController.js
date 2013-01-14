@@ -3,14 +3,17 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
     config: {
         refs: {
             instructionSelector: '#instructionSelector',
-            instructionSummaryList: '#instructionSummaryList'
+            instructionSummaryList: '#instructionSummaryList',
+            instructionSummaryPanel: '#instructionSummaryPanel'
         },
-
         control: {
             instructionSelector: {
                 initialize: 'flagInitialize',
                 change: 'addInstruction', //this is fired even when selectbox loads.
             },
+            instructionSummaryPanel:{
+                jsstouchstart:'gotoEditPage'
+            }
         }
     },
 
@@ -25,5 +28,9 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
         }
 
         this.getInstructionSummaryList().getStore().add(this.getInstructionSelector().getRecord());
+    },
+
+    gotoEditPage: function() {
+        Ext.getCmp('mainview').push(Ext.getCmp('instruction-card'));
     }
 });

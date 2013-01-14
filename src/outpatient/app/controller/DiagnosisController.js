@@ -3,15 +3,22 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
     config: {
         refs: {
             diagnosisSelector: '#diagnosisSelector',
-            diagnosisSummaryList: '#diagnosisSummaryList'
+            diagnosisSummaryList: '#diagnosisSummaryList',
+            diagnosisSummaryPanel: '#diagnosisSummaryPanel'
         },
-
         control: {
             diagnosisSelector: {
                 initialize: 'flagInitialize',
                 change: 'addDiagnosis', //this is fired even when selectbox loads.
             },
+            diagnosisSummaryPanel: {
+                jsstouchstart: 'gotoEditPage'
+            }
         }
+    },
+
+    gotoEditPage: function() {
+        Ext.getCmp('mainview').push(Ext.getCmp('diagnosis-card'));
     },
 
     flagInitialize : function() {
@@ -23,7 +30,6 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
             this.diagnosisSelectorJustInitialized = false;
             return;
         }
-
         this.getDiagnosisSummaryList().getStore().add(this.getDiagnosisSelector().getRecord());
     }
 });

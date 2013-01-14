@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
-	extend: 'Ext.Container',
+	extend: 'Jss.Outpatient.view.util.TouchableContainer',
 	alias: 'widget.treatmentSummary',
 
 	config: {
@@ -13,17 +13,6 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
 				width: '100%',
                 inline: true,
                 itemTpl: Ext.create('Jss.Outpatient.view.treatment.SummaryTemplate'),
-
-                listeners: {
-                    touchstart: {
-	                    element: 'innerElement',
-	                    fn: function(event, div, listener) {
-	                        var l = Ext.getCmp('mainview');
-	                        l.push(Ext.getCmp('treatmentEdit'));
-	                    }
-	                }
-                },
-
 			}
 		]
 	}
