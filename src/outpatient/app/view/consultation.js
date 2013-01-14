@@ -27,7 +27,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         flex: 2,
                         margin: 5,
                         border: 1,
-                        style: 'background-color: #7FADCF'
                     },{
                         xtype: 'diagnosis',
                         id: 'diagnosisSummaryPanel',
@@ -95,7 +94,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
                   html: 'History',
                   margin: 5,
                   border: 1,
-                  style: 'background-color: #7FADCF'
               }]
         } ,
           {
