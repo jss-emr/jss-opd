@@ -14,10 +14,8 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
 
     config: {
         layout: 'vbox',
-        autoScroll:true,
         autoDestroy: false,
-        fullscreen: true,
-        activeItem: 1,
+        title: 'Treatment Advice',
         items: [
             {
                 xtype : 'treatment_advice_grid',

@@ -6,7 +6,6 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
         items: [{
             xtype: 'container',
             html: 'History',
-            style: 'background-color: lightgrey',
         }]
     }
 });

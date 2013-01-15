@@ -24,6 +24,11 @@ Ext.define('Jss.Outpatient.view.Viewport', {
         autoDestroy: false,
         fullscreen: true,
         activeItem: 0,
+        layout: {
+            type: 'card',
+            animation: {type: 'fade', duration: 10},
+        },
+
         items: [{
             xtype: 'consultation'
         }]
