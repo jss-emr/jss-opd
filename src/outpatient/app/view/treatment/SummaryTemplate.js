@@ -1,15 +1,17 @@
 Ext.define('Jss.Outpatient.view.treatment.SummaryTemplate', {
     extend: 'Ext.XTemplate',
 
-    html: ['<table>',
-                    '<tr class="summary">',
-                        '<td>{medicine}</td>',
-                        '<td>{[this.strength(values)]}</td>',
-                        '<td>{[this.dosageTimings(values)]}</td>',
-                        '<td>{[this.days(values)]}</td>',
-                        '<td>{instruction}</td>',
-                    '</tr>',
-            '</table>'],
+    html: [
+        '<table>',
+            '<tr class="summary">',
+                '<td>{medicine}</td>',
+                '<td>{[this.strength(values)]}</td>',
+                '<td>{[this.dosageTimings(values)]}</td>',
+                '<td>{[this.days(values)]}</td>',
+                '<td>{instruction}</td>',
+            '</tr>',
+        '</table>'
+    ],
 
     constructor: function() {
         return this.callParent(this.html);

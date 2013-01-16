@@ -4,10 +4,9 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
     id: 'treatmentEdit',
 
     requires : [
-        'Jss.Outpatient.view.treatment.TreatmentAdviceGrid',
-        'Jss.Outpatient.view.treatment.AddTreatmentAdvice',
-        'Jss.Outpatient.view.treatment.new.ArraySelectionBox',
-        'Jss.Outpatient.view.treatment.new.AddTreatmentAdviceDetailsPanel',
+        'Jss.Outpatient.view.treatment.edit.TreatmentAdviceGrid',
+        'Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice',
+        'Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel',
     ],
 
     config: {

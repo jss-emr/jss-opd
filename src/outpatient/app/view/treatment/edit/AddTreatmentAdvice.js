@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.treatment.AddTreatmentAdvice', {
+Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
 	extend: 'Ext.Container',
 	alias: "widget.addTreatmentAdvice",
 

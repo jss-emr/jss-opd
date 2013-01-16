@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.treatment.new.AddTreatmentAdviceDetailsPanel', {
+Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', {
 	extend: 'Ext.Panel',
 	alias: 'widget.addTreatmentAdviceDetailsPanel',
 

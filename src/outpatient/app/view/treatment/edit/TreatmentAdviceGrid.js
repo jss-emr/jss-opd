@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
+Ext.define('Jss.Outpatient.view.treatment.edit.TreatmentAdviceGrid', {
 	extend: 'Ext.ux.touch.grid.List',
     alias: 'widget.treatmentAdviceGrid',
 
@@ -6,7 +6,7 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
     config: {
         id: 'treatmentAdviceGrid',
 	    store: 'TreatmentAdvice',
-	    features   : [
+	    features: [
             {
                 ftype    : 'Ext.ux.touch.grid.feature.Editable',
                 launchFn : 'initialize'
@@ -16,11 +16,10 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
         listeners: {
             itemswipe: function(grid, index, target, record) {
                 grid.getStore().remove(record);
-
             }
         },
 
-        columns   : [
+        columns: [
             {
                 header    : 'Medicine',
                 dataIndex : 'medicine',

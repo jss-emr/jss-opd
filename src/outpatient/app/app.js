@@ -49,6 +49,7 @@ Ext.application({
     ],
     views: [
         'util.TouchableContainer',
+        'util.ArraySelectionBox',
         'autocomplete.AutoCompleteWidget',
         'concept.UIElementFactory',
         'Viewport'
