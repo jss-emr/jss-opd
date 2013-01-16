@@ -92,7 +92,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
                   xtype: 'historyEdit',
                   id: 'historyEditPanel',
                   flex: 2,
-                  html: 'History',
                   margin: 5,
                   border: 1,
               }]

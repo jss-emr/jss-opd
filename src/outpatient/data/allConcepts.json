@@ -1,0 +1,44 @@
+[
+	{
+		name: "Temperature",
+		properties: {
+			datatype: "numeric",
+			conceptClass: "Test"
+		}
+	},
+	{
+		name: "Systolic Bloood Pressure",
+		properties: {
+			datatype: "numeric",
+			conceptClass: "Test"
+		}
+	},
+	{
+		name: "ALLERGY TO PENICILLIN",
+		properties: {
+			datatype: "boolean",
+			conceptClass: "Question"
+		}
+	},
+	{
+		name: "PARACETAMOL",
+		properties: {
+			datatype: "duration",
+			conceptClass: "Drug",
+		}
+	},
+	{
+		name: "appendectomy",
+		properties: {
+			datatype: "duration",
+			conceptClass: "surgery",
+		}
+	},
+	{
+		name: "alcohol",
+		properties: {
+			datatype: "document",
+			conceptClass: "question"
+		}
+	},
+]
