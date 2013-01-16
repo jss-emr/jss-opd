@@ -2,7 +2,7 @@
 	{
 		name: "Temperature",
 		properties: {
-			datatype: "numeric",
+			datatype: {name: "numeric", properties: {min: 90, max: 110}},
 			conceptClass: "Test"
 		}
 	},

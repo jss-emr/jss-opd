@@ -49,6 +49,7 @@ Ext.application({
     ],
     views: [
         'util.TouchableContainer',
+        'concept.UIElementFactory',
         'Viewport'
     ],
     controllers: [

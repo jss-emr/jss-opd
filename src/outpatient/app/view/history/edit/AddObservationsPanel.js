@@ -4,7 +4,6 @@ Ext.define('Jss.Outpatient.view.history.edit.AddObservationsPanel', {
 
     config:{
         layout:'fit',
-        id:'addObservationsPanel',
         scroll:'both',
         items:[
             {
@@ -13,6 +12,7 @@ Ext.define('Jss.Outpatient.view.history.edit.AddObservationsPanel', {
                 items:[
                     {
                         xtype:'selectfield',
+                        id: 'conceptSelectionField',
                         store:'Concepts',
                         displayField:'name',
                         label:'select concept',

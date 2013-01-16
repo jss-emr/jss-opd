@@ -3,8 +3,11 @@ Ext.define('Jss.Outpatient.view.history.edit.ObservationPanel', {
 	alias: "widget.observationsPanel",
 
 	config: {
-		layout: 'fit',
+		layout: 'hbox',
 		id: 'observationsPanel',
 		scroll: 'both',
-	},
-})
+        store: 'Observations',
+        inline: true,
+        items: [],
+    },
+});

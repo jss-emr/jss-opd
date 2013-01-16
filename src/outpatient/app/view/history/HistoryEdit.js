@@ -12,10 +12,12 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
         items: [
             {
                 xtype : 'observationsPanel',
+                id:'observationsPanel',
                 flex: 1,
             },
             {
                 xtype : 'addObservationsPanel',
+                id:'addObservationsPanel',
                 flex: 2,
             }
         ]
