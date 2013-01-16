@@ -6,8 +6,6 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
     requires : [
         'Jss.Outpatient.view.treatment.TreatmentAdviceGrid',
         'Jss.Outpatient.view.treatment.AddTreatmentAdvice',
-        'Jss.Outpatient.view.treatment.new.AutocompleteListBox',
-        'Jss.Outpatient.view.treatment.new.AutocompleteContainer',
         'Jss.Outpatient.view.treatment.new.ArraySelectionBox',
         'Jss.Outpatient.view.treatment.new.AddTreatmentAdviceDetailsPanel',
     ],
@@ -18,11 +16,11 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
         title: 'Treatment Advice',
         items: [
             {
-                xtype : 'treatment_advice_grid',
+                xtype : 'treatmentAdviceGrid',
                 flex: 1,
             },
             {
-                xtype : 'add_treatment_advice',
+                xtype : 'addTreatmentAdvice',
                 flex: 2,
             }
         ]

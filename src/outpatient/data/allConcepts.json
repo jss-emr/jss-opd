@@ -2,7 +2,7 @@
 	{
 		name: "Temperature",
 		properties: {
-			datatype: {name: "numeric", properties: {min: 90, max: 110}},
+			datatype: {name: "numeric", properties: {hiAbsolute: 43, lowAbsolute: 25, unit: "DEG C"}},
 			conceptClass: "Test"
 		}
 	},

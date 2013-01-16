@@ -1,6 +1,6 @@
 Ext.define('Jss.Outpatient.view.treatment.AddTreatmentAdvice', {
 	extend: 'Ext.Container',
-	alias: "widget.add_treatment_advice",
+	alias: "widget.addTreatmentAdvice",
 
 	config: {
 		layout: 'hbox',
@@ -9,15 +9,18 @@ Ext.define('Jss.Outpatient.view.treatment.AddTreatmentAdvice', {
 
 		items: [
 			{
-				xtype: 'autocomplete',
+				xtype: 'autoComplete',
 				id: 'drugAutocompletePanel',
 				width: '20%',
+                store: 'MedicineDetails',
+                itemTpl: '{name}',
+                filterKey: 'name',
 			},
 		]
 	},
 
 	loadDetailsPanel: function(drug) {
-		this._removeDetailsPanel();
+        this._removeDetailsPanel();
 
 		this.detailsPanel = this.add({
 			xtype: 'addTreatmentAdviceDetailsPanel',

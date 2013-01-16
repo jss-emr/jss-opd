@@ -1,6 +1,6 @@
 Ext.define('Jss.Outpatient.view.treatment.TreatmentAdviceGrid', {
 	extend: 'Ext.ux.touch.grid.List',
-    alias: 'widget.treatment_advice_grid',
+    alias: 'widget.treatmentAdviceGrid',
 
 
     config: {

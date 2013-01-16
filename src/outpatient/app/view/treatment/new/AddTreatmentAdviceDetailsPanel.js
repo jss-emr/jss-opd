@@ -97,6 +97,7 @@ Ext.define('Jss.Outpatient.view.treatment.new.AddTreatmentAdviceDetailsPanel', {
 
 	showFor: function(drug) {
 		this.show();
+        this.drug = drug.data;
 
 		Ext.getCmp('drugStrengthSelectionBox').addData(drug.data.possibleStrengths);
 		Ext.getCmp('morningDosageSelectionBox').addData(drug.data.possibleDosages);
@@ -109,7 +110,7 @@ Ext.define('Jss.Outpatient.view.treatment.new.AddTreatmentAdviceDetailsPanel', {
 
 	getTreatmentAdvice: function() {
 		return Ext.create('Jss.Outpatient.model.treatment.TreatmentAdvice', {
-			medicine: Ext.getCmp('drugAutocompleteSearchField').getValue(),
+			medicine: this.drug.name,
 			mg: Ext.getCmp('drugStrengthSelectionBox').getSelectedValue(),
 			morning: Ext.getCmp('morningDosageSelectionBox').getSelectedValue(),
 			noon: Ext.getCmp('noonDosageSelectionBox').getSelectedValue(),

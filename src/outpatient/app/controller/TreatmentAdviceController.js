@@ -3,49 +3,35 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 
 	config: {
 		refs: {
-			searchField: '#drugAutocompleteSearchField',
             treatmentSummaryPanel: '#treatmentSummaryPanel',
+            drugAutocompletePanel:'#drugAutocompletePanel'
 		},
 		control: {
             treatmentSummaryPanel: {
                 jsstouchstart: 'gotoEditPage'
             },
-            searchField: {
-				keyup: 'onSearchFieldKeyup',
-				change: 'clearOnEmpty',
-			}
+            drugAutocompletePanel: {
+                itemSelected: 'onDrugSelection',
+                clearicontap: 'clear',
+            }
         },
 	},
 
-	onSearchFieldKeyup : function(textField) {
-		var keyword = textField.getValue();
-		var drugAutocompletePanel = Ext.getCmp('drugAutocompletePanel');
-
-		var listbox = drugAutocompletePanel.createListBox(keyword);
-
-		listbox.on('drugSelected', function(drug){
-			drugAutocompletePanel.setSearchFieldValue(drug.data.name);
-			listbox.hide(); 
-			this.onDrugSelection(drug);
-		}, this)
+	clear: function() {
+        Ext.getCmp('addTreatmentAdvice').clear();
 	},
 
-	clearOnEmpty: function(textField, newValue, oldValue) {
-		if(textField.getValue().length == 0) {
-			Ext.getCmp('addTreatmentAdvice').clear();
-		}
-	},
+    onDrugSelection: function(record) {
+        Ext.getCmp('addTreatmentAdvice').loadDetailsPanel(record);
+        Ext.getCmp('addTreatmentAdviceButton').addListener('tap', this.onAddTreatmentAdvice, this);
+    },
 
-	onAddTreatmentAdvice: function() {
+    onAddTreatmentAdvice: function() {
 		var treatmentAdvice = Ext.getCmp('addTreatmentAdviceDetailsPanel').getTreatmentAdvice()
 		Ext.getCmp('treatmentAdviceGrid').getStore().add(treatmentAdvice);
 
 		Ext.getCmp('addTreatmentAdvice').clear();
-	},
-
-	onDrugSelection: function(drug) {
-		var treatmentAdviceDetailsPanel = Ext.getCmp('addTreatmentAdvice').loadDetailsPanel(drug);
-		Ext.getCmp('addTreatmentAdviceButton').addListener('tap', this.onAddTreatmentAdvice, this);
+        Ext.getCmp('drugAutocompletePanel').clear();
 	},
 
     gotoEditPage: function() {
