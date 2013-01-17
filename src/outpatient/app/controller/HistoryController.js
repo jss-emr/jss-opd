@@ -1,19 +1,24 @@
 Ext.define('Jss.Outpatient.controller.HistoryController', {
-    extend: 'Ext.app.Controller',
-    config: {
-        refs: {
-            historySummaryPanel: '#historySummaryPanel',
-            observationsPanel: '#observationsPanel',
-            conceptSelectionField: '#conceptSelectionField',
+    extend:'Ext.app.Controller',
+    config:{
+        refs:{
+            historySummaryPanel:'#historySummaryPanel',
+            observationDetailsPanel:'#addObservationDetailsPanel',
+            observationAutoComplete:'#observationAutoComplete',
+            addObservationButton:'#addObservationButton',
+            addObservationsPanel:'#addObservationsPanel',
+            observationsPanel:'#observationsPanel',
         },
-        control: {
-            historySummaryPanel: {
-                jsstouchstart: 'gotoEditPage'
+        control:{
+            historySummaryPanel:{
+                jsstouchstart:'gotoEditPage'
             },
-            conceptSelectionField: {
-                initialize: 'flagInitialize',
-                change: 'conceptSelected'
-
+            observationAutoComplete:{
+                itemSelected:'conceptSelected',
+                clearicontap:'clear',
+            },
+            addObservationButton:{
+                tap:'addObservation',
             }
         }
     },
@@ -22,19 +27,20 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
         Ext.getCmp('mainview').push(Ext.getCmp('historyEditPanel'));
     },
 
-    flagInitialize: function() {
-        this.conceptSelectionFieldJustInitialized = true;
+    conceptSelected:function (concept) {
+        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
+        var uiElement = factory.get(concept.data);
+        if (uiElement != undefined) {
+            this.getObservationDetailsPanel().addObservationDetails(uiElement);
+        }
     },
 
-    conceptSelected: function() {
-        if(this.conceptSelectionFieldJustInitialized == true) {
-            this.conceptSelectionFieldJustInitialized = false;
-            return false;
-        }
+    clear:function () {
+        this.getAddObservationsPanel().clear();
+    },
 
-        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
-        var concept = this.getConceptSelectionField().getRecord().data;
-        var uiElement = factory.get(concept);
-        if(uiElement != undefined) {this.getObservationsPanel().add([uiElement])};
+    addObservation:function () {
+        this.clear();
+        this.getObservationsPanel().addObservation(this.getObservationDetailsPanel().getObservationDetails());
     }
 });

@@ -16,6 +16,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
         this.searchField = Ext.create('Ext.field.Text', {
             width:'100%',
             height:50,
+            placeHolder: this.config.placeHolder,
             bubbleEvents: 'clearicontap'
         });
         var fieldSet = Ext.create('Ext.form.FieldSet');

@@ -11,6 +11,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
 			{
 				xtype: 'autoComplete',
 				id: 'drugAutocompletePanel',
+                placeHolder: 'Search Medicine name ...',
 				width: '20%',
                 store: 'MedicineDetails',
                 itemTpl: '{name}',

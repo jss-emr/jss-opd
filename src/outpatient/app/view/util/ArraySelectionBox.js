@@ -14,6 +14,7 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
 		}));
 
 		this.refresh();
+        return this;
 	},
 
 	getSelectedValue: function() {

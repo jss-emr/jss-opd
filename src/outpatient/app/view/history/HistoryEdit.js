@@ -2,8 +2,9 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
     extend: 'Ext.Container',
     alias:'widget.historyEdit',
     requires : [
-        'Jss.Outpatient.view.history.edit.ObservationPanel',
-        'Jss.Outpatient.view.history.edit.AddObservationsPanel',
+        'Jss.Outpatient.view.history.edit.ObservationsPanel',
+        'Jss.Outpatient.view.history.edit.AddObservationPanel',
+        'Jss.Outpatient.view.history.edit.AddObservationDetailsPanel',
     ],
     config: {
         layout: 'vbox',
@@ -16,8 +17,9 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 flex: 1,
             },
             {
-                xtype : 'addObservationsPanel',
+                xtype : 'addObservationPanel',
                 id:'addObservationsPanel',
+                scrollable: false,
                 flex: 2,
             }
         ]

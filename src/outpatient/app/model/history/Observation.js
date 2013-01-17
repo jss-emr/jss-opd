@@ -3,7 +3,8 @@ Ext.define('Jss.Outpatient.model.history.Observation', {
     config: {
         fields: [
             {name: "concept", type: "auto"},
-            {name: "values", type: "auto"},
+            {name: "properties", type: "auto"},
+            {name: "summary", type: "string"},
         ]
     },
 });

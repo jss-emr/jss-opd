@@ -8,7 +8,8 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     },
 
     for: function(concept) {
-        var numberfield = Ext.create('Ext.field.Number',{
+        this.concept = concept;
+        this.numberfield = Ext.create('Ext.field.Number',{
             height: 50,
             label: concept.name,
             name:"value",
@@ -16,9 +17,21 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
         this.add({
             xtype:'fieldset',
-            items: [numberfield]
+            items: [this.numberfield]
         })
 
         return this;
+    },
+
+    getValue: function() {
+        return Ext.create('Jss.Outpatient.model.history.Observation', {
+            concept: this.concept,
+            properties: this.numberfield.getValue(),
+            summary: this.getSummary(),
+        });
+    },
+
+    getSummary: function() {
+        return this.concept.name + ":" + this.numberfield.getValue();
     }
 });
