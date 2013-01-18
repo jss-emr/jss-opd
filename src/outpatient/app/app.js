@@ -9,12 +9,6 @@ Ext.require([
     'Ext.ux.touch.grid.feature.Sorter'
 ]);
 
-Ext.Loader.setConfig({
-    enabled: true,
-    paths: {
-        'Ext.i18n': 'lib/i18n'
-    }
-});
 
 Ext.application({
     name: 'Jss.Outpatient',
@@ -22,7 +16,6 @@ Ext.application({
         'Patient', 
         'Visit', 
         'VitalStats', 
-        'sign',
         'Diagnosis',
         'Instruction',
         'history.Concept',
@@ -34,7 +27,6 @@ Ext.application({
     ],
     stores: [
         'patients', 
-        'sign',
         'patient',
         'history.Concepts',
         'history.Observations',
