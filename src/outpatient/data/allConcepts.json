@@ -1,6 +1,7 @@
 [
 	{
 		name: "Temperature",
+        id: "temparatureUUID",
 		properties: {
 			datatype: {name: "numeric", properties: {hiAbsolute: 43, lowAbsolute: 25, unit: "DEG C"}},
 			conceptClass: "Test"
@@ -8,6 +9,7 @@
 	},
 	{
 		name: "Systolic Bloood Pressure",
+        id: "systolicBllodPressureUUID",
 		properties: {
 			datatype: "numeric",
 			conceptClass: "Test"
@@ -15,6 +17,7 @@
 	},
 	{
 		name: "ALLERGY TO PENICILLIN",
+        id: "allergyToPenicillinUUID",
 		properties: {
 			datatype: "boolean",
 			conceptClass: "Question"
@@ -22,6 +25,7 @@
 	},
 	{
 		name: "PARACETAMOL",
+        id: "paracetamolUUID",
 		properties: {
 			datatype: "duration",
 			conceptClass: "Drug",
@@ -29,6 +33,7 @@
 	},
 	{
 		name: "appendectomy",
+        id: "appendectomyUUID",
 		properties: {
 			datatype: "duration",
 			conceptClass: "surgery",
@@ -36,9 +41,97 @@
 	},
 	{
 		name: "alcohol",
+        id: "alcoholUUID",
 		properties: {
 			datatype: "document",
 			conceptClass: "question"
+		}
+	},
+	{
+		name: "RBS",
+        id: "rbsUUID",
+		properties: {
+			datatype: {name: "numeric", properties: {unit: "cells per mm^3"}},
+			conceptClass: "test",
+		}
+	},
+	{
+		name: "Hb",
+        id: "hbUUID",
+		properties: {
+			datatype: {name: "numeric", properties: {unit: "gm/dl"}},
+			conceptClass: "test",
+		}
+	},
+	{
+		name: "Height",
+        id: "heightUUID",
+		properties: {
+			datatype: {name: "numeric", properties: {unit: "cm"}},
+			conceptClass: "test",
+		}
+	},
+	{
+		name: "Weight",
+        id: "weightUUID",
+		properties: {
+			datatype: {name: "numeric", properties: {unit: "Kg"}},
+			conceptClass: "test",
+		}
+	},
+	{
+		name: "BMI",
+        id: "bmiUUID",
+		properties: {
+			datatype: "numeric",
+			conceptClass: "test",
+		}
+	},
+	{
+		name: "HIV STATUS",
+        id: "hivStatusUUID",
+		properties: {
+			datatype: {
+                name: "coded",
+                properties: {
+                    answers: ["Positive", "Negative"],
+                }
+            },
+			conceptClass: "question",
+		}
+	},
+	{
+		name: "AFB/HPE",
+        id: "afbhpeUUID",
+		properties: {
+			datatype: {
+                name: "coded",
+                properties: {
+                    answers: ["Positive", "Negative"],
+                }
+            },
+			conceptClass: "question",
+		}
+	},
+	{
+		name: "SPUTUM TEST",
+        id: "sputumTestUUID",
+		properties: {
+			datatype: {
+                name: "coded",
+                properties: {
+                    answers: ["Positive", "Negative"],
+                }
+            },
+			conceptClass: "test"
+		}
+	},
+	{
+		name: "DOTS provider",
+        id: "dotsproviderUUID",
+		properties: {
+			datatype: "text",
+			conceptClass: "misc"
 		}
 	},
 ]

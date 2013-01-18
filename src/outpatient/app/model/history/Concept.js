@@ -3,6 +3,7 @@ Ext.define('Jss.Outpatient.model.history.Concept', {
     config: {
         fields: [
             {name: "name"},
+            {name: "id"},
             {name: "properties", type: "auto"},
         ]
     },

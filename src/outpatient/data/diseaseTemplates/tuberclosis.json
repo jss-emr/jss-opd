@@ -1,0 +1,23 @@
+{
+    name: 'Tuberclosis',
+    sections: {
+        examinations: [
+            {conceptId: 'heightUUID'},
+            {conceptId: 'weightUUID'},
+            {conceptId: 'bmiUUID'},
+        ],
+
+        history: [
+            {conceptId: "hivStatusUUID"},
+            {conceptId: "dotsproviderUUID"}
+        ],
+
+        instructions: [
+            {conceptId: "sputumTestUUID"},
+            { conceptId:"rbsUUID"},
+            { conceptId:"rbsUUID"},
+            { conceptId:"hbUUID"},
+            { conceptId:"afbhpeUUID"},
+        ]
+    }
+}
