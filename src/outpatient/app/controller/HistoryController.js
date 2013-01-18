@@ -28,11 +28,7 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     },
 
     conceptSelected:function (concept) {
-        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
-        var uiElement = factory.get(concept.data);
-        if (uiElement != undefined) {
-            this.getObservationDetailsPanel().addObservationDetails(uiElement);
-        }
+        this.getAddObservationsPanel().itemSelected(concept);
     },
 
     clear:function () {
@@ -40,7 +36,9 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     },
 
     addObservation:function () {
-        this.clear();
-        this.getObservationsPanel().addObservation(this.getObservationDetailsPanel().getObservationDetails());
+        if(this.getObservationDetailsPanel().isValid()){
+            this.clear();
+            this.getObservationsPanel().addObservation(this.getObservationDetailsPanel().getObservationDetails());
+        }
     }
 });

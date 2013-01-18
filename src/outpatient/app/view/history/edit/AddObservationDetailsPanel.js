@@ -20,7 +20,6 @@ Ext.define('Jss.Outpatient.view.history.edit.AddObservationDetailsPanel', {
                 width: '100%',
                 id: 'observationDetailsPanel',
                 layout: 'fit',
-                items: []
             }
         ]
     },
@@ -38,6 +37,12 @@ Ext.define('Jss.Outpatient.view.history.edit.AddObservationDetailsPanel', {
 
     getObservationDetails: function() {
         return this.uiElement.getValue();
-    }
+    },
 
+    isValid: function(){
+        if(this.uiElement.isValid())
+            return true;
+        this.uiElement.highlightErrors();
+        return false;
+    }
 })

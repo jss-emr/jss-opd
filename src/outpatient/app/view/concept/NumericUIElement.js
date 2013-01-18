@@ -4,6 +4,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     config:{
         height:50,
         flex:1,
+        scrollable:'false',
         layout:'fit',
     },
 
@@ -33,5 +34,13 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     getSummary: function() {
         return this.concept.name + ":" + this.numberfield.getValue();
+    },
+
+    isValid:function(){
+        return false;
+    },
+
+    highlightErrors:function(){
+        this.numberfield.setStyle('background:red');
     }
 });
