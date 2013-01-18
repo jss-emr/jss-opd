@@ -10,7 +10,7 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
             {
                 xtype : 'list',
                 id:'history-observationsSummaryPanel',
-                store: 'Observations',
+                store: 'HistoryObservations',
                 inline:true,
                 itemTpl: '{summary}',
                 scroll:'both',
@@ -20,7 +20,7 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 xtype : 'addObservationPanel',
                 id:'history-addObservationsPanel',
                 scrollable: false,
-                autoCompleteStore: 'Concepts',
+                autoCompleteStore: 'HistoryConcepts',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
                 flex: 3,

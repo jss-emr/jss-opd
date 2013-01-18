@@ -7,11 +7,12 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationEdit', {
         items: [
             {
                 xtype: 'list',
+                id:'examination-observationSummaryPanel',
                 flex: 1,
                 scrollable: 'vertical',
                 inline: true,
-                itemTpl: Ext.create('Jss.Outpatient.view.examination.SummaryTemplate'),
-                store: 'Examinations',
+                itemTpl: '{summary}',
+                store: 'ExaminationObservations',
                 listeners: {
                     itemswipe: function(list, index, target, record) {
                         list.getStore().remove(record);
@@ -19,21 +20,13 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationEdit', {
                 }
             },
             {
-                xtype: 'formpanel',
+                xtype : 'addObservationPanel',
+                id:'examination-addObservationsPanel',
+                scrollable: false,
+                autoCompleteStore: 'ExaminationConcepts',
+                autoCompleteItemTpl: '{name}',
+                autoCompleteFilterKey: 'name',
                 flex: 3,
-                scrollable: 'false',
-                items: [{
-                    xtype: 'fieldset',
-                    title: 'Examination',
-                    items: [{
-                        xtype: 'selectfield',
-                        id: 'patientComplaints',
-                        label: 'Patient Complaints',
-                        valueField: 'id',
-                        displayField: 'complaint',
-                        store: 'AllComplaints'
-                    }]
-                }]
             }
         ]
     }

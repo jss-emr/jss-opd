@@ -33,7 +33,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     },
 
     getValue:function () {
-        return Ext.create('Jss.Outpatient.model.history.Observation', {
+        return Ext.create('Jss.Outpatient.model.concept.Observation', {
             concept:this.concept,
             properties:this.numberfield.getValue(),
             summary:this.getSummary(),

@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.model.history.Observation', {
+Ext.define('Jss.Outpatient.model.concept.Observation', {
     extend: 'Ext.data.Model',
     config: {
         fields: [

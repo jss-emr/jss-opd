@@ -36,7 +36,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     },
 
     getValue:function () {
-        return Ext.create('Jss.Outpatient.model.history.Observation', {
+        return Ext.create('Jss.Outpatient.model.concept.Observation', {
             concept:this.concept,
             properties:{
                 duration:this.durationListBox.getSelectedValue(),

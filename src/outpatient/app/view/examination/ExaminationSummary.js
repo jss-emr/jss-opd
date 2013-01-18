@@ -8,15 +8,9 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
             xtype: 'list',
             id: 'complaintsList',
             html:'<b>Examination</b>',
-            itemTpl: Ext.create('Jss.Outpatient.view.examination.SummaryTemplate'),
-            store: 'Examinations',
+            itemTpl: '{summary}',
+            store: 'ExaminationObservations',
             inline: true,
         }]
     },
-
-    addComplaint: function(complaint) {
-        var list = Ext.getCmp('complaintsList')
-        list.getStore().add(complaint);
-    }
-
-})
+});

@@ -1,7 +1,7 @@
-Ext.define('Jss.Outpatient.store.history.Concepts', {
+Ext.define('Jss.Outpatient.store.history.HistoryConcepts', {
     extend: 'Ext.data.Store',
     config: {
-        model: 'Jss.Outpatient.model.history.Concept',
+        model: 'Jss.Outpatient.model.concept.Concept',
         autoLoad:true,
         proxy: {
             type: 'ajax',

@@ -77,11 +77,17 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 }
             ]
         },{
-            xtype: 'examinationEdit',
-            id: 'examination-editpanel',
-            margin: 5,
-            border: 1,
-            style: 'background-color: #7FADCF'
+            layout: 'vbox',
+            style: 'background-color: #FFFFFF',
+            title: 'Examination-Edit',
+            id: 'examination-card',
+            items: [{
+                xtype: 'examinationEdit',
+                id: 'examination-editpanel',
+                flex: 2,
+                margin: 5,
+                border: 1,
+            }]
         },{
           layout: 'vbox',
           style: 'background-color: #FFFFFF',
