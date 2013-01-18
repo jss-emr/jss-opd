@@ -44,6 +44,7 @@ Ext.application({
         'util.ArraySelectionBox',
         'autocomplete.AutoCompleteWidget',
         'concept.UIElementFactory',
+        'observation.AddObservationPanel',
         'Viewport'
     ],
     controllers: [

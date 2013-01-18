@@ -3,22 +3,16 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     config:{
         refs:{
             historySummaryPanel:'#historySummaryPanel',
-            observationDetailsPanel:'#addObservationDetailsPanel',
-            observationAutoComplete:'#observationAutoComplete',
-            addObservationButton:'#addObservationButton',
-            addObservationsPanel:'#addObservationsPanel',
-            observationsPanel:'#observationsPanel',
+            addObservationsPanel:'#history-addObservationsPanel',
+            observationsSummaryPanel:'#history-observationsSummaryPanel',
         },
         control:{
             historySummaryPanel:{
                 jsstouchstart:'gotoEditPage'
             },
-            observationAutoComplete:{
-                itemSelected:'conceptSelected',
-                clearicontap:'clear',
-            },
-            addObservationButton:{
-                tap:'addObservation',
+
+            addObservationsPanel: {
+                observationDetailsCaptured: 'addObservation'
             }
         }
     },
@@ -27,18 +21,7 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
         Ext.getCmp('mainview').push(Ext.getCmp('historyEditPanel'));
     },
 
-    conceptSelected:function (concept) {
-        this.getAddObservationsPanel().itemSelected(concept);
-    },
-
-    clear:function () {
-        this.getAddObservationsPanel().clear();
-    },
-
-    addObservation:function () {
-        if(this.getObservationDetailsPanel().isValid()){
-            this.clear();
-            this.getObservationsPanel().addObservation(this.getObservationDetailsPanel().getObservationDetails());
-        }
+    addObservation:function (observation) {
+        this.getObservationsSummaryPanel().getStore().add(observation);
     }
 });

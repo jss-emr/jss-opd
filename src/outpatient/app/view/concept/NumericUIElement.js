@@ -12,7 +12,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
         this.concept = concept;
         this.numberfield = Ext.create('Ext.field.Number', {
             height:50,
-            width:'150%',
+            width:'100%',
             label:concept.name,
             name:"value"
         });
@@ -55,7 +55,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
         var result = true;
         if (properties.hiAbsolute) result = (result && properties.hiAbsolute >= value);
         if (properties.lowAbsolute) result = (result && properties.lowAbsolute <= value);
-        console.log(Ext.getCmp("errorMessage"));
+
         Ext.getCmp("errorMessage").setHtml('Value not in allowed range');
 
         return result;

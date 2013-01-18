@@ -1,26 +1,29 @@
 Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
     extend: 'Ext.Container',
     alias:'widget.historyEdit',
-    requires : [
-        'Jss.Outpatient.view.history.edit.ObservationsPanel',
-        'Jss.Outpatient.view.history.edit.AddObservationPanel',
-        'Jss.Outpatient.view.history.edit.AddObservationDetailsPanel',
-    ],
+
     config: {
         layout: 'vbox',
         autoDestroy: false,
         title: 'History',
         items: [
             {
-                xtype : 'observationsPanel',
-                id:'observationsPanel',
+                xtype : 'list',
+                id:'history-observationsSummaryPanel',
+                store: 'Observations',
+                inline:true,
+                itemTpl: '{summary}',
+                scroll:'both',
                 flex: 1,
             },
             {
                 xtype : 'addObservationPanel',
-                id:'addObservationsPanel',
+                id:'history-addObservationsPanel',
                 scrollable: false,
-                flex: 2,
+                autoCompleteStore: 'Concepts',
+                autoCompleteItemTpl: '{name}',
+                autoCompleteFilterKey: 'name',
+                flex: 3,
             }
         ]
     }
