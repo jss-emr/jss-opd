@@ -5,3 +5,7 @@
     border: 1px solid #d3d3d3;
     text-align: center;
 }
+
+.textBoxError {
+    color: red;
+}
