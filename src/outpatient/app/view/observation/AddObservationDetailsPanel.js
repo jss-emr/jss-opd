@@ -14,7 +14,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     createAddButton: function() {
         var button = Ext.create('Ext.Button', {
-            xtype: 'button',
             html: 'Add',
             hidden: true,
             height: 50,

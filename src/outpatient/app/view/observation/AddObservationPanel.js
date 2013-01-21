@@ -16,7 +16,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
 
     addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
-            xtype:'autoComplete',
             placeHolder:'Search...',
             width:'30%',
             store: this.config.autoCompleteStore,
