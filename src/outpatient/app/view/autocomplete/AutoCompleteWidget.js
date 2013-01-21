@@ -4,7 +4,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
     requires:[ 'Jss.Outpatient.view.autocomplete.AutoCompleteListWidget' ],
 
     config:{
-        scroll:'both',
+        scroll:'both'
     },
 
     initialize: function() {

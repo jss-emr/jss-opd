@@ -10,10 +10,16 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     for:function (concept) {
         this.concept = concept;
+        var conceptLabel = concept.name;
+        if (concept.properties.datatype.properties) {
+            var properties = concept.properties.datatype.properties;
+            conceptLabel = conceptLabel + ' (' + properties.unit + ')';
+        }
         this.numberfield = Ext.create('Ext.field.Number', {
             height:50,
             width:'100%',
-            label:concept.name,
+            label: conceptLabel,
+            labelWidth: '60%',
             name:"value"
         });
         
@@ -56,7 +62,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
         if (properties.hiAbsolute) result = (result && properties.hiAbsolute >= value);
         if (properties.lowAbsolute) result = (result && properties.lowAbsolute <= value);
 
-        Ext.getCmp("errorMessage").setHtml('Value not in allowed range');
+        Ext.getCmp("errorMessage").setHtml('Value not in allowed range (' + properties.lowAbsolute + " - " + properties.hiAbsolute + ")");
 
         return result;
     },

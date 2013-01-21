@@ -16,7 +16,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
             store: store,
             height: 280,
             itemTpl: this.config.itemTpl,
-            bubbleEvents: 'select',
+            bubbleEvents: 'select'
         });
 
         list.getStore().filter(this.config.filterKey, keyword);
