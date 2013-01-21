@@ -45,6 +45,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     },
 
     onConceptSelection: function (concept) {
+        this.detailsPanel.clear();
         var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
         var uiElement = factory.get(concept.data);
         if (uiElement !== undefined) {
