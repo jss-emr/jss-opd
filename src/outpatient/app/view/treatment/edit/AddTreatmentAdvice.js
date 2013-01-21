@@ -1,45 +1,59 @@
 Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
-	extend: 'Ext.Container',
-	alias: "widget.addTreatmentAdvice",
+    extend:'Ext.Container',
+    alias:"widget.addTreatmentAdvice",
 
-	config: {
-		layout: 'hbox',
-		id: 'addTreatmentAdvice',
-		scroll: 'both',
+    requires: ['Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel'],
 
-		items: [
-			{
-				xtype: 'autoComplete',
-				id: 'drugAutocompletePanel',
-                placeHolder: 'Search Medicine name ...',
-				width: '20%',
-                store: 'MedicineDetails',
-                itemTpl: '{name}',
-                filterKey: 'name',
-			},
-		]
-	},
+    config:{
+        layout:'hbox',
+        scroll:'both',
+    },
 
-	loadDetailsPanel: function(drug) {
-        this._removeDetailsPanel();
+    initialize: function() {
+        this.autoCompleteWidget = this.addAutoCompleteWidget();
+        this.detailsPanel = this.addDetailsPanel();
+    },
 
-		this.detailsPanel = this.add({
-			xtype: 'addTreatmentAdviceDetailsPanel',
-			id: 'addTreatmentAdviceDetailsPanel',
-		});
+    addAutoCompleteWidget: function() {
+        var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
+            placeHolder:'Search...',
+            width:'30%',
+            store: 'MedicineDetails',
+            itemTpl: '{name}',
+            filterKey: 'name',
+        });
 
-		this.detailsPanel.showFor(drug);
-		return this.detailsPanel;
-	},
+        widget.on('itemSelected', this.onTreatmentAdviceSelection, this);
+        widget.on('clearicontap', this.clear, this);
 
-	clear: function() {
-		Ext.getCmp('drugAutocompletePanel').clear();
-		this._removeDetailsPanel();
-	},
+        this.add(widget);
+        return widget;
+    },
 
-	_removeDetailsPanel : function() {
-		if(this.detailsPanel != null) {
-			this.remove(this.detailsPanel);
-		}
-	}
-})
+    addDetailsPanel: function() {
+        var widget = Ext.create('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', {
+            width:'70%',
+            height: 300,
+            bubbleEvents: 'medicineDetailsCaptured',
+        });
+
+        widget.on('medicineDetailsCaptured', this.clear, this);
+
+        this.add(widget);
+        return widget;
+    },
+
+    onTreatmentAdviceSelection: function (medicineDetails) {
+        this.detailsPanel.clear();
+        var factory = Ext.create('Jss.Outpatient.view.treatment.uielements.Factory');
+        var uiElement = factory.get(medicineDetails);
+        if (uiElement !== undefined) {
+            this.detailsPanel.addUIElement(uiElement);
+        }
+    },
+
+    clear:function () {
+        this.autoCompleteWidget.clear();
+        this.detailsPanel.clear();
+    },
+});

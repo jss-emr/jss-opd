@@ -3,8 +3,8 @@ Ext.define('Jss.Outpatient.model.treatment.MedicineDetail', {
 	config: {
 		fields: [
 			{name: "name"},
-			{name: "possibleStrengths", type: "auto"},
-			{name: "possibleDosages", type: "auto"}
+			{name: "type"},
+			{name: "specs", type: "auto"}
 		]
 	},
 });

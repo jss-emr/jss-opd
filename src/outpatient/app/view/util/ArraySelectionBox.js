@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
-	extend: 'Ext.List',
+	extend: 'Ext.dataview.List',
 	alias : 'widget.arraySelectionBox',
 
 	config: {

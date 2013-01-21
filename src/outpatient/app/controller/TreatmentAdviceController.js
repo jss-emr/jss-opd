@@ -4,39 +4,26 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 	config: {
 		refs: {
             treatmentSummaryPanel: '#treatmentSummaryPanel',
-            drugAutocompletePanel:'#drugAutocompletePanel'
+            treatmentEditSummaryPanel: '#treatmentEditSummaryPanel',
+            addTreatmentAdvicePanel:'#addTreatmentAdvicePanel'
 		},
 		control: {
             treatmentSummaryPanel: {
                 jsstouchstart: 'gotoEditPage'
             },
-            drugAutocompletePanel: {
-                itemSelected: 'onDrugSelection',
-                clearicontap: 'clear',
+            addTreatmentAdvicePanel: {
+                medicineDetailsCaptured: 'addTreatmentAdvice',
             }
         },
 	},
 
-	clear: function() {
-        Ext.getCmp('addTreatmentAdvice').clear();
-	},
-
-    onDrugSelection: function(record) {
-        Ext.getCmp('addTreatmentAdvice').loadDetailsPanel(record);
-        Ext.getCmp('addTreatmentAdviceButton').addListener('tap', this.onAddTreatmentAdvice, this);
-    },
-
-    onAddTreatmentAdvice: function() {
-		var treatmentAdvice = Ext.getCmp('addTreatmentAdviceDetailsPanel').getTreatmentAdvice()
-		Ext.getCmp('treatmentAdviceGrid').getStore().add(treatmentAdvice);
-
-		Ext.getCmp('addTreatmentAdvice').clear();
-        Ext.getCmp('drugAutocompletePanel').clear();
+    addTreatmentAdvice: function(treatmentAdvice) {
+		this.getTreatmentEditSummaryPanel().getStore().add(treatmentAdvice);
 	},
 
     gotoEditPage: function() {
         Ext.getCmp('mainview').push(Ext.getCmp('treatmentEdit'));
     }
-})
+});
 
 

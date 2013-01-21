@@ -4,9 +4,9 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
     id: 'treatmentEdit',
 
     requires : [
-        'Jss.Outpatient.view.treatment.edit.TreatmentAdviceGrid',
         'Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice',
         'Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel',
+        'Jss.Outpatient.view.treatment.uielements.Factory',
     ],
 
     config: {
@@ -15,11 +15,15 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
         title: 'Treatment Advice',
         items: [
             {
-                xtype : 'treatmentAdviceGrid',
+                xtype : 'list',
+                id: 'treatmentEditSummaryPanel',
+                store: 'TreatmentAdvice',
+                itemTpl: '{summary}',
                 flex: 1,
             },
             {
                 xtype : 'addTreatmentAdvice',
+                id: 'addTreatmentAdvicePanel',
                 flex: 2,
             }
         ]

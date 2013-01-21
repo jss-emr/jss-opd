@@ -40,6 +40,7 @@ Ext.application({
     views: [
         'util.TouchableContainer',
         'util.ArraySelectionBox',
+        'util.ArrayMultiSelectionBox',
         'autocomplete.AutoCompleteWidget',
         'concept.UIElementFactory',
         'observation.AddObservationPanel',
