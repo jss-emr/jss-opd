@@ -12,4 +12,4 @@ Ext.define('Jss.Outpatient.view.util.TouchableContainer', {
             }
         });
     },
-})
+});

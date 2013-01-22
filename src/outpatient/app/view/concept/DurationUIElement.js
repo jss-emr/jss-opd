@@ -9,7 +9,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     },
 
     for:function (concept) {
-        this.concept = concept.data;
+        this.concept = concept;
         this.durationListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
             width:'80%',
         }).addData([1, 2, 3, 4, 5]);

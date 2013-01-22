@@ -92,9 +92,26 @@
         id: "hivStatusUUID",
 		properties: {
 			datatype: {
-                name: {name:"coded"},
+                name:"coded",
                 properties: {
-                    answers: ["Positive", "Negative"],
+                    answers: [
+                        {
+                            name: "POSITIVE",
+                            id: "positiveUUID",
+                            properties: {
+                                datatype: {name:"N/A"},
+                                conceptClass: "Misc",
+                            }
+                        },
+                        {
+                            name: "NEGATIVE",
+                            id: "negativeUUID",
+                            properties: {
+                                datatype: {name:"N/A"},
+                                conceptClass: "Misc",
+                            }
+                        },
+                    ],
                 }
             },
 			conceptClass: "question",
