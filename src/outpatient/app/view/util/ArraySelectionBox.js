@@ -27,8 +27,7 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
         if (selectedValues.length <= 0) {
             return null;
         }
-        if (selectedValues[0] instanceof Object) return selectedValues[0];
-        return selectedValues[0].data.value;
+        return selectedValues[0];
     }
 
 })
