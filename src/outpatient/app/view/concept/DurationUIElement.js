@@ -9,7 +9,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     },
 
     for:function (concept) {
-        this.concept = concept;
+        this.concept = concept.data;
         this.durationListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
             width:'80%',
         }).addData([1, 2, 3, 4, 5]);
@@ -36,17 +36,24 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     },
 
     getValue:function () {
-        return Ext.create('Jss.Outpatient.model.concept.Observation', {
+        var obs = Ext.create('Jss.Outpatient.model.concept.Observation', {
             concept:this.concept,
+            value: this.durationListBox.getSelectedValue() + this.unitListBox.getSelectedValue(),
             properties:{
                 duration:this.durationListBox.getSelectedValue(),
                 unit:this.unitListBox.getSelectedValue(),
             },
-            summary:this.getSummary(),
         });
+        obs.setSummary();
+        return obs;
     },
 
     getSummary:function () {
-        return this.concept.name + ":" + this.durationListBox.getSelectedValue() + " " + this.unitListBox.getSelectedValue();
-    }
+//        return this.concept.name + ":" + this.durationListBox.getSelectedValue() + " " + this.unitListBox.getSelectedValue();
+
+    },
+
+    isValid:function () {
+        return true;
+    },
 });

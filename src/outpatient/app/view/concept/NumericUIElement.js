@@ -36,11 +36,12 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     },
 
     getValue:function () {
-        return Ext.create('Jss.Outpatient.model.concept.Observation', {
-            concept:this.concept.data,
-            properties:this.numberfield.getValue(),
-            summary:this.getSummary()
+        var ob = Ext.create('Jss.Outpatient.model.concept.Observation', {
+            concept:this.concept,
+            value: this.numberfield.getValue()
         });
+        ob.setSummary();
+        return ob;
     },
 
     getSummary:function () {

@@ -11,7 +11,7 @@
 		name: "Systolic Bloood Pressure",
         id: "systolicBllodPressureUUID",
 		properties: {
-			datatype: "numeric",
+			datatype: {name:"numeric"},
 			conceptClass: "Test"
 		}
 	},
@@ -19,7 +19,7 @@
 		name: "ALLERGY TO PENICILLIN",
         id: "allergyToPenicillinUUID",
 		properties: {
-			datatype: "boolean",
+			datatype: {name:"boolean"},
 			conceptClass: "Question"
 		}
 	},
@@ -27,7 +27,7 @@
 		name: "PARACETAMOL",
         id: "paracetamolUUID",
 		properties: {
-			datatype: "duration",
+			datatype: {name:"duration"},
 			conceptClass: "Drug",
 		}
 	},
@@ -35,7 +35,7 @@
 		name: "appendectomy",
         id: "appendectomyUUID",
 		properties: {
-			datatype: "duration",
+			datatype: {name:"duration"},
 			conceptClass: "surgery",
 		}
 	},
@@ -43,7 +43,7 @@
 		name: "alcohol",
         id: "alcoholUUID",
 		properties: {
-			datatype: "document",
+			datatype: {name:"document"},
 			conceptClass: "question"
 		}
 	},
@@ -83,7 +83,7 @@
 		name: "BMI",
         id: "bmiUUID",
 		properties: {
-			datatype: "numeric",
+			datatype: {name:"numeric"},
 			conceptClass: "test",
 		}
 	},
@@ -92,7 +92,7 @@
         id: "hivStatusUUID",
 		properties: {
 			datatype: {
-                name: "coded",
+                name: {name:"coded"},
                 properties: {
                     answers: ["Positive", "Negative"],
                 }
@@ -105,7 +105,7 @@
         id: "afbhpeUUID",
 		properties: {
 			datatype: {
-                name: "coded",
+                name: {name:"coded"},
                 properties: {
                     answers: ["Positive", "Negative"],
                 }
