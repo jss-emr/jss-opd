@@ -204,4 +204,12 @@
 			conceptClass: "misc"
 		}
 	},
+    {
+		name: "Viral Fever",
+        id: "viralFeverUUID",
+		properties: {
+            datatype: {name:"N/A"},
+			conceptClass: "misc"
+		}
+	},
 ]
