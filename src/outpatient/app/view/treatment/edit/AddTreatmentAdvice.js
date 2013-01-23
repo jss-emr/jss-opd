@@ -33,7 +33,6 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
     addDetailsPanel: function() {
         var widget = Ext.create('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', {
             width:'70%',
-            height: 300,
             bubbleEvents: 'medicineDetailsCaptured',
         });
 

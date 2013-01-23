@@ -3,7 +3,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
     alias:"widget.addTreatmentAdviceDetailsPanel",
 
     config:{
-        layout:'hbox',
+        layout:'vbox',
         scroll:'both',
     },
 
@@ -16,9 +16,8 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
         var button = Ext.create('Ext.Button', {
             html: 'Add',
             hidden: true,
-            height: 50,
-            width: '10%',
-            style: 'margin-left: 10px'
+            flex: 1,
+            width: '50%',
         });
 
         button.on('tap', this.detailsCaptured, this);
@@ -29,9 +28,10 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     addDetailsPanel: function() {
         var widget = Ext.create('Ext.Container', {
-            height: 300,
-            width: '90%',
+            flex: 15,
+            width: '100%',
             layout: 'fit',
+            cls: 'treatmentAdviceUIElements',
         });
 
         this.add(widget);
@@ -51,19 +51,10 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
     },
 
     detailsCaptured: function() {
-        if(this.isValid()){
-            this.fireEvent('medicineDetailsCaptured', this.getDetails());
-        }
+        this.fireEvent('medicineDetailsCaptured', this.getDetails());
     },
 
     getDetails: function() {
         return this.uiElement.getValue();
     },
-
-    isValid: function(){
-        if(this.uiElement.isValid())
-            return true;
-        this.uiElement.highlightErrors();
-        return false;
-    }
 });

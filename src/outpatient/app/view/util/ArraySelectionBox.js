@@ -2,11 +2,12 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
 	extend: 'Ext.dataview.List',
 	alias : 'widget.arraySelectionBox',
 
-    config: {
-        height: 300,
-        centered: true,
-        itemTpl: '{value}'
-    },
+	config: {
+		centered: true,
+		itemTpl: '{value}',
+        height: '100%',
+        scrollable: true,
+	},
 
     addData: function (array) {
         this.setStore(Ext.create('Ext.data.Store', {

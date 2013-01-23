@@ -2,9 +2,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
     extend:'Ext.Container',
 
     config:{
-        height:300,
-        flex:1,
-        scrollable:'false',
+        height:'100%',
         layout:'hbox',
     },
 
@@ -14,93 +12,108 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
         this.instructionsList = this.addInstructionList();
         this.dosageList = this.addDosageList();
         this.timingsList = this.addTimingsList();
+        this.durationList = this.addDurationList();
         return this;
     },
 
     getValue:function () {
         return Ext.create('Jss.Outpatient.model.treatment.TreatmentAdvice', {
-            name: this.medicineDetails.data.name,
-            medicineDetails: this.medicineDetails.data,
-            properties: this.treatmentAdviceProperties,
-            summary: this.getSummary()
+            name:this.medicineDetails.data.name,
+            medicineDetails:this.medicineDetails.data,
+            properties:this.treatmentAdviceProperties,
+            summary:this.getSummary()
         });
     },
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties();
-        return this.medicineDetails.data.name + " | " +  props.spec + " | " + props.instruction + " | " + props.dosage + " | " + props.timings.toString();
+        return this.medicineDetails.data.name + " | " + props.spec + " | " + props.instruction + " | " + props.dosage + " | " + props.timings.toString() + " | " + props.duration;
     },
 
-    isValid:function () {
-        return true;
-    },
-
-    treatmentAdviceProperties : function() {
+    treatmentAdviceProperties:function () {
         return {
-            spec: this.specsList.getSelectedValue(),
-            instruction: this.instructionsList.getSelectedValue(),
-            dosage: this.dosageList.getSelectedValue(),
-            timings: this.timingsList.getSelectedValue()
+            spec:this.specsList.getSelectedValue(),
+            instruction:this.instructionsList.getSelectedValue(),
+            dosage:this.dosageList.getSelectedValue(),
+            timings:this.timingsList.getSelectedValue(),
+            duration: this.getDuration()
         }
     },
 
-    addSpecsList:function(){
-        if(this.medicineDetails.data.specs == null){
+    addSpecsList:function () {
+        if (this.medicineDetails.data.specs == null) {
             return null;
         }
-        var widget = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
-            height: 300,
-            width: '80%',
-        }).addData(this.medicineDetails.data.specs);
-
-        this.addWithTitle(widget, "Specs", "10%");
-        return widget;
+        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%");
     },
 
-    addInstructionList:function(){
-        var widget = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox",{
-            height:300,
-            width:'80%',
-        }).addData(this._instructionsList);
-
-        this.addWithTitle(widget, "Instruction", "20%");
-        return widget;
+    addInstructionList:function () {
+        return this.addMultiSelectionBox(this._instructionsList, "Instruction", "25%");
     },
 
-    addDosageList:function(){
-        var widget = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox",{
-            height:300,
-            width:'80%',
-        }).addData(["1/4","1/3","1/2","1","2","3"]);
-
-        this.addWithTitle(widget, "Dosage", "10%");
-        return widget;
+    addDosageList:function () {
+        var arrayData = ["1/4", "1/3", "1/2", "1", "2", "3"];
+        return this.addSelectionBox(arrayData, "Dosage", "15%");
     },
 
-    addTimingsList:function(){
-        var widget = Ext.create("Jss.Outpatient.view.util.ArrayMultiSelectionBox",{
-            height:300,
-            width:'80%',
-        }).addData(["Morning", "Noon", "Evening", "Night"]);
-
-        this.addWithTitle(widget, "Timings", "20%");
-        return widget;
+    addTimingsList:function () {
+        var arrayData = ["Morning", "Noon", "Evening", "Night"];
+        return this.addMultiSelectionBox(arrayData, "Timings", "20%");
     },
 
-    highlightErrors:function () {
-        //do nothing
-    },
+    addDurationList: function() {
+        this.durationQuantity = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
+            width:'90%',
+        }).addData([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30]);
 
-    addWithTitle : function(widget, title, width) {
+        this.durationUnit = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
+            width:'90%',
+        }).addData(["Days", "Weeks", "Months", "Years"]);
+
         this.add({
-            xtype: 'panel',
-            width: width,
-            height: 300,
-            items: [widget, {xtype: 'toolbar', docked: 'top', title: title}],
+            xtype: "container",
+            layout: "vbox",
+            width: "20%",
+            items: [
+                {xtype:'toolbar', docked:'top', title:"Duration"},
+                {xtype: 'panel', flex: 1, items:[this.durationQuantity]},
+                {xtype: 'panel', flex: 1, items:[this.durationUnit, {xtype:'toolbar', docked:'top', title:"Unit"}]},
+            ]
+        })
+
+        return this.durationQuantity;
+    },
+
+    addSelectionBox:function (arrayData, title, width) {
+        var widget = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
+            width:'90%',
+        }).addData(arrayData);
+        this.addTitle(widget, title, width);
+        return widget;
+    },
+
+    addMultiSelectionBox:function (arrayData, title, width) {
+        var widget = Ext.create("Jss.Outpatient.view.util.ArrayMultiSelectionBox", {
+            width:'90%',
+        }).addData(arrayData);
+        this.addTitle(widget, title, width);
+        return widget;
+    },
+
+    addTitle:function (widget, title, width) {
+        this.add({
+            xtype:'panel',
+            width:width,
+            layout: 'fit',
+            items:[widget, {xtype:'toolbar', docked:'top', title:title}],
         });
     },
 
-    _instructionsList: [
+    getDuration: function() {
+        return this.durationQuantity.getSelectedValue() + " " + this.durationUnit.getSelectedValue();
+    },
+
+    _instructionsList:[
         "Once a day",
         "Twice a day",
         "Thrice a day",
