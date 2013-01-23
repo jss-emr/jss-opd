@@ -10,7 +10,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         this.medicineDetails = medicineDetails;
         this.specsAndModeList=this.addSpecAndModeList();
         this.instructionsList = this.addInstructionList();
-        this.dosageList = this.addDosageList();
+        this.dosageList = this.addDropsList();
         this.timingsList = this.addTimingsList();
         this.durationList = this.addDurationList();
         return this;
@@ -23,7 +23,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
 
     treatmentAdviceProperties:function () {
         return {
-            spec:this.specsList.getSelectedValue(),
+            spec: this.specsList != undefined ? this.specsList.getSelectedValue() : null,
             instruction:this.instructionsList.getSelectedValue(),
             dosage:this.dosageList.getSelectedValue(),
             timings:this.timingsList.getSelectedValue(),
@@ -55,7 +55,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         return firstColumn;
     },
 
-    addDosageList:function () {
+    addDropsList:function () {
         var arrayData = ["1/2ml", "1ml", "2ml", "3ml", "4ml", "5ml", "10ml", "15ml"];
         return this.addSelectionBox(arrayData, "Dosage", "15%");
     },

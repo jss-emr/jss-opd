@@ -17,7 +17,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
 
     treatmentAdviceProperties:function () {
         return {
-            spec:this.specsList.getSelectedValue(),
+            spec: this.specsList != undefined ? this.specsList.getSelectedValue() : null,
             instruction:this.instructionsList.getSelectedValue(),
             timings:this.timingsList.getSelectedValue(),
             quantity: this.quantityList.getSelectedValue(),
