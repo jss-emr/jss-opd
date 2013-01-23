@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
+Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
     extend:'Ext.Container',
 
     config:{
@@ -8,7 +8,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
 
     for:function (medicineDetails) {
         this.medicineDetails = medicineDetails;
-        this.specsList = this.addSpecsList();
+        this.specsAndModeList=this.addSpecAndModeList();
         this.instructionsList = this.addInstructionList();
         this.dosageList = this.addDosageList();
         this.timingsList = this.addTimingsList();
@@ -27,7 +27,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties();
-        return this.medicineDetails.data.name + " | " + props.spec + " | " + props.instruction + " | " + props.dosage + " | " + props.timings.toString() + " | " + props.duration;
+        return this.medicineDetails.get('name') + " | " + props.spec + " | " + props.mode +  " | " + props.instruction + " | " + props.dosage + " | " + props.timings.toString() + " | " + props.duration;
     },
 
     treatmentAdviceProperties:function () {
@@ -36,23 +36,41 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
             instruction:this.instructionsList.getSelectedValue(),
             dosage:this.dosageList.getSelectedValue(),
             timings:this.timingsList.getSelectedValue(),
-            duration: this.getDuration()
+            duration: this.getDuration(),
+            mode:this.modeList.getSelectedValue(),
         }
     },
 
-    addSpecsList:function () {
-        if (this.medicineDetails.data.specs == null) {
-            return null;
+    addSpecAndModeList: function() {
+        var firstColumn = Ext.create('Ext.Container', {
+            layout: "vbox",
+            width: "20%",
+        });
+
+        if(this.medicineDetails.data.specs != null) {
+            this.specsList = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
+                width:'90%',
+            }).addData(this.medicineDetails.data.specs);
+            firstColumn.add({xtype: 'container', flex: 1, items: [this.specsList, {xtype: 'titlebar', docked: 'top', title: 'Specs'}]});
         }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%");
+
+        this.modeList = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
+            width:'90%',
+        }).addData(["IV","IM","ID"]);
+        firstColumn.add({xtype: 'container', flex: 1, items: [this.modeList, {xtype: 'titlebar', docked: 'top', title: 'Mode'}]});
+
+        this.add(firstColumn);
+
+        return firstColumn;
     },
+
 
     addInstructionList:function () {
         return this.addMultiSelectionBox(this._instructionsList, "Instruction", "25%");
     },
 
     addDosageList:function () {
-        var arrayData = ["1/4", "1/3", "1/2", "2/3", "3/4", "1", "2", "3"];
+        var arrayData = ["1/2ml", "1ml", "2ml", "3ml", "4ml", "5ml", "10ml", "15ml"];
         return this.addSelectionBox(arrayData, "Dosage", "15%");
     },
 

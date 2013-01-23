@@ -20,6 +20,7 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
                 store: 'TreatmentAdvice',
                 itemTpl: '{summary}',
                 flex: 1,
+                cls: 'stripedList',
             },
             {
                 xtype : 'addTreatmentAdvice',

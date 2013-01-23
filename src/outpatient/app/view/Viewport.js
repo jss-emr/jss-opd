@@ -10,7 +10,6 @@ Ext.define('Jss.Outpatient.view.Viewport', {
         'Jss.Outpatient.view.history.HistorySummary',
         'Jss.Outpatient.view.examination.ExaminationSummary',
         'Jss.Outpatient.view.examination.ExaminationEdit',
-        'Jss.Outpatient.view.treatment.SummaryTemplate',
         'Jss.Outpatient.view.treatment.TreatmentSummary',
         'Jss.Outpatient.view.treatment.TreatmentEdit',
         'Jss.Outpatient.view.diagnosis.DiagnosisSummary',

@@ -12,7 +12,7 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
 				height: '100%',
 				width: '100%',
                 inline: true,
-                itemTpl: Ext.create('Jss.Outpatient.view.treatment.SummaryTemplate'),
+                itemTpl: '{name}',
 			}
 		]
 	}

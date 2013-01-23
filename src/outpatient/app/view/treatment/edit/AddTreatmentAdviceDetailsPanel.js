@@ -17,7 +17,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
             html: 'Add',
             hidden: true,
             flex: 1,
-            width: '50%',
+            width: '100%',
         });
 
         button.on('tap', this.detailsCaptured, this);
