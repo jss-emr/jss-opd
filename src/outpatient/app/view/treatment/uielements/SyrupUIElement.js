@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
+Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
     extend:'Ext.Container',
 
     config:{
@@ -10,9 +10,8 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
         this.medicineDetails = medicineDetails;
         this.specsList = this.addSpecsList();
         this.instructionsList = this.addInstructionList();
-        this.dosageList = this.addDosageList();
+        this.quantityList = this.addQuantityList();
         this.timingsList = this.addTimingsList();
-        this.durationList = this.addDurationList();
         return this;
     },
 
@@ -27,16 +26,15 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties();
-        return this.medicineDetails.data.name + " | " + props.spec + " | " + props.instruction + " | " + props.dosage + " | " + props.timings.toString() + " | " + props.duration;
+        return this.medicineDetails.data.name + " | " + props.spec + " | " + props.instruction + " | " + props.timings.toString() + " | " + props.quantity;
     },
 
     treatmentAdviceProperties:function () {
         return {
             spec:this.specsList.getSelectedValue(),
             instruction:this.instructionsList.getSelectedValue(),
-            dosage:this.dosageList.getSelectedValue(),
             timings:this.timingsList.getSelectedValue(),
-            duration: this.getDuration()
+            quantity: this.quantityList.getSelectedValue(),
         }
     },
 
@@ -44,44 +42,21 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
         if (this.medicineDetails.data.specs == null) {
             return null;
         }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%").autoSelectSingleElement();
+        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "25%").autoSelectSingleElement();
     },
 
     addInstructionList:function () {
         return this.addMultiSelectionBox(this._instructionsList, "Instruction", "25%");
     },
 
-    addDosageList:function () {
-        var arrayData = ["1/4", "1/3", "1/2", "2/3", "3/4", "1", "2", "3"];
-        return this.addSelectionBox(arrayData, "Dosage", "15%");
+    addQuantityList:function () {
+        var arrayData = ["1 bottle", "2bottle", "3 bottle"];
+        return this.addSelectionBox(arrayData, "Dosage", "25%");
     },
 
     addTimingsList:function () {
         var arrayData = ["Morning", "Noon", "Evening", "Night"];
         return this.addMultiSelectionBox(arrayData, "Timings", "20%");
-    },
-
-    addDurationList: function() {
-        this.durationQuantity = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
-            width:'90%',
-        }).addData([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30]);
-
-        this.durationUnit = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
-            width:'90%',
-        }).addData(["Days", "Weeks", "Months", "Years"]);
-
-        this.add({
-            xtype: "container",
-            layout: "vbox",
-            width: "20%",
-            items: [
-                {xtype:'toolbar', docked:'top', title:"Duration"},
-                {xtype: 'panel', flex: 1, items:[this.durationQuantity]},
-                {xtype: 'panel', flex: 1, items:[this.durationUnit, {xtype:'toolbar', docked:'top', title:"Unit"}]},
-            ]
-        })
-
-        return this.durationQuantity;
     },
 
     addSelectionBox:function (arrayData, title, width) {
@@ -95,7 +70,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
     addMultiSelectionBox:function (arrayData, title, width) {
         var widget = Ext.create("Jss.Outpatient.view.util.ArrayMultiSelectionBox", {
             width:'90%',
-            id: title + "uuid",
         }).addData(arrayData);
         this.addTitle(widget, title, width);
         return widget;
@@ -108,10 +82,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
             layout: 'fit',
             items:[widget, {xtype:'toolbar', docked:'top', title:title}],
         });
-    },
-
-    getDuration: function() {
-        return this.durationQuantity.getSelectedValue() + " " + this.durationUnit.getSelectedValue();
     },
 
     _instructionsList:[

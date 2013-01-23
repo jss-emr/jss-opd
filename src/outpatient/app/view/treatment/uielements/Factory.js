@@ -9,5 +9,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.Factory', {
             return Ext.create('Jss.Outpatient.view.treatment.uielements.DrugUIElement').for(medicineDetails);
         if(medicineDetails.get('type') == "INJ")
             return Ext.create('Jss.Outpatient.view.treatment.uielements.InjectionUIElement').for(medicineDetails);
+        if(medicineDetails.get('type') == "SYP")
+            return Ext.create('Jss.Outpatient.view.treatment.uielements.SyrupUIElement').for(medicineDetails);
     },
 });

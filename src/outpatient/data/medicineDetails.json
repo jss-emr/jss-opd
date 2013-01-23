@@ -34,7 +34,7 @@
     {name: "Atropin (INJ)", type: "INJ", specs: ["1ml"]},
     {name: "Pheniramine Maleate (INJ)", type: "INJ", specs: ["2ml"]},
     {name: "Azithromycin (TAB)", type: "TAB", specs: ["100mg","250mg","500mg"]},
-    {name: "Syp Azithromycin", type:"SYP", specs: ["200mg/15ml","100mg/15ml"]},
+    {name: "Azithromycin (SYP)", type:"SYP", specs: ["200mg/15ml","100mg/15ml"]},
     {name: "B-complex (TAB)", type:"TAB"},
     {name: "Multivitamin Multimineral (CAP)", type:"CAP"},
     {name: "Beclomethasone Dipropionate Rotacaps (CAP)", type: "CAP", specs: ["200mcg"]},

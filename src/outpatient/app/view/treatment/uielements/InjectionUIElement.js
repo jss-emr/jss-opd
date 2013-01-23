@@ -50,7 +50,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         if(this.medicineDetails.data.specs != null) {
             this.specsList = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
                 width:'90%',
-            }).addData(this.medicineDetails.data.specs);
+            }).addData(this.medicineDetails.data.specs).autoSelectSingleElement();
             firstColumn.add({xtype: 'container', flex: 1, items: [this.specsList, {xtype: 'titlebar', docked: 'top', title: 'Specs'}]});
         }
 
