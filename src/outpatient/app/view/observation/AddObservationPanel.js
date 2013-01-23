@@ -33,7 +33,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     addDetailsPanel: function() {
         var widget = Ext.create('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
             width:'70%',
-            height: 300,
             bubbleEvents: 'observationDetailsCaptured',
         });
 

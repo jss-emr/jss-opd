@@ -3,7 +3,8 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     requires : [
         'Jss.Outpatient.view.concept.NumericUIElement',
         'Jss.Outpatient.view.concept.DurationUIElement',
-        'Jss.Outpatient.view.concept.CodedUIElement'
+        'Jss.Outpatient.view.concept.CodedUIElement',
+        'Jss.Outpatient.view.concept.ComplexUIElement'
     ],
 
     get:function (concept) {
@@ -17,6 +18,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
         if (datatype == "coded") {
             return this.coded(concept);
         }
+        if (datatype == "complex") {
+            return this.complex(concept);
+        }
     },
 
     numeric:function (concept) {
@@ -29,5 +33,8 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
 
     coded:function (concept) {
         return Ext.create('Jss.Outpatient.view.concept.CodedUIElement').for(concept);
+    },
+    complex:function (concept) {
+        return Ext.create('Jss.Outpatient.view.concept.ComplexUIElement').for(concept);
     }
 });

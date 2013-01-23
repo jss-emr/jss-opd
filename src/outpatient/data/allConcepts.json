@@ -114,9 +114,62 @@
                     ],
                 }
             },
-			conceptClass: "question",
+			conceptClass: "question"
 		}
 	},
+    {
+        name: "Tobacco",
+        id: "tobaccoUUID",
+        properties: {
+            datatype: {
+                name:"complex",
+                properties: {
+                    answers: [
+                        {
+                            name: "Duration",
+                            html:"Duration",
+                            id: "durationUUID",
+                            properties: {
+                                datatype: {name:"duration"},
+                                conceptClass: "surgery",
+                            }
+                        },
+                        {
+                            name: "Method",
+                            id: "methodUUID",
+                            properties: {
+                                datatype: {
+                                    name:"coded",
+                                    properties: {
+                                        answers: [
+                                            {
+                                                name: "ORAL",
+                                                id: "oralUUID",
+                                                properties: {
+                                                    datatype: {name:"N/A"},
+                                                    conceptClass: "Misc",
+                                                }
+                                            },
+                                            {
+                                                name: "SMOKE",
+                                                id: "smokeUUID",
+                                                properties: {
+                                                    datatype: {name:"N/A"},
+                                                    conceptClass: "Misc",
+                                                }
+                                            },
+                                        ],
+                                    }
+                                },
+                                conceptClass: "question",
+                            }
+                        },
+                    ]
+                }
+            },
+            conceptClass: "question",
+        }
+    },
 	{
 		name: "AFB/HPE",
         id: "afbhpeUUID",

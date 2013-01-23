@@ -14,7 +14,12 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 inline:true,
                 itemTpl: '{summary}',
                 scroll:'both',
-                flex: 1,
+                flex: 20,
+            },
+            {
+                xtype : 'label',
+                style: 'background-color: "blue"',
+                flex: 1
             },
             {
                 xtype : 'addObservationPanel',
@@ -23,7 +28,7 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 autoCompleteStore: 'HistoryConcepts',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
-                flex: 3,
+                flex: 40,
             }
         ]
     }

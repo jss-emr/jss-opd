@@ -2,20 +2,25 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
     extend:'Ext.Container',
 
     config:{
-        height:300,
+        height:'100%',
         layout:'hbox',
         width:'100%',
-        scrollable:false
+//        scrollable:false
     },
 
     for:function (concept) {
         this.concept = concept;
         this.conceptListBox  = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
-            width:'80%',
+            width:'100%',
             itemTpl: '{name}'
         }).addData(concept.get('properties').datatype.properties.answers);
 
         this.add([
+            {
+                xtype:'label',
+                html: this.concept.get('name'),
+                width: '20%',
+            },
             {
                 xtype:'panel',
                 width:'20%',

@@ -3,15 +3,14 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     config:{
         height:100,
-        flex:1,
-        scrollable:'false',
+//        flex:1,
+//        scrollable:'false',
         layout:'hbox'
     },
 
     for:function (concept) {
         this.concept = concept;
         this.numberfield = Ext.create('Ext.field.Number', {
-            height:50,
             width:'100%',
             label: this.concept.conceptName(),
             labelWidth: '60%',

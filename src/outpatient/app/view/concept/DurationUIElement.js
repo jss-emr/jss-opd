@@ -2,22 +2,27 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     extend: 'Ext.Container',
 
     config: {
-        height: 300,
+        height: '100%',
         layout: 'hbox',
         width: '100%',
-        scrollable: false,
+//        scrollable: false,
     },
 
     for: function (concept) {
         this.concept = concept;
         this.durationListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
-            width: '80%',
+            width: '100%',
         }).addData([1, 2, 3, 4, 5]);
         this.unitListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
-            width: '80%',
+            width: '80%', align: 'left'
         }).addData(["days", "months", "years"]);
 
         this.add([
+            {
+                xtype: 'label',
+                html: concept.get('name') + ' for duration',
+                width: '20%',
+            },
             {
                 xtype: 'panel',
                 width: '10%',
@@ -30,7 +35,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
                 height: 300,
                 items: [this.unitListBox]
             }
-        ])
+        ]);
 
         return this;
     },

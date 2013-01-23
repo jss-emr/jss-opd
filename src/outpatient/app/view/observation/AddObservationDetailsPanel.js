@@ -4,20 +4,20 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     config:{
         layout:'vbox',
-        scroll:'both',
+        scroll:'both'
     },
 
     initialize: function() {
-        this.addButton = this.createAddButton();
         this.detailsPanel = this.addDetailsPanel();
+        this.addButton = this.createAddButton();
     },
 
     createAddButton: function() {
         var button = Ext.create('Ext.Button', {
             html: 'Add',
             hidden: true,
-            height: 50,
-            width: 100,
+            flex: 1,
+            width: '100%',
             style: 'margin-left: 10px'
         });
 
@@ -29,7 +29,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     addDetailsPanel: function() {
         var widget = Ext.create('Ext.Container', {
-            height: 300,
+            flex: 15,
             width: '100%',
             layout: 'fit',
         });
