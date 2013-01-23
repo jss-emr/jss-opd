@@ -38,10 +38,10 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
     getValue: function () {
         var obs = Ext.create('Jss.Outpatient.model.concept.Observation', {
             concept: this.concept,
-            value: this.durationListBox.getSelectedValue().get('value') + this.unitListBox.getSelectedValue().get('value'),
+            value: this.durationListBox.getSelectedValue() + this.unitListBox.getSelectedValue(),
             properties: {
-                duration: this.durationListBox.getSelectedValue().get('value'),
-                unit: this.unitListBox.getSelectedValue().get('value')
+                duration: this.durationListBox.getSelectedValue(),
+                unit: this.unitListBox.getSelectedValue()
             }
         });
         obs.setSummary();

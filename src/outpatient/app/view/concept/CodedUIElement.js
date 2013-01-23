@@ -13,7 +13,7 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
         this.conceptListBox  = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
             width:'80%',
             itemTpl: '{name}'
-        }).addData(concept.get('properties').datatype.properties.answers);                      ;
+        }).addData(concept.get('properties').datatype.properties.answers);
 
         this.add([
             {
@@ -32,7 +32,7 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
             concept:this.concept,
             value: this.conceptListBox.getSelectedValue()
         });
-        obs.set('summary', obs.get('concept').get('name') + '-' + obs.get('value').get('name'));
+        obs.set('summary', obs.get('concept').get('name') + '-' + obs.get('value').name);
         return obs;
     },
 

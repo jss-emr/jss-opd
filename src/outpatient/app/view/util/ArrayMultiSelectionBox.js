@@ -7,7 +7,10 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
     },
 
     getSelectedValue: function() {
+        var self = this;
         var selectedValues = this.getSelection();
-        return selectedValues.map(function(element) {return element.data.value});
+        return selectedValues.map(function(element) {
+            return (self.isPrimitiveData === true) ? element.get('value') : element.getData();
+        });
     }
 });

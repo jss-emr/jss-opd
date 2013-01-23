@@ -9,14 +9,11 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
         scrollable: true,
 	},
 
+    isPrimitiveData: true,
+
     addData: function (array) {
         this.setStore(Ext.create('Ext.data.Store', {
-            data: array.map(function (element) {
-                if (element instanceof Object) {
-                    return element;
-                }
-                return {'value': element};
-            })
+            data: this._wrapDataIfPrimitive(array)
         }));
 
         this.refresh();
@@ -28,7 +25,18 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
         if (selectedValues.length <= 0) {
             return null;
         }
-        return selectedValues[0];
-    }
 
+        return (this.isPrimitiveData === true) ? selectedValues[0].get('value') : selectedValues[0].getData();
+    },
+
+    _wrapDataIfPrimitive: function(array) {
+        var self = this;
+        return array.map(function (element) {
+            if (element instanceof Object) {
+                self.isPrimitiveData = false;
+                return element;
+            }
+            return {'value': element};
+        });
+    },
 })
