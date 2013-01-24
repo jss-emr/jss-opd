@@ -2,18 +2,18 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
     extend: 'Ext.app.Controller',
     config: {
         refs: {
-            diagnosisSelector: '#diagnosisSelector',
-            diagnosisSummaryList: '#diagnosisSummaryList',
-            diagnosisSummaryPanel: '#diagnosisSummaryPanel'
+            diagnosisSummaryPanel: '#diagnosisSummaryPanel',
+            observationsSummaryPanel:'#diagnosis-observationSummaryPanel',
+            addObservationsPanel:'#diagnosis-addObservationsPanel',
         },
+
         control: {
-            diagnosisSelector: {
-                initialize: 'flagInitialize',
-                change: 'addDiagnosis', //this is fired even when selectbox loads.
-            },
             diagnosisSummaryPanel: {
                 jsstouchstart: 'gotoEditPage'
-            }
+            },
+            addObservationsPanel: {
+                observationDetailsCaptured: 'addObservation'
+            },
         }
     },
 
@@ -21,15 +21,7 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
         Ext.getCmp('mainview').push(Ext.getCmp('diagnosis-card'));
     },
 
-    flagInitialize : function() {
-        this.diagnosisSelectorJustInitialized = true
-    },
-
-    addDiagnosis: function() {
-        if(this.diagnosisSelectorJustInitialized == true) {
-            this.diagnosisSelectorJustInitialized = false;
-            return;
-        }
-        this.getDiagnosisSummaryList().getStore().add(this.getDiagnosisSelector().getRecord());
+    addObservation: function(observation) {
+        this.getObservationsSummaryPanel().getStore().add(observation);
     }
 });

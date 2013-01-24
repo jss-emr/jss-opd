@@ -9,9 +9,10 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
             xtype: 'list',
             id: 'diagnosisSummaryList',
             store: 'Diagnosis',
+            itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
             html: '<b>Diagnosis</b>',
             inline: true,
-            itemTpl: '<table><tr class="summary"><td>{sign}</td></tr></table>',
+            cls: 'diagnosisSummary',
         }]
     },
  })
