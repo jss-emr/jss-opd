@@ -5,8 +5,13 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
         layout:'fit',
         items: [
             {
+                xtype: 'titlebar',
+                title: 'History & Symptoms',
+                docked: 'top',
+                cls: 'summaryTitle'
+            },
+            {
                 xtype: 'list',
-                html: "<b>History & Symptoms</b>",
                 store:'HistoryObservations',
                 inline:true,
                 itemTpl: '{summary}'

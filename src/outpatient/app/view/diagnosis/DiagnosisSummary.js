@@ -4,15 +4,22 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
     config: {
         layout: 'fit',
         title: 'Diagnosis',
-        items: [{
-            title: 'Diagnosis',
-            xtype: 'list',
-            id: 'diagnosisSummaryList',
-            store: 'Diagnosis',
-            itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
-            html: '<b>Diagnosis</b>',
-            inline: true,
-            cls: 'diagnosisSummary',
-        }]
+        items: [
+            {
+                xtype: 'titlebar',
+                title: 'Diagnosis',
+                docked: 'top',
+                cls: 'summaryTitle'
+            },
+            {
+                title: 'Diagnosis',
+                xtype: 'list',
+                id: 'diagnosisSummaryList',
+                store: 'Diagnosis',
+                itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
+                inline: true,
+                cls: 'diagnosisSummary',
+            }
+        ]
     },
  })

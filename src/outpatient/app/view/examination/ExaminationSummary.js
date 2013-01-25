@@ -3,14 +3,21 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
     alias: 'widget.examinationSummary',
     config: {
         layout: 'fit',
-        items: [{
-            title: 'Examination',
-            xtype: 'list',
-            id: 'complaintsList',
-            html:'<b>Examination</b>',
-            itemTpl: '{summary}',
-            store: 'ExaminationObservations',
-            inline: true,
-        }]
+        items: [
+            {
+                xtype: 'titlebar',
+                title: 'Examinations',
+                docked: 'top',
+                cls: 'summaryTitle'
+            },
+            {
+                title: 'Examination',
+                xtype: 'list',
+                id: 'complaintsList',
+                itemTpl: '{summary}',
+                store: 'ExaminationObservations',
+                inline: true,
+            }
+        ]
     },
 });

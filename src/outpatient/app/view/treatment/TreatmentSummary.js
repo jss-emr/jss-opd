@@ -5,9 +5,14 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
 	config: {
 		layout: 'fit',
 		items:[
-			{
+            {
+                xtype: 'titlebar',
+                title: 'Treatment Advice',
+                docked: 'top',
+                cls: 'summaryTitle'
+            },
+            {
 				xtype: 'list',
-				html:'<b>Treatment Advice</b>',
 				store: 'TreatmentAdvice',
 				height: '100%',
 				width: '100%',
