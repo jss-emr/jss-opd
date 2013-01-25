@@ -9,7 +9,7 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
 
         control: {
             diagnosisSummaryPanel: {
-                jsstouchstart: 'gotoEditPage'
+                containerDoubleTab: 'gotoEditPage'
             },
             addObservationsPanel: {
                 observationDetailsCaptured: 'addObservation'

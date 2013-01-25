@@ -12,7 +12,7 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
                 change: 'addInstruction', //this is fired even when selectbox loads.
             },
             instructionSummaryPanel:{
-                jsstouchstart:'gotoEditPage'
+                containerDoubleTab:'gotoEditPage'
             }
         }
     },

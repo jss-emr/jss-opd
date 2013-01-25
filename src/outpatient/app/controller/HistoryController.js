@@ -8,7 +8,7 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
         },
         control:{
             historySummaryPanel:{
-                jsstouchstart:'gotoEditPage'
+                containerDoubleTab:'gotoEditPage'
             },
 
             addObservationsPanel: {

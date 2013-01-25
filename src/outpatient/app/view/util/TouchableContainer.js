@@ -3,11 +3,11 @@ Ext.define('Jss.Outpatient.view.util.TouchableContainer', {
 
     initialize: function() {
         this.on({
-            touchstart: {
+            doubletap: {
                 element: 'innerElement',
                 scope: this,
                 fn : function() {
-                    this.fireEvent('jsstouchstart');
+                    this.fireEvent('containerDoubleTab');
                 }
             }
         });
