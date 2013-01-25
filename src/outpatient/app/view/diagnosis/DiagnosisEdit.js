@@ -11,13 +11,15 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 id:'diagnosis-observationSummaryPanel',
                 itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
                 store: 'Diagnosis',
-                inline: true,
-                cls: 'diagnosisSummary',
+                cls: 'diagnosisSummary stripedList',
                 flex: 1,
                 scrollable: 'vertical',
                 listeners: {
-                    itemswipe: function(list, index, target, record) {
-                        list.getStore().remove(record);
+                    itemswipe: function(list, index, target, record, event) {
+                        if(event.direction == 'right')
+                            record.set('discarded', true);
+                        else
+                            record.set('discarded', false);
                     }
                 }
             },
