@@ -24,6 +24,10 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         return "";
     },
 
+    isDefault: function() {
+        return false;
+    },
+
     treatmentAdviceProperties:function () {
         return { }
     },

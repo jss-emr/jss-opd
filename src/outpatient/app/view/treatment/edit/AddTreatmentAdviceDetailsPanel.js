@@ -45,6 +45,10 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     addUIElement: function(uiElement) {
         this.uiElement = uiElement;
+        if(this.uiElement.isDefault()) {
+            this.detailsCaptured();
+            return;
+        }
         this.detailsPanel.add([uiElement]);
         this.detailsPanel.show();
         this.addButton.show();

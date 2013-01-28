@@ -7,6 +7,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.Factory', {
         'Jss.Outpatient.view.treatment.uielements.BaseUIElement',
         'Jss.Outpatient.view.treatment.uielements.DropsUIElement',
         'Jss.Outpatient.view.treatment.uielements.CreamUIElement',
+        'Jss.Outpatient.view.treatment.uielements.DefaultUIElement',
 
     ],
 
@@ -26,5 +27,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.Factory', {
             case "OINT":
                 return Ext.create('Jss.Outpatient.view.treatment.uielements.CreamUIElement').for(medicineDetails);
         }
+        return Ext.create('Jss.Outpatient.view.treatment.uielements.DefaultUIElement').for(medicineDetails);
     },
 });
