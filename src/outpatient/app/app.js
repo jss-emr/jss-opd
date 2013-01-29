@@ -17,6 +17,7 @@ Ext.application({
         'Visit', 
         'VitalStats', 
         'Instruction',
+        'DiseaseTemplate',
         'concept.Concept',
         'concept.Observation',
         'treatment.MedicineDetail',
@@ -25,6 +26,7 @@ Ext.application({
     stores: [
         'patients', 
         'patient',
+        'DiseaseTemplates',
         'history.HistoryConcepts',
         'history.HistoryObservations',
         'history.HistoryQueue',

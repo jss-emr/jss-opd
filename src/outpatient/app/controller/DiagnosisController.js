@@ -5,6 +5,7 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
             diagnosisSummaryPanel: '#diagnosisSummaryPanel',
             observationsSummaryPanel:'#diagnosis-observationSummaryPanel',
             addObservationsPanel:'#diagnosis-addObservationsPanel',
+            diseaseTemplate: '#diseaseTemplate',
         },
 
         control: {
@@ -14,6 +15,9 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
             addObservationsPanel: {
                 observationDetailsCaptured: 'addObservation'
             },
+            diseaseTemplate: {
+                select: 'diseaseTemplateSelected'
+            }
         }
     },
 
@@ -23,5 +27,18 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
 
     addObservation: function(observation) {
         this.getObservationsSummaryPanel().getStore().add(observation);
+    },
+
+    diseaseTemplateSelected: function(list, diseaseTemplate) {
+        console.log("asdd");
+        var sections = diseaseTemplate.get('sections');
+        sections.examinations.forEach(function(examination) {
+            var allExaminations = Ext.getStore('ExaminationConcepts');
+            Ext.getStore('ExaminationQueue').add(allExaminations.findRecord('name', examination.conceptName));
+        });
+        sections.history.forEach(function(history) {
+            var historyConcepts = Ext.getStore('HistoryConcepts');
+            Ext.getStore('HistoryQueue').add(historyConcepts.findRecord('name', history.conceptName));
+        });
     }
 });

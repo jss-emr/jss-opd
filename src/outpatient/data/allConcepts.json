@@ -64,6 +64,7 @@
 { name: "HIV NEGATIVE, NO LONGER AT RISK", id: "1403UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
 { name: "HIV NEGATIVE, STILL BREASTFEEDING", id: "1404UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
 { name: "HIV EXPOSED, STATUS INDETERMINATE", id: "1405UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
+{ name: "HIV POSITIVE", id: "1406UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
 { name: "LOW", id: "1407UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
 { name: "HIGH", id: "1408UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},
 { name: "CURRENTLY PREGNANT", id: "1434UUID", properties:{ datatype: {name: "boolean"}, conceptClass : "Finding"}},

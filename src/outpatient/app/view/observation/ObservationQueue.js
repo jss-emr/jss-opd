@@ -7,13 +7,12 @@ Ext.define('Jss.Outpatient.view.observation.ObservationQueue', {
         layout: 'vbox',
         margin: "10 0 0 0",
         cls: 'observationQueue',
+        hidden: true,
     },
 
     initialize: function() {
         this.queuePanel = this.createObservationQueuePanel();
-        if(this.queuePanel.getStore().getCount() == 0) {
-            this.hide();
-        }
+        this.onDataUpdate();
     },
 
     createObservationQueuePanel: function() {
@@ -23,6 +22,9 @@ Ext.define('Jss.Outpatient.view.observation.ObservationQueue', {
             width: '100%',
             height: 400,
         });
+
+        widget.getStore().on('addrecords', this.onDataUpdate, this);
+        widget.getStore().on('removerecords', this.onDataUpdate, this);
 
         widget.on('select', this.itemSelected, this);
         this.add([
@@ -36,9 +38,11 @@ Ext.define('Jss.Outpatient.view.observation.ObservationQueue', {
         this.fireEvent('queueItemSelected', record);
     },
 
-    addData: function(records) {
-        this.queuePanel.getStore().add(records);
-        this.show();
+    onDataUpdate: function() {
+        if(this.queuePanel.getStore().getCount() == 0)
+            this.hide();
+        else
+            this.show();
     },
 
     removeData: function(fieldName, fieldValue) {
