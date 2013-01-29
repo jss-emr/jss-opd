@@ -2,7 +2,10 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     extend:'Ext.Container',
     alias:"widget.addObservationPanel",
 
-    requires: ['Jss.Outpatient.view.observation.AddObservationDetailsPanel'],
+    requires: [
+        'Jss.Outpatient.view.observation.AddObservationDetailsPanel',
+        'Jss.Outpatient.view.observation.ObservationQueue'
+    ],
 
     config:{
         layout:'hbox',
@@ -10,14 +13,13 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     },
 
     initialize: function() {
-        this.autoCompleteWidget = this.addAutoCompleteWidget();
+        this.addAutocompleteAndObservationQueue();
         this.detailsPanel = this.addDetailsPanel();
     },
 
-    addAutoCompleteWidget: function() {
+    createAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
             placeHolder:'Search...',
-            width:'30%',
             store: this.config.autoCompleteStore,
             itemTpl: this.config.autoCompleteItemTpl,
             filterKey: this.config.autoCompleteFilterKey,
@@ -26,8 +28,32 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         widget.on('itemSelected', this.onConceptSelection, this);
         widget.on('clearicontap', this.clear, this);
 
-        this.add(widget);
         return widget;
+    },
+
+    createObservationQueuePanel: function() {
+        var widget = Ext.create('Jss.Outpatient.view.observation.ObservationQueue', {
+            store: this.config.observationQueueStore,
+            itemTpl: this.config.autoCompleteItemTpl,
+            width: '100%',
+        });
+
+        widget.on('queueItemSelected', this.onConceptSelection, this);
+
+        return widget;
+    },
+
+    addAutocompleteAndObservationQueue: function() {
+        this.autoCompleteWidget = this.createAutoCompleteWidget();
+        this.observationQueue = this.createObservationQueuePanel();
+
+        this.add({
+            xtype: 'container',
+            width: '30%',
+            layout: 'vbox',
+
+            items : [this.autoCompleteWidget, this.observationQueue],
+        })
     },
 
     addDetailsPanel: function() {
@@ -36,7 +62,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
             bubbleEvents: 'observationDetailsCaptured',
         });
 
-        widget.on('observationDetailsCaptured', this.clear, this);
+        widget.on('observationDetailsCaptured', this.onDetailsCaptured, this);
 
         this.add(widget);
         return widget;
@@ -49,6 +75,11 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         if (uiElement !== undefined) {
             this.detailsPanel.addObservationUIElement(uiElement);
         }
+    },
+
+    onDetailsCaptured: function(observation) {
+        this.observationQueue.removeData('id', observation.get('concept').get('id'));
+        this.clear();
     },
 
     clear:function () {

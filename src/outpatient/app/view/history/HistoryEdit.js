@@ -26,6 +26,7 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 id:'history-addObservationsPanel',
                 scrollable: false,
                 autoCompleteStore: 'HistoryConcepts',
+                observationQueueStore: 'HistoryQueue',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
                 flex: 40,

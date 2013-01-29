@@ -24,6 +24,7 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationEdit', {
                 id:'examination-addObservationsPanel',
                 scrollable: false,
                 autoCompleteStore: 'ExaminationConcepts',
+                observationQueueStore: 'ExaminationQueue',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
                 flex: 3,
