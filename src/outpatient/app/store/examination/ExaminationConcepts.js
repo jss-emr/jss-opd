@@ -5,7 +5,7 @@ Ext.define('Jss.Outpatient.store.examination.ExaminationConcepts', {
         autoLoad: true,
         proxy: {
             type: 'ajax',
-            url: 'data/allConcepts.json'
+            url: 'data/allExaminations.json'
         }
     }
 });

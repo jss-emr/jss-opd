@@ -6,7 +6,7 @@ Ext.define('Jss.Outpatient.store.diagnosis.DiagnosisConcepts', {
         autoLoad: true,
         proxy: {
             type: 'ajax',
-            url: 'data/allConcepts.json'
+            url: 'data/allDiagnoses.json'
         }
     }
 });

@@ -5,7 +5,8 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
         'Jss.Outpatient.view.concept.DurationUIElement',
         'Jss.Outpatient.view.concept.CodedUIElement',
         'Jss.Outpatient.view.concept.ComplexUIElement',
-        'Jss.Outpatient.view.concept.SimpleUIElement'
+        'Jss.Outpatient.view.concept.SimpleUIElement',
+        'Jss.Outpatient.view.concept.BooleanUIElement'
     ],
 
     get:function (concept) {
@@ -25,6 +26,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
         if (datatype == "N/A") {
             return this.simple(concept);
         }
+        if (datatype == "boolean") {
+            return this.booleanConcept(concept);
+        }
     },
 
     numeric:function (concept) {
@@ -43,5 +47,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     } ,
     simple:function (concept) {
         return Ext.create('Jss.Outpatient.view.concept.SimpleUIElement').for(concept);
-    }
+    }, 
+    booleanConcept:function (concept) {
+        return Ext.create('Jss.Outpatient.view.concept.BooleanUIElement').for(concept);
+    },
+	
 });
