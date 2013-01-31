@@ -4,7 +4,7 @@ Ext.define('Jss.Outpatient.model.concept.Observation', {
         fields: [
             {name: "concept", type: "auto"},
             {name: "value", type: "auto"},
-            {name: "summary", type: "string"},
+            {name: "summary", type: "string"}
         ]
     },
 

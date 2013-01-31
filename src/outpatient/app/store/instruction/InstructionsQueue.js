@@ -1,4 +1,4 @@
-Ext.define('Jss.Outpatient.store.history.InstructionsQueue', {
+Ext.define('Jss.Outpatient.store.instruction.InstructionsQueue', {
     extend: 'Ext.data.Store',
 
     config: {

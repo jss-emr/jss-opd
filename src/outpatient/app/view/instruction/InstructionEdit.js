@@ -6,11 +6,21 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
         layout: 'vbox',
         items: [{
             xtype: 'list',
-            flex: 1,
+            id: 'instruction-observationSummaryPanel',
+            itemTpl: '{summary}',
             store: 'Instructions',
-            html: '<b>Instructions</b>',
+            cls: 'diagnosisSummary stripedList',
+            flex: 1,
             inline: true,
-            itemTpl: '<table><tr class="summary"><td>{type}</td></tr></table>'
+            scrollable: 'vertical',
+            listeners: {
+                itemswipe: function(list, index, target, record, event) {
+                    if(event.direction == 'right')
+                        record.set('discarded', true);
+                    else
+                        record.set('discarded', false);
+                }
+            }
         },
         {
             xtype : 'addObservationPanel',

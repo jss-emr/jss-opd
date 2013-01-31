@@ -4,7 +4,8 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     config:{
         layout:'vbox',
-        scroll:'both'
+        scroll:'both',
+        bubbleEvents: 'observationDetailsCaptured'
     },
 
     initialize: function() {
@@ -51,6 +52,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
     },
 
     detailsCaptured: function() {
+        console.log("here!")
         if(this.isValid()){
             this.fireEvent('observationDetailsCaptured', this.getObservationDetails());
         }

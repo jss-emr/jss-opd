@@ -31,7 +31,7 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 observationQueueStore: 'DiagnosisQueue',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
-                flex: 3,
+                flex: 3
             }
         ]
     }

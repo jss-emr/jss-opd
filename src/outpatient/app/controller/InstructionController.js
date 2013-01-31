@@ -4,33 +4,26 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
         refs: {
             instructionSelector: '#instructionSelector',
             instructionSummaryList: '#instructionSummaryList',
-            instructionSummaryPanel: '#instructionSummaryPanel'
+            instructionSummaryPanel: '#instructionSummaryPanel',
+            addObservationsPanel:'#instruction-addObservationsPanel',
+            observationsSummaryPanel:'#instruction-observationSummaryPanel'
         },
         control: {
-            instructionSelector: {
-                initialize: 'flagInitialize',
-                change: 'addInstruction', //this is fired even when selectbox loads.
-            },
             instructionSummaryPanel:{
                 containerDoubleTab:'gotoEditPage'
+            },
+            addObservationsPanel: {
+                observationDetailsCaptured: 'addObservation'
             }
         }
     },
 
-    flagInitialize : function() {
-        this.instructionSelectorJustInitialized = true
-    },
-
-    addInstruction: function() {
-        if(this.instructionSelectorJustInitialized == true) {
-            this.instructionSelectorJustInitialized = false;
-            return;
-        }
-
-        this.getInstructionSummaryList().getStore().add(this.getInstructionSelector().getRecord());
-    },
-
     gotoEditPage: function() {
         Ext.getCmp('mainview').push(Ext.getCmp('instruction-card'));
-    }
+    },
+
+    addObservation: function(observation) {
+        this.getObservationsSummaryPanel().getStore().add(observation);
+    },
+
 });

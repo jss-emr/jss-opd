@@ -18,7 +18,7 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
                 scrollable: 'false',
                 store: 'Instructions',
                 inline: true,
-                itemTpl: '<table><tr class="summary"><td>{type}</td></tr></table>',
+                itemTpl: '{summary}',
             }
         ]
     }

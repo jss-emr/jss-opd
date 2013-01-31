@@ -41,6 +41,7 @@ Ext.application({
         'treatment.TreatmentAdvice',
         'treatment.MedicineDetails',
         'instruction.AllInstructions',
+        'instruction.InstructionsQueue',
         'instruction.Instructions',
     ],
     views: [
