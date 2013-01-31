@@ -11,23 +11,18 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
             html: '<b>Instructions</b>',
             inline: true,
             itemTpl: '<table><tr class="summary"><td>{type}</td></tr></table>'
-        },{
-            xtype: 'formpanel',
+        },
+        {
+            xtype : 'addObservationPanel',
+            id:'instruction-addObservationsPanel',
+            scrollable: false,
+            autoCompleteStore: 'AllInstructions',
+            observationQueueStore: 'InstructionsQueue',
+            autoCompleteItemTpl: '{name}',
+            autoCompleteFilterKey: 'name',
             flex: 3,
-            items: [
-                {
-                    xtype: 'fieldset',
-                    title: 'Instruction',
-                    items: [{
-                        xtype: 'selectfield',
-                        id: 'instructionSelector',
-                        label: 'Chief Instruction',
-                        valueField: 'type',
-                        displayField: 'type',
-                        store: 'AllInstructions',
-                    }]
-                }
-            ]
-        }]
+        }
+        ]
+
     }
 });
