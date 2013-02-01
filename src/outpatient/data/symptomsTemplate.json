@@ -1,0 +1,26 @@
+[
+    {
+        name:'Bleeding from Rectum',
+        sections:{
+            history:[
+                {name:"Blood Loss", properties:{datatype:{name:"coded", properties:{answers:[{name: "Minimal"}, {name: "Moderate"}, {name: "Severe"}]}}}},
+                {name:"Paller", properties:{datatype:{name:"coded", properties:{answers:[{name: "None/Minimal"}, {name:"Moderate"}, {name:"Severe"}]}}}},
+                {name:"BP", properties:{datatype:"numeric"}},
+                {name:"PR", properties:{datatype:"numeric"}},
+                {name:"Postural fall of BP", properties:{datatype:"numeric"}},
+                {name:"Age", properties:{datatype:"numeric"}},
+                {name:"Associated Co-morbidity", properties:{datatype:{name:"coded", properties:{multi: true, answers:[{name:"Cirrhosis"}, {name:"Renal Dysfunction"}, {name: "Diabetes"}]}}}},
+                {name:"Abdominal Symptoms", properties:{datatype:{name:"coded", properties:{answers:[{name: "Pain"}, {name: "Loose stool"}, {name: "Mucus"}]}}}},
+                {name:"Other", properties:{datatype:{name:"coded", properties:{answers:[{name: "Fever"}, {name: "Fatigue/Weekness"}, {name: "Syncope History"}]}}}},
+            ],
+            examinations:[
+                {name:"Ascites", properties:{datatype:"boolean"}},
+                {name:"Abdomen Tenderness", properties:{datatype:"boolean"}},
+                {name:"Abdomen Lump", properties:{datatype:{name:"coded", properties:{answers:[{name:"N/A"}, {name: "Tumor"}, {name: "Intussusception"}]}}}},
+                {name:"Fissures", properties:{datatype:"boolean"}},
+                {name:"Piles", properties:{datatype:"boolean"}},
+                {name:"Mass", properties:{datatype:"boolean"}},
+            ]
+        }
+    }
+]

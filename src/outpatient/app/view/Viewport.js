@@ -17,6 +17,7 @@ Ext.define('Jss.Outpatient.view.Viewport', {
         'Jss.Outpatient.view.diagnosis.DiagnosisEdit',
         'Jss.Outpatient.view.instruction.InstructionSummary',
         'Jss.Outpatient.view.instruction.InstructionEdit',
+        'Jss.Outpatient.view.symptomstemplate.SelectPage',
     ],
 
     config: {

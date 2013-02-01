@@ -30,7 +30,6 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
     },
 
     diseaseTemplateSelected: function(list, diseaseTemplate) {
-        console.log("asdd");
         var sections = diseaseTemplate.get('sections');
         sections.examinations.forEach(function(examination) {
             var allExaminations = Ext.getStore('ExaminationConcepts');

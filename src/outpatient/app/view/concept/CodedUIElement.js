@@ -10,7 +10,15 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
 
     for:function (concept) {
         this.concept = concept;
-        this.conceptListBox  = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
+        this.isMultiSelect = false;
+
+        var arraySelectionBoxClass = "Jss.Outpatient.view.util.ArraySelectionBox"
+        if(concept.get('properties').datatype.properties.multi === true){
+            arraySelectionBoxClass = "Jss.Outpatient.view.util.ArrayMultiSelectionBox"
+            this.isMultiSelect = true;
+        }
+
+        this.conceptListBox  = Ext.create(arraySelectionBoxClass, {
             width:'100%',
             itemTpl: '{name}'
         }).addData(concept.get('properties').datatype.properties.answers);
@@ -37,7 +45,12 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
             concept:this.concept,
             value: this.conceptListBox.getSelectedValue()
         });
-        obs.set('summary', obs.get('concept').get('name') + '-' + obs.get('value').name);
+        if(this.isMultiSelect == true) {
+            var value = obs.get('value').map(function(elem) {return elem.name}).join(", ");
+        } else {
+            var value = obs.get('value').name;
+        }
+        obs.set('summary', obs.get('concept').get('name') + '-' + value);
         return obs;
     },
 

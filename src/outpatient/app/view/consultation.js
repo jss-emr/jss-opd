@@ -20,7 +20,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
                     items: [
                         {
                             xtype: 'historySummary',
-                            id: 'historySummaryPanel',
                             flex: 2,
                         },{
                             xtype: 'diagnosis',
@@ -73,6 +72,16 @@ Ext.define('Jss.Outpatient.view.consultation', {
             items: [{
                 xtype: 'historyEdit',
                 id: 'historyEditPanel',
+                flex: 2,
+            }]
+        },{
+            layout: 'vbox',
+            title: 'SymptomsTemplate-Select',
+            id: 'symptomsTemplateSelect-card',
+            items: [{
+                xtype: 'symptoms-template-select',
+                id: 'symptomsTemplateSelect',
+                listeners: {symptomsTemplateSelected: function() {console.log("in cons")}},
                 flex: 2,
             }]
         },{

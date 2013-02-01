@@ -18,6 +18,7 @@ Ext.application({
         'VitalStats', 
         'Instruction',
         'DiseaseTemplate',
+        'SymptomsTemplate',
         'concept.Concept',
         'concept.Observation',
         'treatment.MedicineDetail',
@@ -27,6 +28,7 @@ Ext.application({
         'patients', 
         'patient',
         'DiseaseTemplates',
+        'SymptomsTemplates',
         'history.HistoryConcepts',
         'history.HistoryObservations',
         'history.HistoryQueue',
@@ -56,6 +58,7 @@ Ext.application({
         'DiagnosisController',
         'InstructionController',
         'HistoryController',
+        'SymptomsTemplateController',
     ],
 
     launch: function () {
