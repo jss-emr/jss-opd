@@ -37,9 +37,11 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
     },
 
     onSelection: function(record) {
-        var ans = confirm("Are you sure?");
-        if(ans == true){
-            this.fireEvent("symptomsTemplateSelected", record);
-        }
+        var confirmHandler = function(button) {
+            if(button == "yes"){
+                this.fireEvent("symptomsTemplateSelected", record);
+            }
+        };
+        Ext.Msg.confirm("Are you sure?", "Suggestions will be added to the queue", confirmHandler, this);
     }
 });

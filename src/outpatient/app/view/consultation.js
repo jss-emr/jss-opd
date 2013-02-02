@@ -81,7 +81,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
             items: [{
                 xtype: 'symptoms-template-select',
                 id: 'symptomsTemplateSelect',
-                listeners: {symptomsTemplateSelected: function() {console.log("in cons")}},
                 flex: 2,
             }]
         },{
