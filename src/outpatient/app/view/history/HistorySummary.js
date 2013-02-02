@@ -19,7 +19,7 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                     xtype: 'list',
                     store:'HistoryObservations',
                     inline:true,
-                    itemTpl: '{summary}'
+                    itemTpl: '{summary}',
                 }]
             },
             {
@@ -30,5 +30,21 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                 flex: 1,
             },
         ],
+    },
+
+    initialize: function() {
+        this.callParent();
+        this.summaryPanelList = Ext.getCmp("historySummaryPanel").getItems().items[0];
+        this.historyQueueStore = Ext.getStore('HistoryQueue');
+
+        this.historyQueueStore.on('addrecords', this.dataQueued, this);
+        this.historyQueueStore.on('removerecords', this.dataQueued, this);
+    },
+
+    dataQueued: function() {
+        if(this.historyQueueStore.getCount() >= 1)
+            this.summaryPanelList.setBaseCls("warning");
+        else
+            this.summaryPanelList.setBaseCls("");
     }
 });
