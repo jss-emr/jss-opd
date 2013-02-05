@@ -3,8 +3,9 @@ Ext.define('Jss.Outpatient.store.treatment.MedicineDetails', {
 	config: {
 		model: 'Jss.Outpatient.model.treatment.MedicineDetail',
 		proxy: {
-            type: 'ajax',
-            url: 'data/medicineDetails.json'
+			type: 'ajax',
+			url: 'data/medicineDetails.json',
+			noCache: false,
 		}
 	}
 });

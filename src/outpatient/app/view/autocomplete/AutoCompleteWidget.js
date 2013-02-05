@@ -13,16 +13,16 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
     },
 
     addSearchField: function() {
-        this.searchField = Ext.create('Ext.field.Text', {
+        this.searchField = Ext.create('Ext.field.Search', {
             width:'100%',
             height:50,
             placeHolder: this.config.placeHolder,
             bubbleEvents: 'clearicontap'
         });
+
         var fieldSet = Ext.create('Ext.form.FieldSet');
 
-
-        this.searchField.on('keyup', 'onKeyUp', this);
+        this.searchField.on('keyup', 'onKeyUp', this, {buffer: 250});
         this.searchField.on('clearicontap', 'clear', this);
 
         fieldSet.add(this.searchField);
@@ -35,7 +35,8 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
             width:'100%',
             height:300,
             itemTpl: this.config.itemTpl,
-            filterKey: this.config.filterKey
+            filterKey: this.config.filterKey,
+            store: this.config.store,
         });
 
         this.autoCompleteList.on('select', 'onItemSelection', this);
@@ -49,22 +50,18 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
     },
 
     onKeyUp : function(){
-        this.autoCompleteList.destroy();
-        this.addAutoCompleteList();
         var keyword = this.searchField.getValue();
-        this.autoCompleteList.loadData(keyword, this.config.store);
-        this.autoCompleteList.show();
+        this.autoCompleteList.loadData(keyword);
     },
 
     clear: function() {
         this.searchField.setValue('');
-        this.autoCompleteList.destroy();
+        this.autoCompleteList.hide();
     },
 
     setConcept:function(observation){
         this.searchField.setValue(observation.data.concept.data.name);
     }
 });
-
 
 

@@ -10,18 +10,26 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         items: []
     },
 
-    loadData: function(keyword, store) {
-        var self = this;
-        var list = Ext.create('Ext.dataview.List', {
-            store: store,
+    initialize: function() {
+        this.list = Ext.create('Ext.dataview.List', {
+            store: this.config.store,
             height: 280,
             itemTpl: this.config.itemTpl,
-            bubbleEvents: 'select'
+            bubbleEvents: 'select',
         });
 
-        list.getStore().filter(this.config.filterKey, keyword);
-        list.getStore().load();
-        this.add(list);
+        this.add(this.list);
+    },
+
+    loadData: function(keyword) {
+        if(keyword.length == 0){
+            this.hide();
+            return;
+        }
+
+        this.list.getStore().filter(this.config.filterKey, keyword);
+        this.list.getStore().load();
+        this.show();
     },
 
     getSelectedRecord: function() {

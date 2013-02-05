@@ -11,4 +11,3 @@ Ext.define('Jss.Outpatient.store.instruction.AllInstructions', {
         }
     }
 });
-
