@@ -66,5 +66,9 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
             return true;
         this.uiElement.highlightErrors();
         return false;
+    },
+
+    setUIElementValueFrom: function(observation){
+        this.uiElement.setValueFrom(observation)
     }
 })

@@ -66,5 +66,9 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     highlightErrors:function () {
         Ext.getCmp('errorMessage').addCls('textBoxError');
+    },
+
+    setValueFrom:function(observation){
+        this.numberfield.setValue(observation.data.value);
     }
 });

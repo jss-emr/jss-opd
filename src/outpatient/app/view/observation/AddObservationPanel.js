@@ -86,8 +86,18 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         this.detailsPanel.clear();
     },
 
-    showForEdit:function(record){
-        this.autoCompleteWidget.setConcept(record);
-        this.onConceptSelection(record.data.concept)
+    showForEdit:function(observation){
+        this.autoCompleteWidget.setConcept(observation);
+        this.addConceptWithValue(observation)
+    },
+
+    addConceptWithValue:function(observation){
+        this.detailsPanel.clear();
+        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
+        var uiElement = factory.get(observation.data.concept);
+        if (uiElement !== undefined) {
+            this.detailsPanel.addObservationUIElement(uiElement);
+            this.detailsPanel.setUIElementValueFrom(observation);
+        }
     }
 });

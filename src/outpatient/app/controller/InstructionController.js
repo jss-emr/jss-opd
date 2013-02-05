@@ -72,11 +72,12 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
     },
 
     deleteObservation:function(){
-        Ext.getCmp('instruction-observationSummaryPanel').getStore().remove(record);
+        Ext.getCmp('instruction-observationSummaryPanel').getStore().remove(selectedElement);
         Ext.getCmp('optionsPanel').destroy()
     },
 
     showDetailsForEdit: function(){
+        Ext.getCmp('instruction-observationSummaryPanel').getStore().remove(selectedElement);
         Ext.getCmp('instruction-addObservationsPanel').showForEdit(selectedElement);
         Ext.getCmp('optionsPanel').destroy()
     }
