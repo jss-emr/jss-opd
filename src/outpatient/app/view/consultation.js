@@ -106,7 +106,6 @@ Ext.define('Jss.Outpatient.view.consultation', {
             items: [{
                 xtype: 'instruction-edit',
                 flex: 2,
-                html: 'Instruction',
             }]
         }]
     }

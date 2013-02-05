@@ -52,7 +52,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
     },
 
     detailsCaptured: function() {
-        console.log("here!")
         if(this.isValid()){
             this.fireEvent('observationDetailsCaptured', this.getObservationDetails());
         }

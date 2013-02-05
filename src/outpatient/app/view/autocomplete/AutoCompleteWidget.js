@@ -59,6 +59,11 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
     clear: function() {
         this.searchField.setValue('');
         this.autoCompleteList.destroy();
+    },
+
+    setConcept:function(observation){
+        this.searchField.setValue(observation.data.concept.data.name);
+        this.onKeyUp();
     }
 });
 

@@ -51,7 +51,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
             xtype: 'container',
             width: '30%',
             layout: 'vbox',
-
             items : [this.autoCompleteWidget, this.observationQueue],
         })
     },
@@ -86,4 +85,9 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         this.autoCompleteWidget.clear();
         this.detailsPanel.clear();
     },
+
+    showForEdit:function(record){
+        this.autoCompleteWidget.setConcept(record);
+        this.onConceptSelection(record.data.concept)
+    }
 });

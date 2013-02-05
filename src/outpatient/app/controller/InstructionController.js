@@ -2,8 +2,6 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
     extend: 'Ext.app.Controller',
     config: {
         refs: {
-            instructionSelector: '#instructionSelector',
-            instructionSummaryList: '#instructionSummaryList',
             instructionSummaryPanel: '#instructionSummaryPanel',
             addObservationsPanel:'#instruction-addObservationsPanel',
             observationsSummaryPanel:'#instruction-observationSummaryPanel',
@@ -24,18 +22,15 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
             }
         }
     },
-
     gotoEditPage: function() {
         Ext.getCmp('mainview').push(Ext.getCmp('instruction-card'));
     },
 
     addObservation: function(observation) {
-    this.getObservationsSummaryPanel().getStore().add(observation);
+        this.getObservationsSummaryPanel().getStore().add(observation);
     },
 
     editListItem: function(observation){
-        console.log("boo!");
-        console.log(observation);
         this.getAddObservationsPanel().showDetails(observation.getName(), observation.get);
     },
 
@@ -52,6 +47,7 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
             iconMask:true,
             flex:1
         });
+        selectedElement = record;
         Ext.create('Ext.Panel', {
             id:'optionsPanel',
             left:0,
@@ -60,7 +56,7 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
             modal:true,
             showAnimation:'fadeIn',
             layout:{
-                type:'hbox',
+                type:'hbox'
             },
             items:[editButton,deleteButton],
             listeners:{
@@ -71,9 +67,17 @@ Ext.define('Jss.Outpatient.controller.InstructionController', {
             }
         }).showBy(target);
 
-        deleteButton.on('tap',function(){
-            Ext.getCmp('instruction-observationSummaryPanel').getStore().remove(record);
-            Ext.getCmp('optionsPanel').destroy()
-        });
+        deleteButton.on('tap',this.deleteObservation);
+        editButton.on('tap', this.showDetailsForEdit);
+    },
+
+    deleteObservation:function(){
+        Ext.getCmp('instruction-observationSummaryPanel').getStore().remove(record);
+        Ext.getCmp('optionsPanel').destroy()
+    },
+
+    showDetailsForEdit: function(){
+        Ext.getCmp('instruction-addObservationsPanel').showForEdit(selectedElement);
+        Ext.getCmp('optionsPanel').destroy()
     }
 });
