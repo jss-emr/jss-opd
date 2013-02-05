@@ -13,12 +13,11 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
             },
             {
                 title: 'Diagnosis',
-                xtype: 'list',
+                xtype: 'dataview',
                 id: 'diagnosisSummaryList',
                 store: 'Diagnosis',
                 itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
-                inline: true,
-                cls: 'diagnosisSummary',
+                cls: 'diagnosisSummary stripedList',
             },
         ]
     },

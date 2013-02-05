@@ -12,12 +12,12 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
                 cls: 'summaryTitle'
             },
             {
-				xtype: 'list',
+				xtype: 'dataview',
 				store: 'TreatmentAdvice',
 				height: '100%',
 				width: '100%',
-                inline: true,
-                itemTpl: '{name}',
+				itemTpl: '{summary}',
+				cls: 'stripedList',
 			}
 		]
 	}

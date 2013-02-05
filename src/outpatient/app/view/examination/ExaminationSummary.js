@@ -13,29 +13,12 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
             },
             {
                 title: 'Examination',
-                xtype: 'list',
+                xtype: 'dataview',
                 id: 'complaintsList',
                 itemTpl: '{summary}',
                 store: 'ExaminationObservations',
-                inline: true,
+                cls: 'stripedList'
             }
         ]
     },
-
-    initialize: function() {
-        this.callParent();
-        this.summaryPanelList = Ext.getCmp("complaintsList");
-        this.queueStore = Ext.getStore('ExaminationQueue');
-
-        this.queueStore.on('addrecords', this.dataQueued, this);
-        this.queueStore.on('removerecords', this.dataQueued, this);
-    },
-
-    dataQueued: function() {
-        if(this.queueStore.getCount() >= 1)
-            this.summaryPanelList.setBaseCls("warning");
-        else
-            this.summaryPanelList.setBaseCls("");
-    }
-
 });

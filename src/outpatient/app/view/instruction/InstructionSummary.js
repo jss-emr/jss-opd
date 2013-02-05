@@ -13,12 +13,12 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
                 cls: 'summaryTitle'
             },
             {
-                xtype: 'list',
+                xtype: 'dataview',
                 id: 'instructionSummaryList',
                 scrollable: 'false',
                 store: 'Instructions',
-                inline: true,
                 itemTpl: '{summary}',
+                cls: 'stripedList',
             }
         ]
     }

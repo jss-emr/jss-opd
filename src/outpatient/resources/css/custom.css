@@ -24,6 +24,10 @@
     background-color: rgb(196, 220, 228);
 }
 
+.stripedList .x-dataview-container .x-dataview-item:nth-child(odd) {
+    background-color: rgb(196, 220, 228);
+}
+
 .diagnosisSummary .discarded{
     text-decoration: line-through;
 }

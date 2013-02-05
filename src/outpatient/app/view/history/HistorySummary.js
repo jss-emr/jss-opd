@@ -16,10 +16,10 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                 layout: 'fit',
                 flex: 4,
                 items: [{
-                    xtype: 'list',
+                    xtype: 'dataview',
                     store:'HistoryObservations',
-                    inline:true,
                     itemTpl: '{summary}',
+                    cls: 'stripedList'
                 }]
             },
             {
@@ -31,20 +31,4 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
             },
         ],
     },
-
-    initialize: function() {
-        this.callParent();
-        this.summaryPanelList = Ext.getCmp("historySummaryPanel").getItems().items[0];
-        this.historyQueueStore = Ext.getStore('HistoryQueue');
-
-        this.historyQueueStore.on('addrecords', this.dataQueued, this);
-        this.historyQueueStore.on('removerecords', this.dataQueued, this);
-    },
-
-    dataQueued: function() {
-        if(this.historyQueueStore.getCount() >= 1)
-            this.summaryPanelList.setBaseCls("warning");
-        else
-            this.summaryPanelList.setBaseCls("");
-    }
 });
