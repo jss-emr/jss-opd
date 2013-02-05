@@ -46,6 +46,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     addObservationUIElement: function(uiElement) {
         this.uiElement = uiElement;
+        uiElement.on('detailsCaptured', this.detailsCaptured, this);
         this.detailsPanel.add([uiElement]);
         this.detailsPanel.show();
         this.addButton.show();

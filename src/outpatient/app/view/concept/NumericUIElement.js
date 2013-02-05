@@ -16,7 +16,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
             labelWidth: '60%',
             name:"value"
         });
-        
+
         this.add({
             xtype:'fieldset',
             flex:1,
@@ -30,6 +30,8 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
             height:50
 
         });
+
+        this.numberfield.on('action', function() { this.fireEvent('detailsCaptured')}, this);
 
         return this;
     },
