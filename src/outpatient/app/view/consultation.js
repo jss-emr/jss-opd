@@ -20,6 +20,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
                     items: [
                         {
                             xtype: 'historySummary',
+                            id: 'historySummaryPanel',
                             flex: 2,
                         },{
                             xtype: 'diagnosis',

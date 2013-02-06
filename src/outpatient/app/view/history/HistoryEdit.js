@@ -8,12 +8,9 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
         title: 'History',
         items: [
             {
-                xtype : 'list',
+                xtype : 'observationSummaryPanel',
                 id:'history-observationsSummaryPanel',
                 store: 'HistoryObservations',
-                inline:true,
-                itemTpl: '{summary}',
-                scroll:'both',
                 flex: 20,
             },
             {

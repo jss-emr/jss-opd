@@ -12,12 +12,11 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
                 cls: 'summaryTitle'
             },
             {
-                title: 'Examination',
                 xtype: 'dataview',
                 id: 'complaintsList',
-                itemTpl: '{summary}',
                 store: 'ExaminationObservations',
-                cls: 'stripedList'
+                itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
+                cls: 'observationVisitPage stripedList',
             }
         ]
     },

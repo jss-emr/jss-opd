@@ -48,6 +48,8 @@ Ext.application({
         'autocomplete.AutoCompleteWithFreeTextWidget',
         'concept.UIElementFactory',
         'observation.AddObservationPanel',
+        'observation.ObservationSummaryPanel',
+        'observation.SummaryTemplate',
         'Viewport'
     ],
     controllers: [

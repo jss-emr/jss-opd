@@ -6,18 +6,10 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationEdit', {
         title: 'Examination',
         items: [
             {
-                xtype: 'list',
+                xtype : 'observationSummaryPanel',
                 id:'examination-observationSummaryPanel',
-                flex: 1,
-                scrollable: 'vertical',
-                inline: true,
-                itemTpl: '{summary}',
                 store: 'ExaminationObservations',
-                listeners: {
-                    itemswipe: function(list, index, target, record) {
-                        list.getStore().remove(record);
-                    }
-                }
+                flex: 1,
             },
             {
                 xtype : 'addObservationPanel',

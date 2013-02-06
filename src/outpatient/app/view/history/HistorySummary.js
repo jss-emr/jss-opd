@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.history.HistorySummary', {
-    extend: 'Ext.Container',
+    extend: 'Jss.Outpatient.view.util.TouchableContainer',
     alias:'widget.historySummary',
     config:{
         layout:'hbox',
@@ -11,23 +11,27 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                 cls: 'summaryTitle'
             },
             {
-                xtype: 'touchableContainer',
-                id: 'historySummaryPanel',
+                xtype: 'container',
                 layout: 'fit',
                 flex: 4,
                 items: [{
                     xtype: 'dataview',
                     store:'HistoryObservations',
-                    itemTpl: '{summary}',
-                    cls: 'stripedList'
+                    itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
+                    cls: 'observationVisitPage stripedList',
                 }]
             },
             {
-                xtype: 'button',
-                id: "symptomsTemplateButton",
-                layout: 'fit',
-                html: 'Select<br/>Symptoms<br/>Template',
+                xtype: 'container',
                 flex: 1,
+                layout: 'fit',
+                items: [{
+                    xtype: 'button',
+                    id: "symptomsTemplateButton",
+                    html: 'Symptoms <br/> Templates',
+                    top: 1,
+                    width: '100%',
+                }]
             },
         ],
     },

@@ -24,12 +24,48 @@
     background-color: rgb(196, 220, 228);
 }
 
+.stripedList .x-list-container .x-list-item:nth-child(even) {
+    background-color: rgb(196, 110, 228);
+}
+
 .stripedList .x-dataview-container .x-dataview-item:nth-child(odd) {
     background-color: rgb(196, 220, 228);
 }
 
 .diagnosisSummary .discarded{
     text-decoration: line-through;
+}
+
+.observationSummary .complete-data {
+    padding: 5px;
+    margin: 1px 5px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+.incomplete-data {
+    background-color: lightcoral;
+}
+
+.observationSummary .incomplete-data {
+    padding: 5px;
+    margin: 1px 5px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+.observationSummary .x-list-item .x-list-item-label {
+    padding: 0px;
+    min-height: 0px;
+    border-top: 0px;
+}
+
+.observationSummary .x-list-item:last-child .x-list-item-label {
+    border-bottom: 0px;
+}
+
+.observationVisitPage .incomplete-data{
+    border-bottom: 1px solid;
 }
 
 .summaryTitle.x-toolbar{

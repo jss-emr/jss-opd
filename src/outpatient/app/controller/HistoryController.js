@@ -22,6 +22,6 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     },
 
     addObservation:function (observation) {
-        this.getObservationsSummaryPanel().getStore().add(observation);
+        this.getObservationsSummaryPanel().addData(observation);
     }
 });
