@@ -18,7 +18,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     },
 
     createAutoCompleteWidget: function() {
-        var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
+        var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             placeHolder:'Search...',
             store: this.config.autoCompleteStore,
             itemTpl: this.config.autoCompleteItemTpl,

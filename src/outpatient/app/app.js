@@ -49,6 +49,7 @@ Ext.application({
         'util.ArraySelectionBox',
         'util.ArrayMultiSelectionBox',
         'autocomplete.AutoCompleteWidget',
+        'autocomplete.AutoCompleteWithFreeTextWidget',
         'concept.UIElementFactory',
         'observation.AddObservationPanel',
         'Viewport'

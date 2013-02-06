@@ -32,7 +32,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         this.show();
     },
 
-    getSelectedRecord: function() {
-        return this.selectedRecord;
+    hasNoSuggestions:function(){
+        return this.list.getStore().getCount() == 0;
     }
 })
