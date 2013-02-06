@@ -18,6 +18,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             text: 'Add new search term',
             hidden:true
         });
+        this.newSearchTermAdditionButton.onTap(this.addNewSearchTerm)
         this.add(this.newSearchTermAdditionButton);
     },
 
@@ -74,6 +75,13 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     clear: function() {
         this.searchField.setValue('');
         this.autoCompleteList.destroy();
+    },
+
+    addNewSearchTerm: function(){
+        Ext.create('Ext.field.Text', {
+            width:'100%',
+            height:50,
+        })
     }
 });
 
