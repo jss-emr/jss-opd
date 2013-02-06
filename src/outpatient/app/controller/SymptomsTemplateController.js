@@ -22,22 +22,20 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
     },
 
     applyTemplate: function(template) {
+        var self = this;
         var sections = template.get('sections');
         sections.examinations.forEach(function(examination) {
-            Ext.getStore('ExaminationObservations').add(new Jss.Outpatient.model.concept.Observation({
-                concept: examination,
-                value: {},
-                summary: null
-            }));
+            Ext.getStore('ExaminationObservations').add(self._createObservation(examination));
         });
         sections.history.forEach(function(history) {
-            Ext.getStore('HistoryObservations').add(new Jss.Outpatient.model.concept.Observation({
-                concept: history,
-                value: {},
-                summary: null
-            }));
+            Ext.getStore('HistoryObservations').add(self._createObservation(history));
         });
 
         Ext.getCmp('mainview').pop();
+    },
+
+    _createObservation: function(concept) {
+        var conceptModel = new Jss.Outpatient.model.concept.Concept(concept);
+        return new Jss.Outpatient.model.concept.Observation({concept: conceptModel, value: {}, summary: null, name: concept.name});
     }
 });

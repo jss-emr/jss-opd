@@ -82,7 +82,11 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             width:'100%',
             height:50,
         })
-    }
+    },
+
+    setConcept:function(observation){
+        this.searchField.setValue(observation.data.concept.data.name);
+    },
 });
 
 

@@ -13,6 +13,9 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
 
             addObservationsPanel: {
                 observationDetailsCaptured: 'addObservation'
+            },
+            observationsSummaryPanel: {
+                'editItem': 'editObservation'
             }
         }
     },
@@ -23,5 +26,9 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
 
     addObservation:function (observation) {
         this.getObservationsSummaryPanel().addData(observation);
-    }
+    },
+
+    editObservation: function(observation) {
+        this.getAddObservationsPanel().showForEdit(observation);
+    },
 });
