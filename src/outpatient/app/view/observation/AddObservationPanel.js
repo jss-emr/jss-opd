@@ -4,7 +4,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
 
     requires: [
         'Jss.Outpatient.view.observation.AddObservationDetailsPanel',
-        'Jss.Outpatient.view.observation.ObservationQueue'
     ],
 
     config:{
@@ -13,12 +12,13 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     },
 
     initialize: function() {
-        this.addAutocompleteAndObservationQueue();
+        this.autoCompleteWidget = this.addAutoCompleteWidget();
         this.detailsPanel = this.addDetailsPanel();
     },
 
-    createAutoCompleteWidget: function() {
+    addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
+            width: '30%',
             placeHolder:'Search...',
             store: this.config.autoCompleteStore,
             itemTpl: this.config.autoCompleteItemTpl,
@@ -28,31 +28,8 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         widget.on('itemSelected', this.onConceptSelection, this);
         widget.on('clearicontap', this.clear, this);
 
+        this.add(widget);
         return widget;
-    },
-
-    createObservationQueuePanel: function() {
-        var widget = Ext.create('Jss.Outpatient.view.observation.ObservationQueue', {
-            store: this.config.observationQueueStore,
-            itemTpl: this.config.autoCompleteItemTpl,
-            width: '100%',
-        });
-
-        widget.on('queueItemSelected', this.onConceptSelection, this);
-
-        return widget;
-    },
-
-    addAutocompleteAndObservationQueue: function() {
-        this.autoCompleteWidget = this.createAutoCompleteWidget();
-        this.observationQueue = this.createObservationQueuePanel();
-
-        this.add({
-            xtype: 'container',
-            width: '30%',
-            layout: 'vbox',
-            items : [this.autoCompleteWidget, this.observationQueue],
-        })
     },
 
     addDetailsPanel: function() {
@@ -77,7 +54,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     },
 
     onDetailsCaptured: function(observation) {
-        this.observationQueue.removeData('id', observation.get('concept').get('id'));
         this.clear();
     },
 

@@ -24,10 +24,10 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
     applyTemplate: function(template) {
         var sections = template.get('sections');
         sections.examinations.forEach(function(examination) {
-            Ext.getStore('ExaminationQueue').add(examination);
+            // Ext.getStore('ExaminationQueue').add(examination);
         });
         sections.history.forEach(function(history) {
-            Ext.getStore('HistoryQueue').add(history);
+            // Ext.getStore('HistoryQueue').add(history);
         });
 
         Ext.getCmp('mainview').pop();
