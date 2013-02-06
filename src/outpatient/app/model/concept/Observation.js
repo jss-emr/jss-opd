@@ -4,7 +4,8 @@ Ext.define('Jss.Outpatient.model.concept.Observation', {
         fields: [
             {name: "concept", type: "auto"},
             {name: "value", type: "auto"},
-            {name: "summary", type: "string"}
+            {name: "summary", type: "string"},
+            {name: "name", type:"string"}
         ]
     },
 
@@ -12,5 +13,6 @@ Ext.define('Jss.Outpatient.model.concept.Observation', {
         var concept = this.get('concept');
         var unit = concept.getUnit();
         this.set('summary', concept.get('name') + ' - ' + this.get('value') + ' ' + unit);
+        this.set('name',concept.get('name'));
     }
 });
