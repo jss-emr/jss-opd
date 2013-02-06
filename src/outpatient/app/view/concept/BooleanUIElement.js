@@ -32,6 +32,7 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
 
     getValue:function () {
         var obs = Ext.create('Jss.Outpatient.model.concept.Observation', {
+            name: this.concept.get('name'),
             concept:this.concept,
             value: this.conceptListBox.getSelectedValue()
         });

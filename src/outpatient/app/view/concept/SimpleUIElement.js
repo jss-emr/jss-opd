@@ -23,6 +23,7 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
 
     getValue:function () {
         var ob = Ext.create('Jss.Outpatient.model.concept.Observation', {
+            name: this.concept.get('name'),
             concept:this.concept,
             value: this.concept.get('name'),
             summary: this.getSummary()
