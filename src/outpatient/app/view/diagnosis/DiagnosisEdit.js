@@ -28,7 +28,6 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 id:'diagnosis-addObservationsPanel',
                 scrollable: false,
                 autoCompleteStore: 'DiagnosisConcepts',
-                observationQueueStore: 'DiagnosisQueue',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
                 flex: 3
