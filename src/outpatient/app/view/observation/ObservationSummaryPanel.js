@@ -45,14 +45,18 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
 
         var editButton = Ext.create('Ext.Button',{
             id:'listItemEdit',
+            text: 'Edit',
             iconCls:'compose',
             iconMask:true,
+            margin: 5,
             flex:1
         });
         var deleteButton = Ext.create('Ext.Button',{
             id:'listItemDelete',
+            text: 'Delete',
             iconCls:'trash',
             iconMask:true,
+            margin: 5,
             flex:1
         });
 
@@ -64,7 +68,7 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
             modal:true,
             showAnimation:'fadeIn',
             layout:{
-                type:'hbox'
+                type:'vbox'
             },
             items:[editButton,deleteButton],
             listeners:{

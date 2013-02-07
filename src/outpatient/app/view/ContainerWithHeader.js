@@ -7,13 +7,9 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
     },
 
     initialize: function() {
-        console.log(this.config.title);
         this.patient = Ext.getStore('patient');
-
         this.addHeaderContainer();
-
         this.add(this.config.content);
-        this.on('painted', function() {console.log("i am painted")});
     },
 
     gotoPreviousPage: function() {
