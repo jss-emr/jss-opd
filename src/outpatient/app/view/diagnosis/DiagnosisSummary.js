@@ -2,22 +2,27 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
     extend: 'Jss.Outpatient.view.util.TouchableContainer',
     alias: 'widget.diagnosis',
     config: {
-        layout: 'fit',
+        layout: 'hbox',
         title: 'Diagnosis',
         items: [
             {
-                xtype: 'titlebar',
-                title: 'Diagnosis',
-                docked: 'top',
+                xtype: 'container',
+                html: 'Diagnosis',
                 cls: 'summaryTitle',
             },
             {
-                title: 'Diagnosis',
-                xtype: 'dataview',
-                id: 'diagnosisSummaryList',
-                store: 'Diagnosis',
-                itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
-                cls: 'diagnosisSummary stripedList',
+                xtype: 'container',
+                layout: 'fit',
+                cls: 'content',
+                flex: 1,
+                items: [{
+                    title: 'Diagnosis',
+                    xtype: 'dataview',
+                    id: 'diagnosisSummaryList',
+                    store: 'Diagnosis',
+                    itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
+                    cls: 'diagnosisSummary stripedList',
+                }],
             },
         ]
     },

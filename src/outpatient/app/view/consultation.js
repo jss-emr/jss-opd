@@ -21,15 +21,18 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         {
                             xtype: 'historySummary',
                             id: 'historySummaryPanel',
+                            cls: 'opdSection',
                             flex: 2,
                         },{
                             xtype: 'diagnosis',
                             id: 'diagnosisSummaryPanel',
                             flex: 1,
+                            cls: 'opdSection',
                         },{
                             xtype: 'instruction',
                             flex: 2,
                             id: 'instructionSummaryPanel',
+                            cls: 'opdSection',
                         }
                     ]
                 },
@@ -47,10 +50,12 @@ Ext.define('Jss.Outpatient.view.consultation', {
                         },{
                             xtype: 'examinationSummary',
                             id: 'examinationSummaryPanel',
+                            cls: 'opdSection',
                             flex: 1,
                         },{
                             xtype: 'treatmentSummary',
                             id: 'treatmentSummaryPanel',
+                            cls: 'opdSection',
                             flex: 2,
                         }
                     ]

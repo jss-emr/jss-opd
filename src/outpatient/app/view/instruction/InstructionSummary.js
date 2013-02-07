@@ -3,23 +3,28 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
     alias: 'widget.instruction',
 
     config: {
-        layout: 'fit',
+        layout: 'hbox',
         title: 'Instructions',
         items: [
             {
-                xtype: 'titlebar',
-                title: 'Instructions',
-                docked: 'top',
-                cls: 'summaryTitle'
+                xtype: 'container',
+                html: 'Instructions',
+                cls: 'summaryTitle',
             },
             {
-                xtype: 'dataview',
-                id: 'instructionSummaryList',
-                scrollable: 'false',
-                store: 'Instructions',
-                itemTpl: '{summary}',
-                cls: 'stripedList',
-            }
+                xtype: 'container',
+                layout: 'fit',
+                flex: 1,
+                cls: 'content',
+                items: [{
+                    xtype: 'dataview',
+                    id: 'instructionSummaryList',
+                    scrollable: 'false',
+                    store: 'Instructions',
+                    itemTpl: '{summary}',
+                    cls: 'stripedList',
+                }]
+            },
         ]
     }
 });

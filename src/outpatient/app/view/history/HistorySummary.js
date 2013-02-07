@@ -5,15 +5,15 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
         layout:'hbox',
         items: [
             {
-                xtype: 'titlebar',
-                title: 'History & Symptoms',
-                docked: 'top',
-                cls: 'summaryTitle'
+                xtype: 'container',
+                html: 'History & Symptoms',
+                cls: 'summaryTitle',
             },
             {
                 xtype: 'container',
                 layout: 'fit',
                 flex: 4,
+                cls: 'content',
                 items: [{
                     xtype: 'dataview',
                     store:'HistoryObservations',

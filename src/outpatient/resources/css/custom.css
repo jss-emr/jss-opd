@@ -102,3 +102,26 @@
 .smallFont {
     font-size: 70%;
 }
+
+.opdSection {
+    margin-top: 10px;
+    border: 5px solid;
+    border-radius: 10px;
+}
+
+.opdSection .summaryTitle {
+    position: absolute;
+    top: -14px;
+    font-size: 80%;
+    display: inline-block;
+    left: 20px;
+    padding: 0px 5px;
+    background: whitesmoke;
+    z-index: 100;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.opdSection .content {
+    margin-top: 5px;
+}
