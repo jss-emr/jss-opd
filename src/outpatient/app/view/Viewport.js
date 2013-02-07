@@ -5,6 +5,7 @@ Ext.define('Jss.Outpatient.view.Viewport', {
 
     requires: [
         'Jss.Outpatient.view.patient',
+        'Jss.Outpatient.view.ContainerWithHeader',
         'Jss.Outpatient.view.consultation',
         'Jss.Outpatient.view.history.HistoryEdit',
         'Jss.Outpatient.view.history.HistorySummary',
@@ -24,6 +25,7 @@ Ext.define('Jss.Outpatient.view.Viewport', {
         autoDestroy: false,
         fullscreen: true,
         activeItem: 0,
+        navigationBar: false,
         layout: {
             type: 'card',
             animation: {type: 'fade', duration: 10},

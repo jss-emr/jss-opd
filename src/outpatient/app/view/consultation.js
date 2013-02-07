@@ -57,54 +57,53 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 }
             ]
         },{
-            xtype: 'container',
-            layout: 'vbox',
-            title: 'Examination-Edit',
+            xtype: 'header',
+            title: 'Add/Edit Examinations',
             id: 'examination-card',
-            items: [{
+            content: [{
                 xtype: 'examinationEdit',
                 id: 'examination-editpanel',
-                flex: 1,
+                flex: 2,
             }]
         },{
-            layout: 'vbox',
-            title: 'History-Edit',
+            xtype: 'header',
+            title: 'Add/Edit History & Symptoms',
             id: 'history-card',
-            items: [{
+            content: [{
                 xtype: 'historyEdit',
                 id: 'historyEditPanel',
                 flex: 2,
             }]
         },{
-            layout: 'vbox',
-            title: 'SymptomsTemplate-Select',
+            xtype: 'header',
+            title: 'Select SymptomsTemplate',
             id: 'symptomsTemplateSelect-card',
-            items: [{
+            content: [{
                 xtype: 'symptoms-template-select',
                 id: 'symptomsTemplateSelect',
                 flex: 2,
             }]
         },{
-            layout: 'vbox',
-            title: 'Diagnosis-Edit',
+            xtype: 'header',
+            title: 'Add/Edit  Diagnosis',
             id: 'diagnosis-card',
-            items: [{
+            content: [{
                 xtype: 'diagnosis-edit',
                 flex: 2,
             }]
         },{
-            layout: 'vbox',
-            title: 'Treatment-Edit',
+            xtype: 'header',
+            title: 'Add/Edit Treatment',
             id: 'treatment-card',
-            items: [{
+            content: [{
                 xtype: 'treatmentEdit',
                 flex: 2,
             }]
         },{
-            layout: 'vbox',
-            title: 'Instruction-Edit',
+            xtype: 'header',
+            title: 'Add/Edit Instructions',
             id: 'instruction-card',
-            items: [{
+            content: [{
                 xtype: 'instruction-edit',
                 flex: 2,
             }]

@@ -28,9 +28,10 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                 items: [{
                     xtype: 'button',
                     id: "symptomsTemplateButton",
-                    html: 'Symptoms <br/> Templates',
+                    html: 'Symptoms<br/>Templates',
                     top: 1,
                     width: '100%',
+                    cls: 'smallFont',
                 }]
             },
         ],

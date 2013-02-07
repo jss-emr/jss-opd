@@ -21,7 +21,7 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     },
 
     gotoEditPage:function () {
-        Ext.getCmp('mainview').push(Ext.getCmp('historyEditPanel'));
+        Ext.getCmp('mainview').push(Ext.getCmp('history-card'));
     },
 
     addObservation:function (observation) {

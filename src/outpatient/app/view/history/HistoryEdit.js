@@ -14,11 +14,6 @@ Ext.define('Jss.Outpatient.view.history.HistoryEdit', {
                 flex: 20,
             },
             {
-                xtype : 'label',
-                style: 'background-color: "blue"',
-                flex: 1
-            },
-            {
                 xtype : 'addObservationPanel',
                 id:'history-addObservationsPanel',
                 scrollable: false,

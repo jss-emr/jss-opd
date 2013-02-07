@@ -22,7 +22,7 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 	},
 
     gotoEditPage: function() {
-        Ext.getCmp('mainview').push(Ext.getCmp('treatmentEdit'));
+        Ext.getCmp('mainview').push(Ext.getCmp('treatment-card'));
     }
 });
 

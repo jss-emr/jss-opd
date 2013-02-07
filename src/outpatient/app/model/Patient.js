@@ -17,6 +17,12 @@ Ext.define('Jss.Outpatient.model.Patient', {
             }, {
                 name: 'age',
                 type: 'int'
+            }, {
+                name: 'weight',
+                type: 'string',
+            }, {
+                name: 'visits',
+                type: 'auto'
             }]
     }
 });
