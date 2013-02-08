@@ -14,7 +14,7 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
     addSummaryList: function() {
     	var widget = Ext.create('Ext.dataview.List', {
     		store: this.config.store,
-            itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
+            itemTpl: this.config.itemTpl || Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
             cls: 'observationSummary',
             selectedCls: '',
             scroll:'both',
@@ -42,45 +42,16 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
 
     showOptionsPanel:function(list, index, target, record){
         this.selectedObservation = record;
+        var menuOptions = this.config.menuOptions || [
+            {displayText: 'Edit', tapEventName: 'edit', iconCls: 'compose'},
+            {displayText: 'Delete', tapEventName: 'delete', iconCls: 'trash'},
+        ];
 
-        var editButton = Ext.create('Ext.Button',{
-            id:'listItemEdit',
-            text: 'Edit',
-            iconCls:'compose',
-            iconMask:true,
-            margin: 5,
-            flex:1
-        });
-        var deleteButton = Ext.create('Ext.Button',{
-            id:'listItemDelete',
-            text: 'Delete',
-            iconCls:'trash',
-            iconMask:true,
-            margin: 5,
-            flex:1
-        });
-
-        this.actionPanel = Ext.create('Ext.Panel', {
-            id:'optionsPanel',
-            left:0,
-            padding:10,
-            hideOnMaskTap:true,
-            modal:true,
-            showAnimation:'fadeIn',
-            layout:{
-                type:'vbox'
-            },
-            items:[editButton,deleteButton],
-            listeners:{
-                hide:function(){
-                    this.destroy();
-                }
-            }
-        });
+        this.actionPanel = Ext.create('Jss.Outpatient.view.util.MenuPanel', {menuOptions: menuOptions});
         this.actionPanel.showBy(target);
 
-        deleteButton.on('tap',this.deleteObservation, this);
-        editButton.on('tap', this.showDetailsForEdit, this);
+        this.actionPanel.on('delete',this.deleteObservation, this);
+        this.actionPanel.on('edit', this.showDetailsForEdit, this);
     },
 
     deleteObservation:function(){

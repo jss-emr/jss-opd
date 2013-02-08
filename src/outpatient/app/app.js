@@ -44,6 +44,7 @@ Ext.application({
         'util.TouchableContainer',
         'util.ArraySelectionBox',
         'util.ArrayMultiSelectionBox',
+        'util.MenuPanel',
         'autocomplete.AutoCompleteWidget',
         'autocomplete.AutoCompleteWithFreeTextWidget',
         'concept.UIElementFactory',

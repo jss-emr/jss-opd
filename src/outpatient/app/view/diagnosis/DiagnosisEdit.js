@@ -2,27 +2,19 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
     extend: 'Ext.Container',
     alias: 'widget.diagnosis-edit',
 
+    requires: ['Jss.Outpatient.view.diagnosis.DiagnosisObservationSummaryPanel'],
+
     config: {
         layout: 'vbox',
         title: 'Diagnosis',
         items: [
             {
-                xtype: 'list',
+                xtype: 'diagnosisObservationSummaryPanel',
                 id:'diagnosis-observationSummaryPanel',
                 itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
                 store: 'Diagnosis',
-                cls: 'diagnosisSummary observationSummary',
-                inline: true,
+                cls: 'diagnosisSummary',
                 flex: 1,
-                scrollable: 'vertical',
-                listeners: {
-                    itemswipe: function(list, index, target, record, event) {
-                        if(event.direction == 'right')
-                            record.set('discarded', true);
-                        else
-                            record.set('discarded', false);
-                    }
-                }
             },
             {
                 xtype : 'addObservationPanel',
@@ -34,5 +26,5 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 flex: 3
             }
         ]
-    }
+    },
  })

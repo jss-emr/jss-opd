@@ -9,6 +9,7 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
                 xtype : 'observationSummaryPanel',
                 id:'instruction-observationSummaryPanel',
                 store:'Instructions',
+                menuOptions: [{displayText: 'Delete', tapEventName: 'delete', iconCls: 'trash'}],
                 flex: 1,
             },
             {
