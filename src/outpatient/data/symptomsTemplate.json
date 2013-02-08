@@ -14,12 +14,16 @@
                 {name:"Other", properties:{datatype:{name:"coded", properties:{answers:[{name: "Fever"}, {name: "Fatigue/Weekness"}, {name: "Syncope History"}]}}}},
             ],
             examinations:[
-                {name:"Ascites", properties:{datatype:"boolean"}},
+                {name:"Ascitos", properties:{datatype:"boolean"}},
                 {name:"Abdomen Tenderness", properties:{datatype:"boolean"}},
                 {name:"Abdomen Lump", properties:{datatype:{name:"coded", properties:{answers:[{name:"N/A"}, {name: "Tumor"}, {name: "Intussusception"}]}}}},
                 {name:"Fissures", properties:{datatype:"boolean"}},
                 {name:"Piles", properties:{datatype:"boolean"}},
                 {name:"Mass", properties:{datatype:"boolean"}},
+                {name:"Fingersall", properties:{datatype:"boolean"}},
+            ],
+            instructions: [
+                {name:"Nasagastic Lavage", properties:{datatype:{name:"coded", properties:{answers:[{name:"Bile Stained"}, {name: "Blood Stained"}, {name: "No Bile/Blood"}]}}}},
             ]
         }
     }

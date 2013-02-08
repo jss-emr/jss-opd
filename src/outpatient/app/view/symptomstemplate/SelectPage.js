@@ -2,6 +2,8 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
     extend: 'Ext.Container',
     alias: 'widget.symptoms-template-select',
 
+    requires: ['Jss.Outpatient.view.symptomstemplate.ConfirmationSheet'],
+
     config: {
         layout: 'hbox',
     },
@@ -36,12 +38,19 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
         this.add(widget);
     },
 
+    addConfirmationSheet: function(record) {
+        this.sheet = new Jss.Outpatient.view.symptomstemplate.ConfirmationSheet().for(record);
+        this.add(this.sheet);
+        this.sheet.show();
+    },
+
     onSelection: function(record) {
-        var confirmHandler = function(button) {
-            if(button == "yes"){
-                this.fireEvent("symptomsTemplateSelected", record);
-            }
-        };
-        Ext.Msg.confirm("Are you sure?", "Suggestions will be added to the queue", confirmHandler, this);
+        var self = this;
+        this.addConfirmationSheet(record);
+
+        this.sheet.on('add', function() {
+            self.sheet.destroy();
+            self.fireEvent("symptomsTemplateSelected", record);
+        });
     }
 });

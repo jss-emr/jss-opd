@@ -24,11 +24,16 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
     applyTemplate: function(template) {
         var self = this;
         var sections = template.get('sections');
+        Ext.getStore('SymptomsTemplates').remove(template);
         sections.examinations.forEach(function(examination) {
             Ext.getStore('ExaminationObservations').add(self._createObservation(examination));
         });
         sections.history.forEach(function(history) {
             Ext.getStore('HistoryObservations').add(self._createObservation(history));
+        });
+
+        sections.instructions.forEach(function(instruction) {
+            Ext.getStore('Instructions').add(self._createObservation(instruction));
         });
 
         Ext.getCmp('mainview').pop();
