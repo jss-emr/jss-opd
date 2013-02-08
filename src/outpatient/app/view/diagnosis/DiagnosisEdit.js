@@ -11,7 +11,8 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 id:'diagnosis-observationSummaryPanel',
                 itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
                 store: 'Diagnosis',
-                cls: 'diagnosisSummary stripedList',
+                cls: 'diagnosisSummary observationSummary',
+                inline: true,
                 flex: 1,
                 scrollable: 'vertical',
                 listeners: {

@@ -9,8 +9,8 @@ Ext.define('Jss.Outpatient.view.diagnosis.SummaryTemplate', {
 
     diagnosisSummary: function(observation) {
         if(observation.discarded === true) {
-            return "<div class='discarded'>" + observation.summary + "</div>";
+            return "<div class='discarded complete-data'>" + observation.summary + "</div>";
         }
-        return "<div>" + observation.summary + "</div>";
+        return "<div class='complete-data'>" + observation.summary + "</div>";
     }
 });

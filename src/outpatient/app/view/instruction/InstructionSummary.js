@@ -21,8 +21,9 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
                     id: 'instructionSummaryList',
                     scrollable: 'false',
                     store: 'Instructions',
-                    itemTpl: '{summary}',
-                    cls: 'stripedList',
+                    itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
+                    inline: true,
+                    itemCls: 'observationVisitPage',
                 }]
             },
         ]

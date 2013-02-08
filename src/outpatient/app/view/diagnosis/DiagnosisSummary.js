@@ -21,7 +21,9 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisSummary', {
                     id: 'diagnosisSummaryList',
                     store: 'Diagnosis',
                     itemTpl: Ext.create('Jss.Outpatient.view.diagnosis.SummaryTemplate'),
-                    cls: 'diagnosisSummary stripedList',
+                    inline: true,
+                    itemCls: 'observationVisitPage',
+                    cls: 'diagnosisSummary',
                 }],
             },
         ]

@@ -20,7 +20,8 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationSummary', {
                     id: 'complaintsList',
                     store: 'ExaminationObservations',
                     itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
-                    cls: 'observationVisitPage stripedList',
+                    inline: true,
+                    itemCls: 'observationVisitPage',
                 }]
             }
         ]

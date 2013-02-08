@@ -18,7 +18,8 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                     xtype: 'dataview',
                     store:'HistoryObservations',
                     itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
-                    cls: 'observationVisitPage stripedList',
+                    inline: true,
+                    itemCls: 'observationVisitPage',
                 }]
             },
             {
