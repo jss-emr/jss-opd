@@ -19,10 +19,19 @@ Ext.define('Jss.Outpatient.model.concept.Concept', {
         var properties = this.get("properties").datatype.properties;
         return properties !== null && properties !== undefined ? properties.unit : '';
     } ,
+
     getAnswers : function(){
         return this.get('properties').datatype.properties.answers;
     },
-    getDataType : function(){
-        return this.get('properties').datatype;
+
+    getName : function(){
+        return this.get('name');
     },
+
+    makeFor : function(name){
+        this.name = name;
+        this.properties= '{ datatype: {name: "N/A"}, conceptClass : "Test"}';
+        this.id='127.0UUID';
+        return this;
+    }
 });
