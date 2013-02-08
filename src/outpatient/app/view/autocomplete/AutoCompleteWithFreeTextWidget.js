@@ -6,6 +6,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     config:{
         scroll:'both'
     },
+    bubbleEvents:'itemSelected',
 
     initialize: function() {
         this.addSearchField();
@@ -104,10 +105,9 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     },
 
     addSearchTermToStore: function(){
-        var record = this.autoCompleteList.getStore().addFrom(this.searchTermText.getValue());
+        var record = this.autoCompleteList.addFrom(this.searchTermText.getValue());
         this.searchTermText.hide();
         this.addAndSelectButton.hide();
-        console.log(record);
         this.searchField.setValue(record.getName());
         this.fireEvent('itemSelected',record);
     },
@@ -115,6 +115,8 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     setConcept:function(observation){
         this.searchField.setValue(observation.data.concept.data.name);
     }
+
+
 });
 
 

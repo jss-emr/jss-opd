@@ -38,5 +38,11 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
 
     getStore:function(){
         return this.list.getStore();
+    },
+
+    addFrom:function(name){
+        var store = this.list.getStore();
+        store.add({name: name, properties:{ datatype: {name: "N/A"}}});
+        return store.getAt(store.getCount()-1);
     }
 })

@@ -9,14 +9,5 @@ Ext.define('Jss.Outpatient.store.instruction.AllInstructions', {
             url: 'data/allInstructions.json',
 			noCache: false
         }
-    },
-
-    addFrom:function(name){
-        var concept =  this.add({ name: "'" + name + "'", id: "127.0UUID", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}});
-        this.sync();
-
-//        var concept = this.getModel().makeFor(name);
-//        this.add(concept);
-        return concept;
     }
 });
