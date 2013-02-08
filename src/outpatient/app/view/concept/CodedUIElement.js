@@ -5,7 +5,6 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
         height:'100%',
         layout:'hbox',
         width:'100%',
-//        scrollable:false
     },
 
     for:function (concept) {
@@ -25,13 +24,12 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
 
         this.add([
             {
-                xtype:'label',
-                html: this.concept.get('name'),
+                xtype: 'spacer',
                 width: '20%',
             },
             {
                 xtype:'panel',
-                width:'20%',
+                width:'40%',
                 height:300,
                 items:[this.conceptListBox]
             }
@@ -57,5 +55,11 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
 
     isValid:function () {
         return true;
-    }
+    },
+
+    setValueFrom: function(observation) {
+        var value = observation.get('value');
+        if(value != null)
+            this.conceptListBox.selectRecord(value, 'name');
+    },
 });

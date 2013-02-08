@@ -6,8 +6,9 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
 		centered: true,
 		itemTpl: '{value}',
         height: '100%',
-        scrollable: true,
+        scrollable: 'both',
         allowDeselect: true,
+        cls: 'arraySelectionBox',
 	},
 
     isPrimitiveData: true,
@@ -35,6 +36,15 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
             this.selectAll();
         }
         return this;
+    },
+
+    selectRecord: function(value, fieldName) {
+        if(value == null || value == undefined)
+            return;
+        var index = this.getStore().find(fieldName, value[fieldName] || value);
+        if(index >= 0) {
+            this.select(index);
+        }
     },
 
     _wrapDataIfPrimitive: function(array) {

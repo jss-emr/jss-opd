@@ -33,6 +33,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
             flex: 15,
             width: '100%',
             layout: 'fit',
+            cls: 'observationDetailsPanel',
         });
 
         this.add(widget);

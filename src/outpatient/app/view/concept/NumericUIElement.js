@@ -2,9 +2,7 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     extend:'Ext.form.Panel',
 
     config:{
-        height:100,
-//        flex:1,
-//        scrollable:'false',
+        height: 150,
         layout:'hbox'
     },
 
@@ -12,14 +10,17 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
         this.concept = concept;
         this.numberfield = Ext.create('Ext.field.Number', {
             width:'100%',
+            minHeight: 50,
             label: this.concept.conceptName(),
             labelWidth: '60%',
+            labelWrap: true,
             name:"value"
         });
 
         this.add({
             xtype:'fieldset',
-            flex:1,
+            height: '100%',
+            flex:2,
             items: [this.numberfield]
         });
 
@@ -72,5 +73,5 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     setValueFrom:function(observation){
         this.numberfield.setValue(observation.data.value);
-    }
+    },
 });

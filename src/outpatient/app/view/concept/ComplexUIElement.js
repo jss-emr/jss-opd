@@ -16,13 +16,11 @@ Ext.define('Jss.Outpatient.view.concept.ComplexUIElement', {
             var concept = new Jss.Outpatient.model.concept.Concept(answers[i]);
             var widget = factory.get(concept);
             this.add(widget);
-            console.log(widget);
         }
         return this;
     },
 
     getValue:function () {
-
         var obs = Ext.create('Jss.Outpatient.model.concept.Observation', {
             name: this.concept.get('name'),
             concept:this.concept
@@ -35,5 +33,9 @@ Ext.define('Jss.Outpatient.view.concept.ComplexUIElement', {
 
     isValid:function () {
         return true;
-    }
+    },
+
+    setValueFrom: function(observation) {
+    },
+
 });

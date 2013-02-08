@@ -14,6 +14,7 @@ Ext.define('Jss.Outpatient.model.concept.Concept', {
         if (conceptProperties !== null && conceptProperties !== undefined) {
             return  name + ' (' + conceptProperties.unit + ')';
         }
+        return name;
     },
     getUnit : function(){
         var properties = this.get("properties").datatype.properties;

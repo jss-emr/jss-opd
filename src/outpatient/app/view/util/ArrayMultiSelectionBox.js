@@ -12,5 +12,18 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
         return selectedValues.map(function(element) {
             return (self.isPrimitiveData === true) ? element.get('value') : element.getData();
         });
-    }
+    },
+
+    selectRecord: function(values, fieldName) {
+        var self = this;
+        if(value == null || value == undefined)
+            return;
+        values.forEach(function(value) {
+            var index = self.getStore().find(fieldName, value[fieldName] || value);
+            if(index >= 0) {
+                self.select(index, true);
+            }
+        });
+    },
+
 });

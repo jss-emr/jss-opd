@@ -137,3 +137,7 @@
 .opdSection .content {
     margin-top: 5px;
 }
+
+.observationDetailsPanel .arraySelectionBox {
+    border: 5px solid;
+}

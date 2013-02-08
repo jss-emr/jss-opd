@@ -12,7 +12,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
         this.concept = concept;
         this.durationListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
             width: '100%',
-        }).addData([1, 2, 3, 4, 5]);
+        }).addData([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
         this.unitListBox = Ext.create('Jss.Outpatient.view.util.ArraySelectionBox', {
             width: '80%', align: 'left'
         }).addData(["days", "months", "years"]);
@@ -44,22 +44,29 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
         var obs = Ext.create('Jss.Outpatient.model.concept.Observation', {
             name: this.concept.get('name'),
             concept: this.concept,
-            value: this.durationListBox.getSelectedValue() + this.unitListBox.getSelectedValue(),
-            properties: {
+            summary: this.getSummary(),
+            value: {
                 duration: this.durationListBox.getSelectedValue(),
                 unit: this.unitListBox.getSelectedValue()
             }
         });
-        obs.setSummary();
         return obs;
     },
 
     getSummary: function () {
-        return this.concept.name + ":" + this.durationListBox.getSelectedValue() + " " + this.unitListBox.getSelectedValue();
+        return this.concept.get('name') + ":" + this.durationListBox.getSelectedValue() + " " + this.unitListBox.getSelectedValue();
 
     },
 
     isValid: function () {
         return true;
-    }
+    },
+
+    setValueFrom: function(observation) {
+        var value = observation.get('value');
+        if(value != null) {
+            this.durationListBox.selectRecord(value.duration, 'value');
+            this.unitListBox.selectRecord(value.unit, 'value');
+        }
+    },
 });
