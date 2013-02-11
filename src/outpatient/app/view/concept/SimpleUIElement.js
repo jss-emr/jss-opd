@@ -39,4 +39,8 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
 
     setValueFrom:function(observation){
     },
+
+    isDefault:function(){
+        return true;
+    }
 });

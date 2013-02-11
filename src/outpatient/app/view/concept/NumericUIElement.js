@@ -74,4 +74,8 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     setValueFrom:function(observation){
         this.numberfield.setValue(observation.data.value);
     },
+
+    isDefault:function(){
+        return false;
+    }
 });

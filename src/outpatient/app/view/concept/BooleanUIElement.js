@@ -48,4 +48,8 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
         var value = observation.get('value');
         this.conceptListBox.selectRecord(value, 'value');
     },
+
+    isDefault:function(){
+        return false;
+    },
 });

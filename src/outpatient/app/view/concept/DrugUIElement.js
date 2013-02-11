@@ -30,5 +30,13 @@ Ext.define('Jss.Outpatient.view.concept.DrugUIElement', {
 
     isValid:function () {
         return true;
-    }
+    },
+
+    isDefault:function(){
+        return false;
+    },
+
+    setValueFrom: function(observation) {
+        this.drugfield.setConcept(observation);
+    },
 });

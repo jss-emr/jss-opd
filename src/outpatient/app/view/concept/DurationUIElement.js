@@ -69,4 +69,8 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
             this.unitListBox.selectRecord(value.unit, 'value');
         }
     },
+
+    isDefault:function(){
+        return false;
+    },
 });

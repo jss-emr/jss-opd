@@ -62,4 +62,8 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
         if(value != null)
             this.conceptListBox.selectRecord(value, 'name');
     },
+
+    isDefault:function(){
+        return false;
+    },
 });
