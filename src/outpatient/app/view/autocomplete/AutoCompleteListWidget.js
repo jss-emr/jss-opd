@@ -27,7 +27,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
             return;
         }
 
-        this.list.getStore().filter(this.config.filterKey, keyword);
+        this.list.getStore().filter(this.config.filterKey, keyword, true);
         this.list.getStore().load();
         this.show();
     },

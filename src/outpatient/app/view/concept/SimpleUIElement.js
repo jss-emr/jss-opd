@@ -3,8 +3,6 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
 
     config:{
         height:100,
-//        flex:1,
-//        scrollable:'false',
         layout:'hbox'
     },
 

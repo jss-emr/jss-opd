@@ -6,7 +6,8 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
         'Jss.Outpatient.view.concept.CodedUIElement',
         'Jss.Outpatient.view.concept.ComplexUIElement',
         'Jss.Outpatient.view.concept.SimpleUIElement',
-        'Jss.Outpatient.view.concept.BooleanUIElement'
+        'Jss.Outpatient.view.concept.BooleanUIElement',
+        'Jss.Outpatient.view.concept.DrugUIElement'
     ],
 
     get:function (concept) {
@@ -28,6 +29,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
         }
         if (datatype == "boolean") {
             return this.booleanConcept(concept);
+        }
+        if (datatype == "drug") {
+            return this.drugConcept(concept);
         }
     },
 
@@ -51,5 +55,7 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     booleanConcept:function (concept) {
         return Ext.create('Jss.Outpatient.view.concept.BooleanUIElement').for(concept);
     },
-	
+    drugConcept:function (concept) {
+        return Ext.create('Jss.Outpatient.view.concept.DrugUIElement').for(concept);
+    }
 });

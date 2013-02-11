@@ -12,7 +12,6 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
         this.addSearchField();
         this.addAutoCompleteList();
         this.addNewSearchTermAdditionButton();
-        this.addNewSearchTermPanel()
     },
 
     addSearchField: function() {
@@ -68,8 +67,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     clear: function() {
         this.searchField.setValue('');
         this.autoCompleteList.destroy();
-        this.addAndSelectButton.destroy();
-        this.searchTermText.destroy();
+        this.newSearchTermAdditionButton.hide();
     },
 
     addNewSearchTermAdditionButton: function(){
@@ -77,38 +75,12 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             text: 'Add new search term',
             hidden:true
         });
-        this.newSearchTermAdditionButton.on('tap','addNewSearchTerm',this);
+        this.newSearchTermAdditionButton.on('tap','addSearchTermToStore',this);
         this.add(this.newSearchTermAdditionButton);
     },
 
-    addNewSearchTermPanel:function(){
-        this.searchTermText = Ext.create('Ext.field.Text', {
-            hidden:true,
-            placeHolder: 'Enter new search term...',
-        });
-
-        this.addAndSelectButton = Ext.create('Ext.Button',{
-            text: 'Add term and select',
-            hidden:true,
-        });
-
-        this.addAndSelectButton.on('tap', 'addSearchTermToStore', this);
-
-        this.add(this.searchTermText);
-        this.add(this.addAndSelectButton);
-    },
-
-    addNewSearchTerm: function(){
-        this.newSearchTermAdditionButton.hide();
-        this.searchTermText.show();
-        this.addAndSelectButton.show();
-    },
-
     addSearchTermToStore: function(){
-        var record = this.autoCompleteList.addFrom(this.searchTermText.getValue());
-        this.searchTermText.hide();
-        this.addAndSelectButton.hide();
-        this.searchField.setValue(record.getName());
+        var record = this.autoCompleteList.addFrom(this.searchField.getValue());
         this.fireEvent('itemSelected',record);
     },
 
