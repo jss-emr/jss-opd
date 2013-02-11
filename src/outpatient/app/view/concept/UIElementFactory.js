@@ -12,6 +12,7 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
 
     get:function (concept) {
         var datatype = (concept.data.properties.datatype instanceof Object) ? concept.data.properties.datatype.name : concept.data.properties.datatype;
+        var conceptClass = concept.data.properties.conceptClass ;
         if (datatype == "numeric") {
             return this.numeric(concept);
         }
@@ -25,6 +26,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
             return this.complex(concept);
         }
         if (datatype == "N/A") {
+            if(conceptClass == "Procedure"){
+                return this.procedure(concept);
+            }
             return this.simple(concept);
         }
         if (datatype == "boolean") {
@@ -57,5 +61,8 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     },
     drugConcept:function (concept) {
         return Ext.create('Jss.Outpatient.view.concept.DrugUIElement').for(concept);
+    },
+    procedure:function (concept) {
+        return Ext.create('Jss.Outpatient.view.concept.ProcedureUIElement').for(concept);
     }
 });

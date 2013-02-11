@@ -8,14 +8,12 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
 
     for:function (concept) {
         this.concept = concept;
-
-        this.add({
-            xtype:'label',
+        this.conceptLabel = Ext.create('Ext.Label',{
             flex:1,
             height:50,
             html: '<b>' + this.concept.get('name') + '</b>'
-        });
-
+        })
+        this.add(this.conceptLabel);
         return this;
     },
 
@@ -38,6 +36,7 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
     },
 
     setValueFrom:function(observation){
+        this.conceptLabel.setHtml('<b>' + observation.get('name') + '</b>')
     },
 
     isDefault:function(){
