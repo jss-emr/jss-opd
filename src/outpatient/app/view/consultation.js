@@ -61,26 +61,32 @@ Ext.define('Jss.Outpatient.view.consultation', {
                     ]
                 }
             ]
-        },{
-            xtype: 'header',
-            title: 'Add/Edit Examinations',
+        }]
+    },
+
+
+    initialize: function() {
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
+            title: 'Examinations',
             id: 'examination-card',
             content: [{
                 xtype: 'examinationEdit',
                 id: 'examination-editpanel',
                 flex: 2,
             }]
-        },{
-            xtype: 'header',
-            title: 'Add/Edit History & Symptoms',
+        });
+
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
+            title: 'History & Symptoms',
             id: 'history-card',
             content: [{
                 xtype: 'historyEdit',
                 id: 'historyEditPanel',
                 flex: 2,
             }]
-        },{
-            xtype: 'header',
+        });
+
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
             title: 'Select SymptomsTemplate',
             id: 'symptomsTemplateSelect-card',
             content: [{
@@ -88,30 +94,33 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 id: 'symptomsTemplateSelect',
                 flex: 2,
             }]
-        },{
-            xtype: 'header',
-            title: 'Add/Edit  Diagnosis',
+        });
+
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
+            title: 'Diagnosis',
             id: 'diagnosis-card',
             content: [{
                 xtype: 'diagnosis-edit',
                 flex: 2,
             }]
-        },{
-            xtype: 'header',
-            title: 'Add/Edit Treatment',
+        });
+
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
+            title: 'Treatment',
             id: 'treatment-card',
             content: [{
                 xtype: 'treatmentEdit',
                 flex: 2,
             }]
-        },{
-            xtype: 'header',
-            title: 'Add/Edit Instructions',
+        });
+
+        Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
+            title: 'Instructions',
             id: 'instruction-card',
             content: [{
                 xtype: 'instruction-edit',
                 flex: 2,
             }]
-        }]
-    }
+        });
+    },
 });

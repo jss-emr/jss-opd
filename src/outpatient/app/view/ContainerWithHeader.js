@@ -6,6 +6,14 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         layout: 'fit',
     },
 
+    buttonPageMaps: [
+        {text: "History"     , id: "history-card"},
+        {text: "Examination" , id: 'examination-card'},
+        {text: "Diagnosis"   , id: 'diagnosis-card'},
+        {text: "Treatment"   , id: 'treatment-card'},
+        {text: "Instruction" , id: 'instruction-card'},
+    ],
+
     initialize: function() {
         this.patient = Ext.getStore('patient');
         this.addHeaderContainer();
@@ -25,11 +33,13 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         this.add(this.headerContainer);
 
         this.addDoneButton();
+
+        this.headerContainer.add({xtype: 'spacer', flex: 1});
+        this.addToggleButtons();
         this.addTitleContainer();
 
         this.patient.on('load', function() {
             this.addPatientDetails();
-            this.addVisitDates();
         }, this);
     },
 
@@ -47,7 +57,7 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
     addTitleContainer: function() {
         this.titleContainer = Ext.create('Ext.Container', {
             html: this.config.title,
-            flex: 7,
+            flex: 5,
             cls: 'title',
         });
 
@@ -57,24 +67,32 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
     addPatientDetails: function() {
         var patient = this.patient.getAt(0);
         this.personDetails = Ext.create('Ext.Container', {
-            tpl: '<div>{firstName} {lastName}<br/>Weight = {weight}</div>',
-            data: {firstName: patient.get('firstName'), lastName: patient.get('lastName'), weight: patient.get('weight')},
-            flex: 2,
+            tpl: '<div>{firstName} {lastName}</div>',
+            data: {firstName: patient.get('firstName'), lastName: patient.get('lastName')},
+            flex: 1,
             cls: 'patientDetails',
         });
 
         this.headerContainer.add(this.personDetails);
     },
 
-    addVisitDates: function() {
-        this.visitDates = Ext.create('Ext.Container', {
-            tpl: '<tpl for="visits"><div><a href="">{date}</a></div></tpl>',
-            data: {visits: this.patient.getAt(0).get('visits')},
-            flex: 2,
-            cls: 'visitDates',
+    addToggleButtons: function() {
+        var self = this;
+        this.buttonPageMaps.forEach(function(button) {
+            self.addToggleButton(button.text, button.id);
         });
-
-        this.headerContainer.add(this.visitDates);
     },
 
+    addToggleButton: function(text, nextPageId) {
+        var button = Ext.create('Ext.Button', {
+            text: text,
+            flex: 1,
+        });
+
+        button.on('tap', function() {
+            Ext.getCmp('mainview').pop(1);
+            Ext.getCmp('mainview').push(Ext.getCmp(nextPageId));
+        }, this);
+        this.headerContainer.add(button)
+    },
 });
