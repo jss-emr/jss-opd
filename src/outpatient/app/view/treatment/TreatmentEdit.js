@@ -18,9 +18,10 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
                 xtype : 'list',
                 id: 'treatmentEditSummaryPanel',
                 store: 'TreatmentAdvice',
-                itemTpl: '{summary}',
+                itemTpl: Ext.create('Jss.Outpatient.view.treatment.FullSummaryTemplate'),
                 flex: 1,
-                cls: 'stripedList',
+                cls: 'observationSummary',
+                inline: true,
             },
             {
                 xtype : 'addTreatmentAdvice',

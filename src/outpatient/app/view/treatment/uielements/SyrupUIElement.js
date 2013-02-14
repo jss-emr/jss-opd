@@ -12,7 +12,8 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties();
-        return this.medicineDetails.data.name + " | " + props.spec + " | " + props.instruction + " | " + props.timings.toString() + " | " + props.quantity;
+        return {full: [this.medicineDetails.get('name'), props.spec, props.instruction, props.timings.toString(), props.quantity],
+                short: [this.medicineDetails.get('name'), props.spec, props.timings.toString()] };
     },
 
     treatmentAdviceProperties:function () {

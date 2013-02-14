@@ -21,7 +21,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
     },
 
     getSummary:function () {
-        return "";
+        return {full: [], short: []};
     },
 
     isDefault: function() {
@@ -91,7 +91,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
     },
 
     getDuration: function() {
-        return this.durationQuantity.getSelectedValue() + " " + this.durationUnit.getSelectedValue();
+        return Ext.Array.clean([this.durationQuantity.getSelectedValue(), this.durationUnit.getSelectedValue()]).join(" ");
     },
 
     _instructionsList:[

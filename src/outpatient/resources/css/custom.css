@@ -141,3 +141,7 @@
 .observationDetailsPanel .arraySelectionBox {
     border: 5px solid;
 }
+
+#addTreatmentAdvicePanel {
+    font-size: 80%;
+}

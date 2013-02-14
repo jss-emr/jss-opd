@@ -20,8 +20,9 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentSummary', {
                     store: 'TreatmentAdvice',
                     height: '100%',
                     width: '100%',
-                    itemTpl: '{summary}',
-                    cls: 'stripedList',
+                    itemTpl: Ext.create('Jss.Outpatient.view.treatment.ShortSummaryTemplate'),
+                    inline: true,
+                    itemCls: 'observationVisitPage',
                 }]
             },
         ]
