@@ -41,6 +41,8 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
 
     _createObservation: function(concept) {
         var conceptModel = new Jss.Outpatient.model.concept.Concept(concept);
-        return new Jss.Outpatient.model.concept.Observation({concept: conceptModel, value: null, summary: null, name: concept.name});
+
+        var summary = conceptModel.getDatatype() == "N/A" ? concept.name : null;
+        return new Jss.Outpatient.model.concept.Observation({concept: conceptModel, value: null, summary: summary, name: concept.name});
     }
 });

@@ -4,25 +4,30 @@
         sections:{
             history:[
                 {name:"Blood Loss", properties:{datatype:{name:"coded", properties:{answers:[{name: "Minimal"}, {name: "Moderate"}, {name: "Severe"}]}}}},
-                {name:"Paller", properties:{datatype:{name:"coded", properties:{answers:[{name: "None/Minimal"}, {name:"Moderate"}, {name:"Severe"}]}}}},
-                {name:"BP", properties:{datatype:"numeric"}},
-                {name:"PR", properties:{datatype:"numeric"}},
-                {name:"Postural fall of BP", properties:{datatype:"numeric"}},
-                {name:"Age", properties:{datatype:"numeric"}},
                 {name:"Associated Co-morbidity", properties:{datatype:{name:"coded", properties:{multi: true, answers:[{name:"Cirrhosis"}, {name:"Renal Dysfunction"}, {name: "Diabetes"}]}}}},
                 {name:"Abdominal Symptoms", properties:{datatype:{name:"coded", properties:{answers:[{name: "Pain"}, {name: "Loose stool"}, {name: "Mucus"}]}}}},
-                {name:"Other", properties:{datatype:{name:"coded", properties:{answers:[{name: "Fever"}, {name: "Fatigue/Weekness"}, {name: "Syncope History"}]}}}},
+                {name:"Fever", properties:{datatype:"boolean"}},
+                {name:"Fatigue/Weekness", properties:{datatype:"boolean"}},
+                {name:"Syncope", properties:{datatype:"boolean"}},
             ],
             examinations:[
+                {name:"Age", properties:{datatype:"numeric"}},
+                {name:"PR", properties:{datatype:"numeric"}},
+                {name:"BP", properties:{datatype:"numeric"}},
+                {name:"Postural fall of BP", properties:{datatype:"numeric"}},
+                {name:"Paller", properties:{datatype:{name:"coded", properties:{answers:[{name: "None/Minimal"}, {name:"Moderate"}, {name:"Severe"}]}}}},
                 {name:"Ascitos", properties:{datatype:"boolean"}},
                 {name:"Abdomen Tenderness", properties:{datatype:"boolean"}},
-                {name:"Abdomen Lump", properties:{datatype:{name:"coded", properties:{answers:[{name:"N/A"}, {name: "Tumor"}, {name: "Intussusception"}]}}}},
+                {name:"Abdomen Lump", properties:{datatype:{name:"coded", properties:{answers:[{name:"None"}, {name: "Tumor"}, {name: "Intussusception"}]}}}},
                 {name:"Fissures", properties:{datatype:"boolean"}},
                 {name:"Piles", properties:{datatype:"boolean"}},
-                {name:"Mass", properties:{datatype:"boolean"}},
+                {name:" Rectal Mass", properties:{datatype:"boolean"}},
                 {name:"Fingersall", properties:{datatype:"boolean"}},
             ],
             instructions: [
+                {name:"Complete Blood Count (CBC)", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+                {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+                {name:"Haemogram", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
                 {name:"Nasagastic Lavage", properties:{datatype:{name:"coded", properties:{answers:[{name:"Bile Stained"}, {name: "Blood Stained"}, {name: "No Bile/Blood"}]}}}},
             ]
         }

@@ -34,5 +34,12 @@ Ext.define('Jss.Outpatient.model.concept.Concept', {
         this.properties= '{ datatype: {name: "N/A"}, conceptClass : "Test"}';
         this.id='127.0UUID';
         return this;
+    },
+
+    getDatatype: function() {
+        var datatype = this.get('properties').datatype;
+        if(datatype instanceof Object)
+            return datatype.name;
+        return datatype;
     }
 });
