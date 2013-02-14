@@ -10,7 +10,7 @@ Ext.define('Jss.Outpatient.view.patient', {
             flex: 1,
             id: 'patientPanel',
             scrollable: 'false',
-            itemTpl: '<table><tr><td>{firstName}, {lastName}</br>age :{age}</br>gender:M </br></td></tr></table>' ,
+            itemTpl: '<table><tr><td>{firstName}, {lastName}</br>Age :{age} years<br/>Village: {village}</td></tr></table>' ,
             store: 'patient',
 
         },{

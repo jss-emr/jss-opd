@@ -21,6 +21,9 @@ Ext.define('Jss.Outpatient.model.Patient', {
                 name: 'weight',
                 type: 'string',
             }, {
+                name: 'village',
+                type: 'string',
+            }, {
                 name: 'visits',
                 type: 'auto'
             }]
