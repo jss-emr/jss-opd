@@ -5,7 +5,7 @@ Ext.define('Jss.Outpatient.store.history.HistoryConcepts', {
         autoLoad:true,
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8080/concept?name=der&category=Concept',
+            url: '',
 			noCache: false
         }
     }

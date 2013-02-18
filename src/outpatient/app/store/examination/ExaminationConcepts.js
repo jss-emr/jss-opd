@@ -5,7 +5,7 @@ Ext.define('Jss.Outpatient.store.examination.ExaminationConcepts', {
         autoLoad: true,
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8080/concept?name=der&category=Examination',
+            url: '',
 			noCache: false
         }
     }

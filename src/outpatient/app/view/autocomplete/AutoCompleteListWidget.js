@@ -32,7 +32,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         //this.list.getStore().filter(this.config.filterKey, keyword, true);
 
 
-        this.list.getStore().getProxy().setUrl("http://localhost:8080/concept?name="+keyword+"&category=" + this.category);
+        this.list.getStore().getProxy().setUrl("/opd-service/concept?name="+keyword+"&category=" + this.category);
 //        this.list.getStore().getProxy().setUrl("http://localhost:8080/concept?name=herpes&category=Diagnosis");
 
         this.list.getStore().load();

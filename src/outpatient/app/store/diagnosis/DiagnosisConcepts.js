@@ -6,7 +6,7 @@ Ext.define('Jss.Outpatient.store.diagnosis.DiagnosisConcepts', {
         autoLoad: false,
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8080/concept?name=der&category=Diagnosis',
+            url: '',
 			noCache: false ,
             actionMethods: {
                 read   : 'GET' // by default GET

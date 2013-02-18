@@ -6,7 +6,7 @@ Ext.define('Jss.Outpatient.store.instruction.AllInstructions', {
         autoLoad: true,
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8080/concept?name=der&category=Instruction',
+            url: '',
 			noCache: false
         }
     }
