@@ -42,25 +42,36 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
 
     showOptionsPanel:function(list, index, target, record){
         this.selectedObservation = record;
-        var menuOptions = this.config.menuOptions || [
-            {displayText: 'Edit', tapEventName: 'edit', iconCls: 'compose'},
-            {displayText: 'Delete', tapEventName: 'delete', iconCls: 'trash'},
-        ];
 
-        this.actionPanel = Ext.create('Jss.Outpatient.view.util.MenuPanel', {menuOptions: menuOptions});
-        this.actionPanel.showBy(target);
+        if(record.get('concept').getDatatype() == "N/A") {
+            this.showDeleteMenuOption(target);
+            return;
+        }
 
-        this.actionPanel.on('delete',this.deleteObservation, this);
-        this.actionPanel.on('edit', this.showDetailsForEdit, this);
+        this.showDetailsForEdit(list, index, target, record);
     },
 
-    deleteObservation:function(){
+    showDeleteMenuOption: function(target) {
+        this.actionPanel = Ext.create('Jss.Outpatient.view.util.MenuPanel', {
+            menuOptions: [{displayText: 'Delete', tapEventName: 'delete'}]
+        });
+        this.actionPanel.showBy(target);
+        this.actionPanel.on('delete', this.deleteSimpleObservation, this);
+    },
+
+    deleteObservation:function(concept){
+        var existingObservation = this.store.findRecord('name', concept.get('name'));
+        if(existingObservation)
+            this.store.remove(existingObservation);
+    },
+
+    deleteSimpleObservation: function() {
         this.store.remove(this.selectedObservation);
         this.clearActionPanel();
     },
 
-    showDetailsForEdit: function(){
-        this.actionPanel.destroy();
+    showDetailsForEdit: function(list, index, target, record){
+        this.selectedObservation = record;
         this.fireEvent('editItem', this.selectedObservation);
     },
 

@@ -39,6 +39,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         });
 
         widget.on('observationDetailsCaptured', this.onDetailsCaptured, this);
+        widget.on('observationDeleted', this.onObservationDeletion, this);
 
         this.add(widget);
         return widget;
@@ -51,6 +52,11 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
         if (uiElement !== undefined) {
             this.detailsPanel.addObservationUIElement(uiElement);
         }
+    },
+
+    onObservationDeletion: function(concept) {
+        this.clear();
+        this.fireEvent('observationDeleted', concept);
     },
 
     onDetailsCaptured: function(observation) {

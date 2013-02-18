@@ -12,7 +12,8 @@ Ext.define('Jss.Outpatient.controller.ExaminationController', {
                 containerDoubleTab:'gotoEditPage'
             },
             addObservationsPanel: {
-                observationDetailsCaptured: 'addObservation'
+                observationDetailsCaptured: 'addObservation',
+                observationDeleted: 'deleteObservation',
             },
             observationsSummaryPanel: {
                 'editItem': 'editObservation'
@@ -30,5 +31,9 @@ Ext.define('Jss.Outpatient.controller.ExaminationController', {
 
     editObservation: function(observation) {
         this.getAddObservationsPanel().showForEdit(observation);
+    },
+
+    deleteObservation: function(concept) {
+        this.getObservationsSummaryPanel().deleteObservation(concept);
     },
 });

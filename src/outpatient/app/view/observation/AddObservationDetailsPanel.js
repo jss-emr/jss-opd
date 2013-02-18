@@ -10,22 +10,42 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     initialize: function() {
         this.detailsPanel = this.addDetailsPanel();
-        this.addButton = this.createAddButton();
+        this.addButtonRow();
+    },
+
+    addButtonRow: function() {
+        this.buttonRow = Ext.create('Ext.Container', {
+            layout: 'hbox',
+            flex: 1,
+            items: [this.createAddButton(), this.createDeleteButton()]
+        });
+
+        this.add(this.buttonRow);
     },
 
     createAddButton: function() {
-        var button = Ext.create('Ext.Button', {
+        this.addButton = Ext.create('Ext.Button', {
             html: 'Add',
             hidden: true,
-            flex: 1,
-            width: '100%',
-            style: 'margin-left: 10px'
+            flex: 4,
+            ui: 'confirm',
+            style: 'margin-right: 20px',
         });
 
-        button.on('tap', this.detailsCaptured, this);
+        this.addButton.on('tap', this.detailsCaptured, this);
+        return this.addButton;
+    },
 
-        this.add(button);
-        return button;
+    createDeleteButton: function() {
+        this.deleteButton = Ext.create('Ext.Button', {
+            html: 'Delete',
+            hidden: true,
+            flex: 1,
+            ui: 'decline',
+        });
+
+        this.deleteButton.on('tap', this.deleteObservation, this);
+        return this.deleteButton;
     },
 
     addDetailsPanel: function() {
@@ -42,6 +62,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     clear: function() {
         this.addButton.hide();
+        this.deleteButton.hide();
         this.detailsPanel.removeAll(true);
     },
 
@@ -55,12 +76,17 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
         this.detailsPanel.add([uiElement]);
         this.detailsPanel.show();
         this.addButton.show();
+        this.deleteButton.show();
     },
 
     detailsCaptured: function() {
         if(this.isValid()){
             this.fireEvent('observationDetailsCaptured', this.getObservationDetails());
         }
+    },
+
+    deleteObservation: function() {
+        this.fireEvent('observationDeleted', this.uiElement.concept);
     },
 
     getObservationDetails: function() {

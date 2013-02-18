@@ -12,7 +12,8 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
                 containerDoubleTab: 'gotoEditPage'
             },
             addObservationsPanel: {
-                observationDetailsCaptured: 'addObservation'
+                observationDetailsCaptured: 'addObservation',
+                observationDeleted: 'deleteObservation',
             },
         }
     },
@@ -23,5 +24,9 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
 
     addObservation: function(observation) {
         this.getObservationsSummaryPanel().addData(observation);
+    },
+
+    deleteObservation: function(concept) {
+        this.getObservationsSummaryPanel().deleteObservation(concept);
     },
 });

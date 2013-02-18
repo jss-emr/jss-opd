@@ -22,6 +22,7 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisObservationSummaryPanel', {
     discardDiagnosis: function() {
         this.actionPanel.destroy();
         this.selectedObservation.set('discarded', true);
+        this.selectedObservation.set('finalized', false);
     },
 
     unDiscardDiagnosis: function() {
@@ -31,7 +32,8 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisObservationSummaryPanel', {
 
     finalizeDiagnosis: function() {
         this.actionPanel.destroy();
-        this.selectedObservation.set('finalized', false);    
-    }
+        this.selectedObservation.set('discarded', false);
+        this.selectedObservation.set('finalized', true);
+    },
 
  })

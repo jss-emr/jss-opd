@@ -40,6 +40,14 @@
     text-decoration: line-through;
 }
 
+.diagnosisSummary .final {
+    background-color: lightgreen;
+    padding: 5px;
+    margin: 1px 5px;
+    border-radius: 15px;
+    border: 5px solid ;
+}
+
 .observationSummary .complete-data {
     padding: 5px;
     margin: 1px 5px;
