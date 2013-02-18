@@ -3,11 +3,13 @@ Ext.define('Jss.Outpatient.store.diagnosis.DiagnosisConcepts', {
 
     config: {
         model: 'Jss.Outpatient.model.concept.Concept',
-        autoLoad: true,
+        autoLoad: false,
         proxy: {
             type: 'ajax',
-            url: 'data/allDiagnoses.json',
-			noCache: false
-        }
+            url: 'http://localhost:8080/concept?name=der&category=Diagnosis',
+			noCache: false ,
+            actionMethods: {
+                read   : 'GET' // by default GET
+            }        }
     }
 });

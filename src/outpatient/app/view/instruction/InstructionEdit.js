@@ -16,6 +16,7 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
                 id:'instruction-addObservationsPanel',
                 scrollable:false,
                 autoCompleteStore:'AllInstructions',
+                autoCompleteCategory: 'Instruction',
                 autoCompleteItemTpl:'{name}',
                 autoCompleteFilterKey:'name',
                 flex:3,

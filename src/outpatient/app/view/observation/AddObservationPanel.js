@@ -21,6 +21,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
             width: '30%',
             placeHolder:'Search...',
             store: this.config.autoCompleteStore,
+            category: this.config.autoCompleteCategory,
             itemTpl: this.config.autoCompleteItemTpl,
             filterKey: this.config.autoCompleteFilterKey,
         });

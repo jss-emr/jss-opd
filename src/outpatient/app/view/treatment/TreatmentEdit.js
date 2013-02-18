@@ -26,6 +26,7 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
             {
                 xtype : 'addTreatmentAdvice',
                 id: 'addTreatmentAdvicePanel',
+                autoCompleteCategory: 'Medicine',
                 flex: 2,
             }
         ]

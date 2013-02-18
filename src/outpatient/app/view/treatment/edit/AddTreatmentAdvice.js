@@ -15,12 +15,13 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
     },
 
     addAutoCompleteWidget: function() {
-        var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
+        var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             placeHolder:'Search...',
             width:'30%',
             store: 'MedicineDetails',
             itemTpl: '{name}',
             filterKey: 'name',
+            category: this.config.autoCompleteCategory,
         });
 
         widget.on('itemSelected', this.onTreatmentAdviceSelection, this);

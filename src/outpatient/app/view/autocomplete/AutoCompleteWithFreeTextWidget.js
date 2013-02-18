@@ -39,6 +39,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             itemTpl: this.config.itemTpl,
             filterKey: this.config.filterKey,
             store: this.config.store,
+            category: this.config.category,
         });
 
         this.autoCompleteList.on('select', 'onItemSelection', this);
