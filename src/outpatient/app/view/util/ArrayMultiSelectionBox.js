@@ -16,7 +16,7 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
 
     selectRecord: function(values, fieldName) {
         var self = this;
-        if(value == null || value == undefined)
+        if(values == null || values == undefined)
             return;
         values.forEach(function(value) {
             var index = self.getStore().find(fieldName, value[fieldName] || value);

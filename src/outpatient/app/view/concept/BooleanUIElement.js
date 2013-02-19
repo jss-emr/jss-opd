@@ -13,10 +13,12 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
             width:'100%'
         }).addData(["YES", "NO"]);
 
+        this.conceptListBox.on('select', function(){this.fireEvent('valueCaptured', this.getValueAsString()); }, this);
+        this.conceptListBox.on('deselect', function(){this.fireEvent('valueCaptured', this.getValueAsString()); }, this);
+
         this.add([
             {
-                xtype:'label',
-                html: this.concept.get('name'),
+                xtype: 'spacer',
                 width: '20%',
             },
             {
@@ -36,6 +38,11 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
             concept:this.concept,
             value: this.conceptListBox.getSelectedValue()
         });
+        if(obs.get('value') === null){
+            obs.set('summary', null);
+            return obs;
+        }
+
         obs.set('summary', obs.get('concept').get('name') + '-' + obs.get('value'));
         return obs;
     },
@@ -51,5 +58,9 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
 
     isDefault:function(){
         return false;
+    },
+
+    getValueAsString: function() {
+        return this.conceptListBox.getSelectedValue();
     },
 });

@@ -12,7 +12,11 @@ Ext.define('Jss.Outpatient.model.concept.Observation', {
     setSummary: function () {
         var concept = this.get('concept');
         var unit = concept.getUnit();
-        this.set('summary', concept.get('name') + ' - ' + this.get('value') + ' ' + unit);
+        if(this.get('value') === null) {
+            this.set('summary', null);
+        } else {
+            this.set('summary', concept.get('name') + ' - ' + this.get('value') + ' ' + unit);
+        }
         this.set('name',concept.get('name'));
     }
 });

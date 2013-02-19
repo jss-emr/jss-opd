@@ -32,8 +32,12 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
         });
 
-        this.numberfield.on('action', function() { this.fireEvent('detailsCaptured')}, this);
+        this.numberfield.on('action', function() { 
+            this.fireEvent('detailsCaptured');
+            this.fireEvent('valueCaptured', this.numberfield.getValue());
+        }, this);
 
+        this.numberfield.on('clearicontap', function() {this.fireEvent('valueCaptured', this.numberfield.getValue());}, this);
         return this;
     },
 

@@ -21,19 +21,25 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
         Ext.getCmp('mainview').push(Ext.getCmp('symptomsTemplateSelect-card'));
     },
 
-    applyTemplate: function(template) {
+    applyTemplate: function(template, mapping) {
         var self = this;
         var sections = template.get('sections');
         Ext.getStore('SymptomsTemplates').remove(template);
         sections.examinations.forEach(function(examination) {
-            Ext.getStore('ExaminationObservations').add(self._createObservation(examination));
+            var uiElement = mapping[examination.name];
+            var observation = uiElement !== undefined ? uiElement.getValue() : self._createObservation(examination);
+            Ext.getStore('ExaminationObservations').add(observation);
         });
         sections.history.forEach(function(history) {
-            Ext.getStore('HistoryObservations').add(self._createObservation(history));
+            var uiElement = mapping[history.name];
+            var observation = uiElement !== undefined ? uiElement.getValue() : self._createObservation(history);
+            Ext.getStore('HistoryObservations').add(observation);
         });
 
         sections.instructions.forEach(function(instruction) {
-            Ext.getStore('Instructions').add(self._createObservation(instruction));
+            var uiElement = mapping[instruction.name];
+            var observation = uiElement !== undefined ? uiElement.getValue() : self._createObservation(instruction);
+            Ext.getStore('Instructions').add(observation);
         });
 
         Ext.getCmp('mainview').pop();

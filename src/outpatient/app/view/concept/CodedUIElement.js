@@ -22,6 +22,9 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
             itemTpl: '{name}'
         }).addData(concept.get('properties').datatype.properties.answers);
 
+        this.conceptListBox.on('select', function(){this.fireEvent('valueCaptured', this.getValueAsString()); }, this);
+        this.conceptListBox.on('deselect', function(){this.fireEvent('valueCaptured', this.getValueAsString()); }, this);
+
         this.add([
             {
                 xtype: 'spacer',
@@ -44,12 +47,11 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
             concept:this.concept,
             value: this.conceptListBox.getSelectedValue()
         });
-        if(this.isMultiSelect == true) {
-            var value = obs.get('value').map(function(elem) {return elem.name}).join(", ");
-        } else {
-            var value = obs.get('value').name;
-        }
-        obs.set('summary', obs.get('concept').get('name') + '-' + value);
+        if(obs.get('value') === null || (obs.get('value') instanceof Array && obs.get('value').length == 0)) {
+            obs.set('summary', null);
+            return obs;
+        } 
+        obs.set('summary', obs.get('concept').get('name') + '-' + this.getValueAsString());
         return obs;
     },
 
@@ -65,5 +67,16 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
 
     isDefault:function(){
         return false;
+    },
+
+    getValueAsString: function(){
+        var value = this.conceptListBox.getSelectedValue();
+        if(value == null || (value instanceof Array && value.length == 0)) {
+            return null;
+        }
+        if(this.isMultiSelect == true) {
+            return value.map(function(elem) {return elem.name}).join(", ");
+        } 
+        return value.name;
     },
 });
