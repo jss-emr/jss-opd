@@ -3,7 +3,7 @@ Ext.define('Jss.Outpatient.store.instruction.AllInstructions', {
 
     config: {
         model: 'Jss.Outpatient.model.concept.Concept',
-        autoLoad: true,
+        autoLoad: false,
         proxy: {
             type: 'ajax',
             url: '',
