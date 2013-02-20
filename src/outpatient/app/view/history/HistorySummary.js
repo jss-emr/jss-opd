@@ -22,19 +22,6 @@ Ext.define('Jss.Outpatient.view.history.HistorySummary', {
                     itemCls: 'observationVisitPage',
                 }]
             },
-            {
-                xtype: 'container',
-                flex: 1,
-                layout: 'fit',
-                items: [{
-                    xtype: 'button',
-                    id: "symptomsTemplateButton",
-                    html: 'Symptoms<br/>Templates',
-                    top: 1,
-                    width: '100%',
-                    cls: 'smallFont',
-                }]
-            },
         ],
     },
 });

@@ -5,20 +5,36 @@ Ext.define('Jss.Outpatient.view.patient', {
     id: 'patient-panel',
     config: {
         layout: 'hbox',
-        items: [{
-            xtype: 'list',
-            flex: 1,
-            id: 'patientPanel',
-            scrollable: 'false',
-            itemTpl: '<table><tr><td>{firstName}, {lastName}</br>Age :{age} years<br/>Village: {village}</td></tr></table>' ,
-            store: 'patient',
-
-        },{
-            xtype: 'image',
-            layout: 'fit',
-            src: '../outpatient/resources/images/headshots/ram.png',
-            flex: 1,
-        }]
+        items: [
+            {
+                xtype: 'container',
+                layout:'vbox',
+                flex: 1,
+                items: [
+                    {
+                        xtype: 'list',
+                        flex: 3,
+                        id: 'patientPanel',
+                        scrollable: 'false',
+                        itemTpl: '<table><tr><td>{firstName}, {lastName}</br>Age :{age} years<br/>Village: {village}</td></tr></table>' ,
+                        store: 'patient',
+                    },
+                    {
+                        xtype: 'button',
+                        id: "symptomsTemplateButton",
+                        html: 'Symptoms<br/>Templates',
+                        flex: 1,
+                        width: '90%',
+                    }
+                ],
+            },
+            {
+                xtype: 'image',
+                layout: 'fit',
+                src: '../outpatient/resources/images/headshots/ram.png',
+                flex: 1,
+            },
+        ]
     }
 })
 

@@ -32,7 +32,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             }]
         });
 
-        buttonRow.add(this.createButton("Add", "confirm", function(scope) { scope.fireEvent('add', scope.conceptUIElementMap) }, this));
+        buttonRow.add(this.createButton("Add Template", "confirm", function(scope) { scope.fireEvent('add', scope.conceptUIElementMap) }, this));
         buttonRow.add(this.createButton("Cancel", "decline", function(scope) { scope.fireEvent('cancel'); scope.destroy(); }, this));
 
         this.add(buttonRow);

@@ -11,7 +11,7 @@
                 {name:"Syncope", properties:{datatype:"boolean"}},
             ],
             examinations:[
-                {name:"Age alksdjkjsd lkajdskljds lkajsdkljlksd lkjalksjlkjsd lkjaklsjdlkjads lkjlkjlkjkl", properties:{datatype:"numeric"}},
+                {name:"Age", properties:{datatype:"numeric"}},
                 {name:"PR", properties:{datatype:"numeric"}},
                 {name:"Systolic BP", properties:{datatype:"numeric"}},
                 {name:"Diastolic BP", properties:{datatype:"numeric"}},
