@@ -8,7 +8,6 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         hideOnMaskTap: true,
         showAnimation: 'fadeIn',
         hideAnimation: 'fadeOut',
-        style: 'color: white',
     },
 
     initialize: function() {
@@ -70,7 +69,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         var rowContainer = Ext.create('Ext.Container',{
             scrollable: false,
             layout: 'hbox',
-            style: 'margin-bottom: 2px;'
+            style: 'margin-bottom: 2px; color: white;'
         });
 
         var keyButton = Ext.create('Ext.Button', {
@@ -90,6 +89,9 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         var uiElement = factory.get(new Jss.Outpatient.model.concept.Concept(concept));
         if (uiElement !== undefined) {
             this.conceptUIElementMap[concept.name] = uiElement;
+            if(uiElement.isDefault()) {
+                valueField.setHtml(uiElement.getValueAsString());
+            }
         }
 
         keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
