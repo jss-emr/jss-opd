@@ -84,6 +84,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         var keyButton = Ext.create('Ext.Button', {
             text: concept.name,
             flex: 1,
+            cls: 'confirmationKeyButton'
         });
 
         var deleteButton = Ext.create('Ext.Button', {
@@ -99,7 +100,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             style: 'margin-left: 5px; border-bottom: 1px dashed white;',
         });
 
-        rowContainer.add([deleteButton, keyButton, valueField]);
+        rowContainer.add([keyButton, valueField, deleteButton]);
 
         var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
         var uiElement = factory.get(new Jss.Outpatient.model.concept.Concept(concept));

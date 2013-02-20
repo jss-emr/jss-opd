@@ -153,3 +153,15 @@
 #addTreatmentAdvicePanel {
     font-size: 80%;
 }
+.tick {
+    background: url(../../resources/images/tick.png) no-repeat;
+    height: 50px;
+    width: 50px;
+}
+
+.confirmationKeyButton .x-button-label {
+    font-weight: normal;
+    white-space: normal;
+    line-height: normal;
+    height: auto;
+}

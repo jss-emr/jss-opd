@@ -23,7 +23,6 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
     },
 
     loadData: function(keyword) {
-        console.log(this.category);
         if(keyword.length == 0){
             this.hide();
             return;

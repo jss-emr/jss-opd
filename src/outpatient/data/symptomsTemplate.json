@@ -11,11 +11,12 @@
                 {name:"Syncope", properties:{datatype:"boolean"}},
             ],
             examinations:[
-                {name:"Age", properties:{datatype:"numeric"}},
+                {name:"Age alksdjkjsd lkajdskljds lkajsdkljlksd lkjalksjlkjsd lkjaklsjdlkjads lkjlkjlkjkl", properties:{datatype:"numeric"}},
                 {name:"PR", properties:{datatype:"numeric"}},
-                {name:"BP", properties:{datatype:"numeric"}},
+                {name:"Systolic BP", properties:{datatype:"numeric"}},
+                {name:"Diastolic BP", properties:{datatype:"numeric"}},
                 {name:"Postural fall of BP", properties:{datatype:"numeric"}},
-                {name:"Paller", properties:{datatype:{name:"coded", properties:{answers:[{name: "None/Minimal"}, {name:"Moderate"}, {name:"Severe"}]}}}},
+                {name:"Pallor", properties:{datatype:{name:"coded", properties:{answers:[{name: "None/Minimal"}, {name:"Moderate"}, {name:"Severe"}]}}}},
                 {name:"Ascitos", properties:{datatype:"boolean"}},
                 {name:"Abdomen Tenderness", properties:{datatype:"boolean"}},
                 {name:"Abdomen Lump", properties:{datatype:{name:"coded", properties:{answers:[{name:"None"}, {name: "Tumor"}, {name: "Intussusception"}]}}}},
@@ -28,7 +29,7 @@
                 {name:"Complete Blood Count (CBC)", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
                 {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
                 {name:"Haemogram", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
-                {name:"Nasagastic Lavage", properties:{datatype:{name:"coded", properties:{answers:[{name:"Bile Stained"}, {name: "Blood Stained"}, {name: "No Bile/Blood"}]}}}},
+                {name:"Nasogastric Lavage", properties:{datatype:{name:"coded", properties:{answers:[{name:"Bile Stained"}, {name: "Blood Stained"}, {name: "No Bile/Blood"}]}}}},
             ]
         }
     }
