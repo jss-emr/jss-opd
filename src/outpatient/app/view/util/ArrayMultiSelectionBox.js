@@ -6,6 +6,15 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
         mode: 'MULTI',
     },
 
+    initialize: function() {
+        this.callParent();
+        this.setItemTpl('<input class="mutliSelectInput" type="checkbox" disabled> ' + this.config.itemTpl);
+        this.on('itemtap', function(scope, index, target) {
+            var inputElement = target.down('.mutliSelectInput').dom;
+            inputElement.checked = !inputElement.checked;
+        });
+    },
+
     getSelectedValue: function() {
         var self = this;
         var selectedValues = this.getSelection();

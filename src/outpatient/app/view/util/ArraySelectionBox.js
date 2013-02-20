@@ -1,15 +1,15 @@
 Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
-	extend: 'Ext.dataview.List',
-	alias : 'widget.arraySelectionBox',
+    extend: 'Ext.dataview.List',
+    alias : 'widget.arraySelectionBox',
 
-	config: {
-		centered: true,
-		itemTpl: '{value}',
+    config: {
+        centered: true,
+        itemTpl: '{value}',
         height: '100%',
         scrollable: 'both',
         allowDeselect: true,
         cls: 'arraySelectionBox',
-	},
+    },
 
     isPrimitiveData: true,
 
