@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.concept.ComplexUIElement', {
-    extend:'Ext.Container',
+    extend:'Jss.Outpatient.view.concept.BaseUIElement',
 
     config:{
         height:'100%',
@@ -30,15 +30,4 @@ Ext.define('Jss.Outpatient.view.concept.ComplexUIElement', {
         obs.set('summary', obs.get('concept').get('name') + "{" + summaries.concat(",") + "}");
         return obs;
     },
-
-    isValid:function () {
-        return true;
-    },
-
-    setValueFrom: function(observation) {
-    },
-
-    isDefault:function(){
-        return false;
-    }
 });

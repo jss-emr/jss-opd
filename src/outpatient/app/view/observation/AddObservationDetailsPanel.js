@@ -80,9 +80,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
     },
 
     detailsCaptured: function() {
-        if(this.isValid()){
-            this.fireEvent('observationDetailsCaptured', this.getObservationDetails());
-        }
+        this.fireEvent('observationDetailsCaptured', this.getObservationDetails());
     },
 
     deleteObservation: function() {
@@ -91,13 +89,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     getObservationDetails: function() {
         return this.uiElement.getValue();
-    },
-
-    isValid: function(){
-        if(this.uiElement.isValid())
-            return true;
-        this.uiElement.highlightErrors();
-        return false;
     },
 
     setUIElementValueFrom: function(observation){

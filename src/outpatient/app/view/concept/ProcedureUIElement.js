@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.concept.ProcedureUIElement', {
-    extend:'Ext.form.Panel',
+    extend:'Jss.Outpatient.view.concept.BaseUIElement',
 
 
     for:function (concept) {
@@ -37,14 +37,6 @@ Ext.define('Jss.Outpatient.view.concept.ProcedureUIElement', {
 
     getSummary:function () {
         return this.concept.data.name + ":" + this.textfield.getValue();
-    },
-
-    isValid:function () {
-        return true;
-    },
-
-    isDefault:function(){
-        return false;
     },
 
     setValueFrom: function(observation) {

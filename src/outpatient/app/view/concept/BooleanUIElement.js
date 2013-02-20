@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
-    extend:'Ext.Container',
+    extend:'Jss.Outpatient.view.concept.BaseUIElement',
 
     config:{
         height:'100%',
@@ -47,17 +47,9 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
         return obs;
     },
 
-    isValid:function () {
-        return true;
-    },
-
     setValueFrom: function(observation) {
         var value = observation.get('value');
         this.conceptListBox.selectRecord(value, 'value');
-    },
-
-    isDefault:function(){
-        return false;
     },
 
     getValueAsString: function() {

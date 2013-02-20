@@ -1,11 +1,10 @@
 Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
-    extend: 'Ext.Container',
+    extend: 'Jss.Outpatient.view.concept.BaseUIElement',
 
     config: {
         height: '100%',
         layout: 'hbox',
         width: '100%',
-//        scrollable: false,
     },
 
     for: function (concept) {
@@ -58,19 +57,11 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
 
     },
 
-    isValid: function () {
-        return true;
-    },
-
     setValueFrom: function(observation) {
         var value = observation.get('value');
         if(value != null) {
             this.durationListBox.selectRecord(value.duration, 'value');
             this.unitListBox.selectRecord(value.unit, 'value');
         }
-    },
-
-    isDefault:function(){
-        return false;
     },
 });

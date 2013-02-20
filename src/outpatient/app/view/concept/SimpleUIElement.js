@@ -1,9 +1,10 @@
 Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
-    extend:'Ext.form.Panel',
+    extend:'Jss.Outpatient.view.concept.BaseUIElement',
 
     config:{
         height:100,
-        layout:'hbox'
+        layout:'hbox',
+        style:'background-color : whitesmoke; padding: 10px; border-radius: 10px;'
     },
 
     for:function (concept) {
@@ -31,19 +32,11 @@ Ext.define('Jss.Outpatient.view.concept.SimpleUIElement', {
         return this.concept.data.name ;
     },
 
-    isValid:function () {
-        return true;
-    },
-
     setValueFrom:function(observation){
         this.conceptLabel.setHtml('<b>' + observation.get('name') + '</b>')
     },
 
     isDefault:function(){
         return true;
-    },
-
-    getValueAsString: function() {
-        return this.concept.get('name');
     },
 });

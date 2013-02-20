@@ -1,5 +1,5 @@
 Ext.define('Jss.Outpatient.view.concept.DrugUIElement', {
-    extend:'Ext.form.Panel',
+    extend:'Jss.Outpatient.view.concept.BaseUIElement',
 
 
     for:function (concept) {
@@ -26,14 +26,6 @@ Ext.define('Jss.Outpatient.view.concept.DrugUIElement', {
 
     getSummary:function () {
         return this.concept.data.name + ":" + this.numberfield.getValue();
-    },
-
-    isValid:function () {
-        return true;
-    },
-
-    isDefault:function(){
-        return false;
     },
 
     setValueFrom: function(observation) {
