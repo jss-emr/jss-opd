@@ -14,15 +14,15 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
     },
 
     addList: function() {
-        var widget = Ext.create('Ext.dataview.List', {
+        this.symptomsTemplateList = Ext.create('Ext.dataview.List', {
             width: '30%',
             store: 'SymptomsTemplates',
             itemTpl: '{name}',
             allowDeselect: true,
         });
 
-        widget.on('select', function(list, record) {this.onSelection(record)}, this);
-        this.add(widget);
+        this.symptomsTemplateList.on('select', function(list, record) {this.onSelection(record)}, this);
+        this.add(this.symptomsTemplateList);
     },
 
     addAutoComplete: function() {
@@ -51,6 +51,10 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
         this.sheet.on('add', function(conceptUIElementMapping) {
             self.sheet.destroy();
             self.fireEvent("symptomsTemplateSelected", record, conceptUIElementMapping);
+        });
+
+        this.sheet.on('cancel', function() {
+            self.symptomsTemplateList.deselectAll();
         });
     }
 });

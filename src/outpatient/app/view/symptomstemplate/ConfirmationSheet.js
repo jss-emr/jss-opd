@@ -16,7 +16,8 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
     },
 
     for: function(template) {
-        this.addDataRow(template);
+        this.template = template;
+        this.addDataRow();
         this.addButtonsRow();
         return this;
     },
@@ -32,12 +33,12 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         });
 
         buttonRow.add(this.createButton("Add", "confirm", function(scope) { scope.fireEvent('add', scope.conceptUIElementMap) }, this));
-        buttonRow.add(this.createButton("Cancel", "decline", function(scope) { scope.destroy() }, this));
+        buttonRow.add(this.createButton("Cancel", "decline", function(scope) { scope.fireEvent('cancel'); scope.destroy(); }, this));
 
         this.add(buttonRow);
     },
 
-    addDataRow: function(template) {
+    addDataRow: function() {
         var self = this;
         var dataRow = Ext.create('Ext.Container', {
             layout: 'hbox',
@@ -46,26 +47,34 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         });
 
         this.keyValueColumn = Ext.create('Ext.Container', {
-            flex: 1,    
+            flex: 3,
             scrollable: true,
         });
 
         this.detailsPanel = Ext.create('Ext.Container', {
-            flex: 1,
+            flex: 2,
             layout: 'fit',
+            style: 'margin-left: 5px;',
         });
 
         dataRow.add(this.keyValueColumn);
         dataRow.add(this.detailsPanel);
 
 
-        template.get('sections').history.forEach(this.addKey, this);
-        template.get('sections').examinations.forEach(this.addKey, this);
-        template.get('sections').instructions.forEach(this.addKey, this);
+        this.addConcepts('history');
+        this.addConcepts('examinations');
+        this.addConcepts('instructions');
+
         this.add(dataRow);
     },
 
-    addKey: function(concept) {
+    addConcepts: function(section) {
+        this.template.get('sections')[section].forEach(function(concept) {
+            this.addKey(concept, section);
+        }, this);
+    },
+
+    addKey: function(concept, section) {
         var rowContainer = Ext.create('Ext.Container',{
             scrollable: false,
             layout: 'hbox',
@@ -77,13 +86,20 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             flex: 1,
         });
 
+        var deleteButton = Ext.create('Ext.Button', {
+            iconCls: 'delete',
+            iconMask: true,
+            ui: 'action',
+            width: 50,
+        });
+
         var valueField = Ext.create('Ext.Label',{
             html: '',
             flex: 1,
             style: 'margin-left: 5px; border-bottom: 1px dashed white;',
         });
 
-        rowContainer.add([keyButton, valueField]);
+        rowContainer.add([deleteButton, keyButton, valueField]);
 
         var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
         var uiElement = factory.get(new Jss.Outpatient.model.concept.Concept(concept));
@@ -95,6 +111,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         }
 
         keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
+        deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);
         this.keyValueColumn.add(rowContainer);
     },
 
@@ -107,7 +124,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         this.selectedButton.setUi('action');
         var uiElement = this.conceptUIElementMap[concept.name]
         if (uiElement !== undefined) {
-            uiElement.on('valueCaptured', function(value) { console.log(value); valueField.setHtml(value)}, this);
+            uiElement.on('valueCaptured', function(value) { valueField.setHtml(value)}, this);
             this.detailsPanel.add(uiElement);
         }
     },
@@ -121,5 +138,10 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
                 tap: function() { handler(scope) }
             }
         });
+    },
+
+    deleteRow : function(concept, section, rowContainer){
+        rowContainer.destroy();
+        this.template.get('sections')[section] = this.template.get('sections')[section].filter(function(elem) { return elem.name != concept.name; })
     },
 });
