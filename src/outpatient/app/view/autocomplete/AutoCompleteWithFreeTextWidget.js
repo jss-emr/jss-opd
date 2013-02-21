@@ -53,21 +53,29 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     },
 
     onKeyUp : function(){
-        this.autoCompleteList.destroy();
-        this.addAutoCompleteList();
         var keyword = this.searchField.getValue();
-        this.autoCompleteList.loadData(keyword, this.config.store);
-        this.autoCompleteList.show();
-        if(this.autoCompleteList.hasNoSuggestions()){
+        var self = this;
+        if(keyword.length == 0){
             this.autoCompleteList.hide();
-            this.newSearchTermAdditionButton.show();
+            this.newSearchTermAdditionButton.hide();
+            return;
+        }
 
+        this.autoCompleteList.loadData(keyword, function() { self.onDataLoad(self); });
+    },
+
+    onDataLoad: function(scope) {
+        if(scope.autoCompleteList.hasNoSuggestions()){
+            scope.autoCompleteList.hide();
+            scope.newSearchTermAdditionButton.show();
+        } else {
+            scope.newSearchTermAdditionButton.hide();
         }
     },
 
     clear: function() {
         this.searchField.setValue('');
-        this.autoCompleteList.destroy();
+        this.autoCompleteList.hide();
         this.newSearchTermAdditionButton.hide();
     },
 

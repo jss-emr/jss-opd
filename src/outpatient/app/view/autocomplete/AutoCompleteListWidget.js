@@ -19,22 +19,19 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
             bubbleEvents: 'select',
         });
 
+        this.store = this.list.getStore();
+
         this.add(this.list);
     },
 
-    loadData: function(keyword) {
-        if(keyword.length == 0){
-            this.hide();
-            return;
-        }
-
-        //this.list.getStore().filter(this.config.filterKey, keyword, true);
-
-
-        this.list.getStore().getProxy().setUrl("/opd-service/concept?name="+keyword+"&category=" + this.category);
-//        this.list.getStore().getProxy().setUrl("http://localhost:8080/concept?name=herpes&category=Diagnosis");
-
-        this.list.getStore().load();
+    loadData: function(keyword, onLoadCallBack) {
+        this.store.getProxy().setUrl("/opd-service/concept?name="+keyword+"&category=" + this.category);
+        this.store.load({
+            callback: function(records, operation, success) {
+                if(onLoadCallBack)
+                    onLoadCallBack();
+            }
+        });
         this.show();
     },
 
