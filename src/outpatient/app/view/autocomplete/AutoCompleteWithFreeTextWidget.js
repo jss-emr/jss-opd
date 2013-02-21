@@ -93,8 +93,8 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
         this.fireEvent('itemSelected',record);
     },
 
-    setConcept:function(observation){
-        this.searchField.setValue(observation.data.concept.data.name);
+    setConcept:function(concept){
+        this.searchField.setValue(this.autoCompleteList.getItemTpl().apply(concept.data));
     }
 
 

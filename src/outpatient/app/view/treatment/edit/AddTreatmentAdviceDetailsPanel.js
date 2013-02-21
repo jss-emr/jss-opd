@@ -12,6 +12,10 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
         this.addButton = this.createAddButton();
     },
 
+    setAdviceUiElementMapping: function(mapping) {
+        this.adviceUiElementMap = mapping;
+    },
+
     createAddButton: function() {
         var button = Ext.create('Ext.Button', {
             html: 'Add',
@@ -40,7 +44,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     clear: function() {
         this.addButton.hide();
-        this.detailsPanel.removeAll(true);
+        this.detailsPanel.removeAll(false);
     },
 
     addUIElement: function(uiElement) {
@@ -55,6 +59,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
     },
 
     detailsCaptured: function() {
+        this.adviceUiElementMap[this.uiElement.getMedicineDetailsName()] = this.uiElement;
         this.fireEvent('medicineDetailsCaptured', this.getDetails());
     },
 

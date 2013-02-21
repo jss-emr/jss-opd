@@ -30,6 +30,9 @@
                 {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
                 {name:"Haemogram", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
                 {name:"Nasogastric Lavage", properties:{datatype:{name:"coded", properties:{answers:[{name:"Bile Stained"}, {name: "Blood Stained"}, {name: "No Bile/Blood"}]}}}},
+            ],
+            treatment: [
+                {name: "Ibuprofen (TAB)", properties: {datatype: "treatmentadvice", medicineDetails: {type: "TAB", specs: ["200mg", "400mg"], }}},
             ]
         }
     }

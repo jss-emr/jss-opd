@@ -18,7 +18,15 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 	},
 
     addTreatmentAdvice: function(treatmentAdvice) {
-		this.getTreatmentEditSummaryPanel().getStore().add(treatmentAdvice);
+        var summaryStore = this.getTreatmentEditSummaryPanel().getStore();
+        var existingAdvice = summaryStore.findRecord('name', treatmentAdvice.get('name'));
+        if(existingAdvice) {
+            existingAdvice.set('properties', treatmentAdvice.get('properties'));
+            existingAdvice.set('summary', treatmentAdvice.get('summary'));
+            return;
+        }
+
+		summaryStore.add(treatmentAdvice);
 	},
 
     gotoEditPage: function() {

@@ -35,6 +35,10 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         this.show();
     },
 
+    getItemTpl: function() {
+        return this.list.getItemTpl();
+    },
+
     hasNoSuggestions:function(){
         return this.list.getStore().getCount() == 0;
     },

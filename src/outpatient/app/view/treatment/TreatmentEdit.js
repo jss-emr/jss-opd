@@ -21,6 +21,7 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
                 itemTpl: Ext.create('Jss.Outpatient.view.treatment.FullSummaryTemplate'),
                 flex: 1,
                 cls: 'observationSummary',
+                selectedCls: '',
                 inline: true,
             },
             {
@@ -30,5 +31,16 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
                 flex: 2,
             }
         ]
-    }
+    },
+
+    initialize: function() {
+        this.summaryPanel = Ext.getCmp('treatmentEditSummaryPanel');
+        this.addAdvicePanel = Ext.getCmp('addTreatmentAdvicePanel');
+
+        this.summaryPanel.on('itemtap', this.showForEdit, this);
+    },
+
+    showForEdit: function(list, index, target, record) {
+        this.addAdvicePanel.showForEdit(record);
+    },
 });

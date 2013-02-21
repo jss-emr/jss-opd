@@ -24,6 +24,10 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         return {full: [], short: []};
     },
 
+    getMedicineDetailsName: function() {
+        return this.medicineDetails.get('name');
+    },
+
     isDefault: function() {
         return false;
     },
@@ -75,7 +79,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
     addMultiSelectionBox:function (arrayData, title, width) {
         var widget = Ext.create("Jss.Outpatient.view.util.ArrayMultiSelectionBox", {
             width:'90%',
-            id: title + "uuid",
         }).addData(arrayData);
         this.addTitle(widget, title, width);
         return widget;

@@ -43,7 +43,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
         this.add(this.autoCompleteList);
     },
 
-    onItemSelection : function(list,record){
+    onItemSelection : function(list, record){
         this.autoCompleteList.hide();
         this.searchField.setValue(list.getItemTpl().apply(record.data))
         this.fireEvent('itemSelected',record);
@@ -59,8 +59,8 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWidget', {
         this.autoCompleteList.hide();
     },
 
-    setConcept:function(observation){
-        this.searchField.setValue(observation.get('value'));
+    setConcept:function(concept){
+        this.searchField.setValue(this.autoCompleteList.getItemTpl().apply(concept.data));
     },
 
     getValue:function(){

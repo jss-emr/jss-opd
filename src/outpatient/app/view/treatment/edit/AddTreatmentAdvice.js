@@ -38,6 +38,8 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
         });
 
         widget.on('medicineDetailsCaptured', this.clear, this);
+        this.adviceUiElementMap = {};
+        widget.setAdviceUiElementMapping(this.adviceUiElementMap);
 
         this.add(widget);
         return widget;
@@ -49,6 +51,17 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
         var uiElement = factory.get(medicineDetails);
         if (uiElement !== undefined) {
             this.detailsPanel.addUIElement(uiElement);
+        }
+    },
+
+    showForEdit: function(treatmentAdvice) {
+        this.autoCompleteWidget.setConcept(treatmentAdvice);
+        this.detailsPanel.clear();
+        var uiElement = this.adviceUiElementMap[treatmentAdvice.get('name')];
+        if (uiElement !== undefined) {
+            this.detailsPanel.addUIElement(uiElement);
+        } else {
+            this.onTreatmentAdviceSelection(treatmentAdvice.get('medicineDetails'));
         }
     },
 

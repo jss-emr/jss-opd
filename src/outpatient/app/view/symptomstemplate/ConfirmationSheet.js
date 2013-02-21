@@ -64,6 +64,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         this.addConcepts('history');
         this.addConcepts('examinations');
         this.addConcepts('instructions');
+        this.addConcepts('treatment');
 
         this.add(dataRow);
     },
@@ -102,16 +103,24 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
 
         rowContainer.add([keyButton, valueField, deleteButton]);
 
-        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
-        var uiElement = factory.get(new Jss.Outpatient.model.concept.Concept(concept));
-        if (uiElement !== undefined) {
-            this.conceptUIElementMap[concept.name] = uiElement;
-            if(uiElement.isDefault()) {
-                valueField.setHtml(uiElement.getValueAsString());
+        var conceptModel = new Jss.Outpatient.model.concept.Concept(concept);
+
+        if(conceptModel.getDatatype() != "treatmentadvice") {
+            var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
+            var uiElement = factory.get(conceptModel);
+            if (uiElement !== undefined) {
+                this.conceptUIElementMap[concept.name] = uiElement;
+                if(uiElement.isDefault()) {
+                    valueField.setHtml(uiElement.getValueAsString());
+                }
             }
+
+            keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
+        } else {
+            keyButton.setDisabled(true);
+            valueField.setHtml("Fill details in section");
         }
 
-        keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
         deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);
         this.keyValueColumn.add(rowContainer);
     },
