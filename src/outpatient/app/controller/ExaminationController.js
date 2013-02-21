@@ -22,7 +22,7 @@ Ext.define('Jss.Outpatient.controller.ExaminationController', {
     },
 
     gotoEditPage: function() {
-        Ext.getCmp('mainview').push(Ext.getCmp('examination-card'));
+        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('examination-card'));
     },
 
     addObservation:function (observation) {

@@ -18,7 +18,7 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
     },
 
     gotoSelectTemplatePage:function () {
-        Ext.getCmp('mainview').push(Ext.getCmp('symptomsTemplateSelect-card'));
+        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('symptomsTemplateSelect-card'));
     },
 
     applyTemplate: function(template, mapping) {
@@ -54,7 +54,7 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
             Ext.getStore('TreatmentAdvice').add(treatmentAdvice);
         });
 
-        Ext.getCmp('mainview').pop();
+        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('consultationPanel'));
     },
 
     _createObservation: function(concept) {

@@ -19,7 +19,7 @@ Ext.define('Jss.Outpatient.controller.DiagnosisController', {
     },
 
     gotoEditPage: function() {
-        Ext.getCmp('mainview').push(Ext.getCmp('diagnosis-card'));
+        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('diagnosis-card'));
     },
 
     addObservation: function(observation) {

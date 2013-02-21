@@ -21,7 +21,7 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
     },
 
     gotoPreviousPage: function() {
-        Ext.getCmp('mainview').pop();
+        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('consultationPanel'));
     },
 
     addHeaderContainer: function() {
@@ -80,18 +80,18 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         var self = this;
         this.buttonPageMaps.forEach(function(button) {
             self.addToggleButton(button.text, button.id);
-        });
+        }, this);
     },
 
     addToggleButton: function(text, nextPageId) {
+        var self = this;
         var button = Ext.create('Ext.Button', {
             text: text,
             flex: 1,
         });
 
         button.on('tap', function() {
-            Ext.getCmp('mainview').pop(1);
-            Ext.getCmp('mainview').push(Ext.getCmp(nextPageId));
+            Ext.getCmp('mainview').setActiveItem(Ext.getCmp(nextPageId));
         }, this);
         this.headerContainer.add(button)
     },
