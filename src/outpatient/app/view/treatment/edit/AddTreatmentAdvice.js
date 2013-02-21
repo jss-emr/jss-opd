@@ -34,10 +34,11 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
     addDetailsPanel: function() {
         var widget = Ext.create('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', {
             width:'70%',
-            bubbleEvents: 'medicineDetailsCaptured',
+            bubbleEvents: ['medicineDetailsCaptured', 'deleteObservation'],
         });
 
         widget.on('medicineDetailsCaptured', this.clear, this);
+        widget.on('deleteObservation', this.clear, this);
         this.adviceUiElementMap = {};
         widget.setAdviceUiElementMapping(this.adviceUiElementMap);
 

@@ -41,6 +41,11 @@ Ext.define('Jss.Outpatient.view.treatment.TreatmentEdit', {
     },
 
     showForEdit: function(list, index, target, record) {
+        this.selectedRecord = record;
         this.addAdvicePanel.showForEdit(record);
     },
+
+    removeSelectedTreatmentAdvice: function() {
+        this.summaryPanel.getStore().remove(this.selectedRecord);
+    }
 });

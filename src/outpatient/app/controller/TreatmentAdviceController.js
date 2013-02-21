@@ -4,8 +4,9 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 	config: {
 		refs: {
             treatmentSummaryPanel: '#treatmentSummaryPanel',
+            addTreatmentAdvicePanel:'#addTreatmentAdvicePanel',
             treatmentEditSummaryPanel: '#treatmentEditSummaryPanel',
-            addTreatmentAdvicePanel:'#addTreatmentAdvicePanel'
+            treatmentEditPanel: '#treatmentEditPanel',
 		},
 		control: {
             treatmentSummaryPanel: {
@@ -13,6 +14,7 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
             },
             addTreatmentAdvicePanel: {
                 medicineDetailsCaptured: 'addTreatmentAdvice',
+                deleteObservation: 'removeTreatmentAdvice',
             }
         },
 	},
@@ -29,9 +31,11 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
 		summaryStore.add(treatmentAdvice);
 	},
 
+    removeTreatmentAdvice: function() {
+        this.getTreatmentEditPanel().removeSelectedTreatmentAdvice();
+    },
+
     gotoEditPage: function() {
         Ext.getCmp('mainview').push(Ext.getCmp('treatment-card'));
     }
 });
-
-

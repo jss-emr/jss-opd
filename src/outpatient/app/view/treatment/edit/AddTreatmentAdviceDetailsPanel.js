@@ -9,25 +9,45 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     initialize: function() {
         this.detailsPanel = this.addDetailsPanel();
-        this.addButton = this.createAddButton();
+        this.addButtonRow();
     },
 
     setAdviceUiElementMapping: function(mapping) {
         this.adviceUiElementMap = mapping;
     },
 
+    addButtonRow: function() {
+        this.add({
+            xtype: 'container',
+            layout: 'hbox',
+            flex: 1,
+            items: [this.createAddButton(), this.createDeleteButton()],
+        })
+    },
+
     createAddButton: function() {
-        var button = Ext.create('Ext.Button', {
+        this.addButton = Ext.create('Ext.Button', {
             html: 'Add',
             hidden: true,
-            flex: 1,
-            width: '100%',
+            ui: 'confirm',
+            flex: 4,
+            style: 'margin-right: 10px',
         });
 
-        button.on('tap', this.detailsCaptured, this);
+        this.addButton.on('tap', this.detailsCaptured, this);
+        return this.addButton;
+    },
 
-        this.add(button);
-        return button;
+    createDeleteButton: function() {
+        this.deleteButton = Ext.create('Ext.Button', {
+            html: 'Remove',
+            hidden: true,
+            ui: 'decline',
+            flex: 1,
+        });
+
+        this.deleteButton.on('tap', function() {this.fireEvent('deleteObservation') }, this);
+        return this.deleteButton;
     },
 
     addDetailsPanel: function() {
@@ -44,6 +64,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     clear: function() {
         this.addButton.hide();
+        this.deleteButton.hide();
         this.detailsPanel.removeAll(false);
     },
 
@@ -56,6 +77,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
         this.detailsPanel.add([uiElement]);
         this.detailsPanel.show();
         this.addButton.show();
+        this.deleteButton.show();
     },
 
     detailsCaptured: function() {
