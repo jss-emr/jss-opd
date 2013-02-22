@@ -13,8 +13,4 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DefaultUIElement', {
     getSummary:function () {
         return {full: [this.medicineDetails.get('name')], short: [this.medicineDetails.get('name')] };
     },
-
-    treatmentAdviceProperties:function () {
-        return {}
-    },
 });

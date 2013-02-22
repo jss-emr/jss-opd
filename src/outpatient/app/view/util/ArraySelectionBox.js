@@ -41,7 +41,7 @@ Ext.define('Jss.Outpatient.view.util.ArraySelectionBox', {
     selectRecord: function(value, fieldName) {
         if(value == null || value == undefined)
             return;
-        var index = this.getStore().find(fieldName, value[fieldName] || value);
+        var index = this.getStore().find(fieldName, value[fieldName] || value, 0, false, false, true);
         if(index >= 0) {
             this.select(index);
         }

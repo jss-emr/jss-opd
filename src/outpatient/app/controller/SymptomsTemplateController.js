@@ -45,11 +45,16 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
         sections.treatment.forEach(function(advice) {
             var medicineDetails = advice.properties.medicineDetails;
             medicineDetails['name'] = advice.name;
+            var medicineDetailsModel = new Jss.Outpatient.model.treatment.MedicineDetail(medicineDetails);
+
+            var uiElement = new Jss.Outpatient.view.treatment.uielements.Factory().getObject(medicineDetailsModel);
+            uiElement.setDefaultValues(medicineDetailsModel, advice.properties.defaultValue);
+
             var treatmentAdvice = new Jss.Outpatient.model.treatment.TreatmentAdvice({
                 name: advice.name,
-                medicineDetails: new Jss.Outpatient.model.treatment.MedicineDetail(medicineDetails),
-                summary: null,
-                properties: null
+                medicineDetails: medicineDetailsModel,
+                summary: advice.properties.defaultValue ? uiElement.getSummary() : null,
+                properties: advice.properties.defaultValue,
             });
             Ext.getStore('TreatmentAdvice').add(treatmentAdvice);
         });

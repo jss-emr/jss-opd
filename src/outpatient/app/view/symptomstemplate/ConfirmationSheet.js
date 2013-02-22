@@ -118,7 +118,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
         } else {
             keyButton.setDisabled(true);
-            valueField.setHtml("Fill details in section");
+            valueField.setHtml(concept.properties.shortSummary || "Fill details in section");
         }
 
         deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);

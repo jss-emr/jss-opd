@@ -28,10 +28,14 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
         if(values == null || values == undefined)
             return;
         values.forEach(function(value) {
-            var index = self.getStore().find(fieldName, value[fieldName] || value);
+            var index = self.getStore().find(fieldName, value[fieldName] || value, 0, false, false, true);
             if(index >= 0) {
                 self.select(index, true);
             }
+        });
+
+        Ext.query('.x-item-selected .mutliSelectInput').forEach(function(dom) {
+            dom.checked = true;
         });
     },
 

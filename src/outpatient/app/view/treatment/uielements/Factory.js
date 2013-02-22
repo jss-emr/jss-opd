@@ -29,4 +29,23 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.Factory', {
         }
         return Ext.create('Jss.Outpatient.view.treatment.uielements.DefaultUIElement').for(medicineDetails);
     },
+
+    getObject: function(medicineDetails) {
+        switch(medicineDetails.get('type')) {
+            case "TAB":
+            case "CAP":
+                return Ext.create('Jss.Outpatient.view.treatment.uielements.DrugUIElement');
+            case "INJ":
+                return Ext.create('Jss.Outpatient.view.treatment.uielements.InjectionUIElement');
+            case "SYP":
+                return Ext.create('Jss.Outpatient.view.treatment.uielements.SyrupUIElement');
+            case "DROPS":
+            case "DROP":
+                return Ext.create('Jss.Outpatient.view.treatment.uielements.DropsUIElement');
+            case "CREM":
+            case "OINT":
+                return Ext.create('Jss.Outpatient.view.treatment.uielements.CreamUIElement');
+        }
+        return Ext.create('Jss.Outpatient.view.treatment.uielements.DefaultUIElement');
+    }
 });

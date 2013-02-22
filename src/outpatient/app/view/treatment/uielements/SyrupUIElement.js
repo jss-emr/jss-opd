@@ -11,18 +11,19 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
     },
 
     getSummary:function () {
-        var props = this.treatmentAdviceProperties();
+        var props = this.treatmentAdviceProperties;
         return {full: [this.medicineDetails.get('name'), props.spec, props.instruction, props.timings.toString(), props.quantity],
                 short: [this.medicineDetails.get('name'), props.spec, props.timings.toString()] };
     },
 
-    treatmentAdviceProperties:function () {
-        return {
+    getTreatmentAdviceProperties:function () {
+        this.treatmentAdviceProperties = {
             spec: this.specsList != undefined ? this.specsList.getSelectedValue() : null,
             instruction:this.instructionsList.getSelectedValue(),
             timings:this.timingsList.getSelectedValue(),
             quantity: this.quantityList.getSelectedValue(),
         }
+        return this.treatmentAdviceProperties;
     },
 
     addSpecsList:function () {
@@ -37,4 +38,12 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
         return this.addSelectionBox(arrayData, "Dosage", "25%");
     },
 
+    showForEdit: function(treatmentAdviceProperties) {
+        this.specsList.selectRecord(treatmentAdviceProperties.spec, 'value');
+        this.quantityList.selectRecord(treatmentAdviceProperties.quantity, 'value');
+        if(treatmentAdviceProperties.instruction)
+            this.instructionsList.selectRecord(treatmentAdviceProperties.instruction, 'value');
+        if(treatmentAdviceProperties.timings)
+            this.timingsList.selectRecord(treatmentAdviceProperties.timings, 'value');
+    },
 });

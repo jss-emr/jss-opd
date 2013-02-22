@@ -16,14 +16,26 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         return this;
     },
 
+    showForEdit: function(treatmentAdviceProperties) {
+        this.specsList.selectRecord(treatmentAdviceProperties.spec, 'value');
+        this.modeList.selectRecord(treatmentAdviceProperties.mode, 'value');
+        this.dosageList.selectRecord(treatmentAdviceProperties.dosage, 'value');
+        if(treatmentAdviceProperties.instruction)
+            this.instructionsList.selectRecord(treatmentAdviceProperties.instruction, 'value');
+        if(treatmentAdviceProperties.timings)
+            this.timingsList.selectRecord(treatmentAdviceProperties.timings, 'value');
+        if(treatmentAdviceProperties.duration)
+            this.selectDurationForEdit(treatmentAdviceProperties.duration);
+    },
+
     getSummary:function () {
-        var props = this.treatmentAdviceProperties();
+        var props = this.treatmentAdviceProperties;
         return {full: [this.medicineDetails.get('name'), props.spec, props.mode, props.instruction, props.dosage, props.timings.toString(), props.duration],
                 short: [this.medicineDetails.get('name'), props.spec, props.mode, props.timings.toString()] };
     },
 
-    treatmentAdviceProperties:function () {
-        return {
+    getTreatmentAdviceProperties:function () {
+        this.treatmentAdviceProperties = {
             spec: this.specsList != undefined ? this.specsList.getSelectedValue() : null,
             instruction:this.instructionsList.getSelectedValue(),
             dosage:this.dosageList.getSelectedValue(),
@@ -31,6 +43,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
             duration: this.getDuration(),
             mode:this.modeList.getSelectedValue(),
         }
+        return this.treatmentAdviceProperties;
     },
 
     addSpecAndModeList: function() {

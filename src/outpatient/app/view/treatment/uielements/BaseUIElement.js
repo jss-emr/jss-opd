@@ -15,7 +15,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         return Ext.create('Jss.Outpatient.model.treatment.TreatmentAdvice', {
             name:this.medicineDetails.data.name,
             medicineDetails:this.medicineDetails.data,
-            properties:this.treatmentAdviceProperties,
+            properties:this.getTreatmentAdviceProperties(),
             summary:this.getSummary()
         });
     },
@@ -32,8 +32,9 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         return false;
     },
 
-    treatmentAdviceProperties:function () {
-        return { }
+    getTreatmentAdviceProperties:function () {
+        this.treatmentAdviceProperties = {};
+        return this.treatmentAdviceProperties
     },
 
     addInstructionList:function () {
@@ -93,8 +94,23 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         });
     },
 
+    setDefaultValues: function(medicineDetails, properties) {
+        this.medicineDetails = medicineDetails;
+        this.treatmentAdviceProperties = properties;
+    },
+
     getDuration: function() {
         return Ext.Array.clean([this.durationQuantity.getSelectedValue(), this.durationUnit.getSelectedValue()]).join(" ");
+    },
+
+    selectDurationForEdit: function(durationString) {
+        var duration = durationString.split(" ");
+        this.durationQuantity.selectRecord(duration[0], 'value');
+        this.durationUnit.selectRecord(duration[1], 'value');
+    },
+
+    showForEdit: function(treatmentAdviceProperties) {
+        return;
     },
 
     _instructionsList:[
