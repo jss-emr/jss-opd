@@ -22,7 +22,7 @@ Ext.define('Jss.Outpatient.view.patient', {
                     {
                         xtype: 'button',
                         id: "symptomsTemplateButton",
-                        html: 'Symptoms<br/>Templates',
+                        html: 'Templates',
                         flex: 1,
                         width: '90%',
                     }
@@ -31,7 +31,7 @@ Ext.define('Jss.Outpatient.view.patient', {
             {
                 xtype: 'image',
                 layout: 'fit',
-                src: '../outpatient/resources/images/headshots/ram.png',
+                src: '../outpatient/resources/images/no_image.jpeg',
                 flex: 1,
             },
         ]
