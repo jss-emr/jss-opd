@@ -10,7 +10,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
 
     initialize: function() {
         this.addList();
-        this.addAutoComplete()
+        // this.addAutoComplete()
     },
 
     addList: function() {

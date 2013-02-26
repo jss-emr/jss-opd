@@ -10,8 +10,8 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
         this.callParent();
         this.setItemTpl('<input class="mutliSelectInput" type="checkbox" disabled> ' + this.config.itemTpl);
         this.on('itemtap', function(scope, index, target) {
-            var inputElement = target.down('.mutliSelectInput').dom;
-            inputElement.checked = !inputElement.checked;
+            // var inputElement = target.down('.mutliSelectInput').dom;
+            // inputElement.checked = !inputElement.checked;
         });
     },
 
@@ -34,9 +34,9 @@ Ext.define('Jss.Outpatient.view.util.ArrayMultiSelectionBox', {
             }
         });
 
-        Ext.query('.x-item-selected .mutliSelectInput').forEach(function(dom) {
-            dom.checked = true;
-        });
+        // Ext.query('.x-item-selected .mutliSelectInput').forEach(function(dom) {
+        //     dom.checked = true;
+        // });
     },
 
 });

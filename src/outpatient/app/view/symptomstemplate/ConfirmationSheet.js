@@ -47,6 +47,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         });
 
         this.keyValueColumn = Ext.create('Ext.Container', {
+            layout: 'vbox',
             flex: 3,
             scrollable: true,
         });
@@ -79,6 +80,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         var rowContainer = Ext.create('Ext.Container',{
             scrollable: false,
             layout: 'hbox',
+            height: 50,
             style: 'margin-bottom: 2px; color: white;'
         });
 

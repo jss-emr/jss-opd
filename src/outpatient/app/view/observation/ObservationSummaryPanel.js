@@ -12,7 +12,7 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
     },
 
     addSummaryList: function() {
-    	var widget = Ext.create('Ext.dataview.List', {
+        var widget = Ext.create('Ext.dataview.DataView', {
     		store: this.config.store,
             itemTpl: this.config.itemTpl || Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
             cls: 'observationSummary',

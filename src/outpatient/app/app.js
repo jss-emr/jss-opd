@@ -1,15 +1,3 @@
-Ext.Loader.setPath({
-    'Ext.ux.touch.grid': '../lib/touch/Ext.ux.touch.grid',
-});
-
-Ext.require([
-    'Ext.ux.touch.grid.List',
-    'Ext.ux.touch.grid.feature.Feature',
-    'Ext.ux.touch.grid.feature.Editable',
-    'Ext.ux.touch.grid.feature.Sorter'
-]);
-
-
 Ext.application({
     name: 'Jss.Outpatient',
     models: [

@@ -65,6 +65,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
         } else {
             var uiElement = this.onTreatmentAdviceSelection(treatmentAdvice.get('medicineDetails'));
             if(uiElement != undefined) {
+                this.adviceUiElementMap[treatmentAdvice.get('name')] = uiElement;
                 uiElement.showForEdit(treatmentAdvice.get('properties'));
             }
         }
