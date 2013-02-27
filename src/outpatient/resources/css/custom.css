@@ -165,3 +165,12 @@
     line-height: normal;
     height: auto;
 }
+
+.numericUIElement .x-form-fieldset-inner {
+    border: 0px;
+    background-color: transparent;
+}
+
+.numericUIElement .x-field-number {
+    background-color: white;
+}

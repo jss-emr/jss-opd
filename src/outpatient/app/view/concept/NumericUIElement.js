@@ -3,7 +3,8 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
 
     config:{
         height: 150,
-        layout:'hbox'
+        layout:'hbox',
+        cls: 'numericUIElement',
     },
 
     for:function (concept) {
