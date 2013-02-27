@@ -13,13 +13,26 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
     initialize: function() {
         this.on('hide', function() { this.destroy()}, this);
         this.conceptUIElementMap = {};
+        this.keyValueElements = [];
     },
 
-    for: function(template) {
+    showFor: function(template) {
         this.template = template;
+        var backgroundTask = new Ext.util.DelayedTask(this.addElements, this);
+        backgroundTask.delay(1);
+
+        // this.addElements()
+        return this;
+    },
+
+    addElements: function() {
         this.addDataRow();
         this.addButtonsRow();
-        return this;
+
+        var backgroundTask = new Ext.util.DelayedTask(this.backgroundJob, this);
+        backgroundTask.delay(100);
+
+        // this.backgroundJob();
     },
 
     addButtonsRow: function() {
@@ -32,7 +45,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             }]
         });
 
-        buttonRow.add(this.createButton("Add Template", "confirm", function(scope) { scope.fireEvent('add', scope.conceptUIElementMap) }, this));
+        buttonRow.add(this.createButton("Add Template", "confirm", function(scope) { scope.fireEvent('addTemplate', scope.conceptUIElementMap) }, this));
         buttonRow.add(this.createButton("Cancel", "decline", function(scope) { scope.fireEvent('cancel'); scope.destroy(); }, this));
 
         this.add(buttonRow);
@@ -54,13 +67,11 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
 
         this.detailsPanel = Ext.create('Ext.Container', {
             flex: 2,
-            layout: 'fit',
             style: 'margin-left: 5px;',
         });
 
         dataRow.add(this.keyValueColumn);
         dataRow.add(this.detailsPanel);
-
 
         this.addConcepts('history');
         this.addConcepts('examinations');
@@ -72,7 +83,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
 
     addConcepts: function(section) {
         this.template.get('sections')[section].forEach(function(concept) {
-            this.addKey(concept, section);
+            this.addKey(concept, section)
         }, this);
     },
 
@@ -103,31 +114,47 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             style: 'margin-left: 5px; border-bottom: 1px dashed white;',
         });
 
-        rowContainer.add([keyButton, valueField, deleteButton]);
+        this.keyValueElements.push({
+            concept: concept,
+            keyButton: keyButton,
+            valueField: valueField,
+        });
 
-        var conceptModel = new Jss.Outpatient.model.concept.Concept(concept);
-
-        if(conceptModel.getDatatype() != "treatmentadvice") {
-            var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
-            var uiElement = factory.get(conceptModel);
-            if (uiElement !== undefined) {
-                this.conceptUIElementMap[concept.name] = uiElement;
-                if(uiElement.isDefault()) {
-                    valueField.setHtml(uiElement.getValueAsString());
-                }
-            }
-
-            keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
-        } else {
-            keyButton.setDisabled(true);
-            valueField.setHtml(concept.properties.shortSummary || "Fill details in section");
-        }
-
+        keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
         deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);
+
+        rowContainer.add([keyButton, valueField, deleteButton]);
         this.keyValueColumn.add(rowContainer);
     },
 
+    backgroundJob: function() {
+        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
+        this.keyValueElements.forEach(function(elem) {
+            var conceptModel = new Jss.Outpatient.model.concept.Concept(elem.concept);
+            if(conceptModel.getDatatype() != "treatmentadvice") {
+                var uiElement = factory.getObject(conceptModel);
+                if(uiElement != undefined && uiElement.isDefault()) {
+                    elem.valueField.setHtml(uiElement.getValueAsString());
+                }
+            } else {
+                elem.keyButton.setDisabled(true);
+                elem.valueField.setHtml(elem.concept.properties.shortSummary || "Fill details in section");
+            }
+        }, this)
+    },
+
+    associateWithUiElement: function(conceptModel) {
+        var factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
+        var uiElement = factory.get(conceptModel);
+        if (uiElement !== undefined) {
+            this.conceptUIElementMap[conceptModel.get('name')] = uiElement;
+        }
+        return uiElement;
+    },
+
     showDetailsPanel: function(concept, keyButton, valueField){
+        var conceptModel = new Jss.Outpatient.model.concept.Concept(concept);
+
         this.detailsPanel.removeAll(false);
         if(this.selectedButton) {
             this.selectedButton.setUi('');
@@ -135,6 +162,9 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         this.selectedButton = keyButton;
         this.selectedButton.setUi('action');
         var uiElement = this.conceptUIElementMap[concept.name]
+        if(uiElement == undefined) {
+            uiElement = this.associateWithUiElement(conceptModel);
+        }
         if (uiElement !== undefined) {
             uiElement.on('valueCaptured', function(value) { valueField.setHtml(value)}, this);
             this.detailsPanel.add(uiElement);

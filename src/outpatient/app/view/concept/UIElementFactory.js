@@ -11,6 +11,13 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     ],
 
     get:function (concept) {
+        var object = this.getObject(concept);
+        if(object)
+            return object.for(concept);
+        return undefined;
+    },
+
+    getObject: function(concept) {
         var datatype = (concept.data.properties.datatype instanceof Object) ? concept.data.properties.datatype.name : concept.data.properties.datatype;
         var conceptClass = concept.data.properties.conceptClass ;
         if (datatype == "numeric") {
@@ -40,29 +47,29 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     },
 
     numeric:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.NumericUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.NumericUIElement');
     },
 
     duration:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.DurationUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.DurationUIElement');
     },
 
     coded:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.CodedUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.CodedUIElement');
     },
     complex:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.ComplexUIElement').for(concept);
-    } ,
+        return Ext.create('Jss.Outpatient.view.concept.ComplexUIElement');
+    },
     simple:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.SimpleUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.SimpleUIElement');
     }, 
     booleanConcept:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.BooleanUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.BooleanUIElement');
     },
     drugConcept:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.DrugUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.DrugUIElement');
     },
     procedure:function (concept) {
-        return Ext.create('Jss.Outpatient.view.concept.ProcedureUIElement').for(concept);
+        return Ext.create('Jss.Outpatient.view.concept.ProcedureUIElement');
     }
 });

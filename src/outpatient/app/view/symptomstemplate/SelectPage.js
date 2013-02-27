@@ -39,16 +39,17 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.SelectPage', {
     },
 
     addConfirmationSheet: function(record) {
-        this.sheet = new Jss.Outpatient.view.symptomstemplate.ConfirmationSheet().for(record);
+        this.sheet = new Jss.Outpatient.view.symptomstemplate.ConfirmationSheet()
         this.add(this.sheet);
         this.sheet.show();
+        this.sheet.showFor(record);
     },
 
     onSelection: function(record) {
         var self = this;
         this.addConfirmationSheet(record);
 
-        this.sheet.on('add', function(conceptUIElementMapping) {
+        this.sheet.on('addTemplate', function(conceptUIElementMapping) {
             self.sheet.destroy();
             self.fireEvent("symptomsTemplateSelected", record, conceptUIElementMapping);
         });
