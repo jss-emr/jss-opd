@@ -48,14 +48,13 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         var instructions = [
             {"name": "Strength", "properties": {"type": "coded", "values": this.medicineDetails.get('specs')}},
             {"name": "Mode", "properties": {"type": "coded", "values": ["IM", "IV push", "IV drip", "PR", "Intravaginal"]}},
-            {"name": "Notes", "properties": {"type": "textarea"}},
         ]
 
         if(this.medicineDetails.get('instructions')) {
-            return instructions.concat(this.medicineDetails.get('instructions'))
+            var instructions =  instructions.concat(this.medicineDetails.get('instructions'));
         }
 
-        return instructions;
+        return instructions.concat([{"name": "Notes", "properties": {"type": "textarea"}}]);
     },
 
     factory : {

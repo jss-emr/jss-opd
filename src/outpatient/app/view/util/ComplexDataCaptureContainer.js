@@ -52,13 +52,15 @@ Ext.define('Jss.Outpatient.view.util.ComplexDataCaptureContainer', {
             var conceptButton = Ext.create('Ext.Button', {
                 text: concept.name,
                 flex: 1,
+                height: 50,
                 cls: 'confirmationKeyButton',
             });
 
             var valueField = Ext.create('Ext.Label',{
                 html: '',
                 flex: 1,
-                style: 'margin-left: 5px; border-bottom: 1px dashed white;',
+                height: 50,
+                cls: 'valueField',
             });
 
             var deleteButton = Ext.create('Ext.Button', {
@@ -83,7 +85,7 @@ Ext.define('Jss.Outpatient.view.util.ComplexDataCaptureContainer', {
         var uiElement = this.factory.get(concept);
         this.detailsColumn.add(uiElement);
 
-        uiElement.on('valueCaptured', function(value) {valueField.setHtml(value)}, this);
+        uiElement.on('valueCaptured', function(value) {valueField.setHtml("<div class='middle'>" + value + "</div>")}, this);
     },
 
     getDetails: function() {

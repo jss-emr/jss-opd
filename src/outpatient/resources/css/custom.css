@@ -166,6 +166,23 @@
     height: auto;
 }
 
+.valueField {
+    font-size: 114%;
+    margin-left: 5px;
+    border-bottom: 1px dashed black;
+    overflow: hidden;
+}
+
+.valueField .x-innerhtml{
+    display: table;
+    height: inherit;
+}
+
+.valueField .x-innerhtml .middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .numericUIElement .x-form-fieldset-inner {
     border: 0px;
     background-color: transparent;
