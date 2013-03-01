@@ -33,6 +33,7 @@ Ext.application({
         'util.ArraySelectionBox',
         'util.ArrayMultiSelectionBox',
         'util.MenuPanel',
+        'util.ComplexDataCaptureContainer',
         'autocomplete.AutoCompleteWidget',
         'autocomplete.AutoCompleteWithFreeTextWidget',
         'concept.UIElementFactory',

@@ -4,7 +4,8 @@ Ext.define('Jss.Outpatient.model.treatment.MedicineDetail', {
 		fields: [
 			{name: "name"},
 			{name: "type"},
-			{name: "specs", type: "auto"}
+			{name: "specs", type: "auto"},
+			{name: "instructions", type: "auto"},
 		]
 	},
 });

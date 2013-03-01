@@ -8,11 +8,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
 
     for:function (medicineDetails) {
         this.medicineDetails = medicineDetails;
-        this.specsAndModeList=this.addSpecAndModeList();
-        this.instructionsList = this.addInstructionList();
-        this.dosageList = this.addDropsList();
-        this.timingsList = this.addTimingsList();
-        this.durationList = this.addDurationList();
+        this.showSelectionPage()
         return this;
     },
 
@@ -30,52 +26,47 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties;
-        return {full: [this.medicineDetails.get('name'), props.spec, props.mode, props.instruction, props.dosage, props.timings.toString(), props.duration],
-                short: [this.medicineDetails.get('name'), props.spec, props.mode, props.timings.toString()] };
+        var propValues = Object.getOwnPropertyNames(props).map(function(key) { return props[key]});
+        return {full: [this.medicineDetails.get('name')].concat(propValues),
+                short: [this.medicineDetails.get('name'), props.Strength, props.Mode] };
     },
 
     getTreatmentAdviceProperties:function () {
-        this.treatmentAdviceProperties = {
-            spec: this.specsList != undefined ? this.specsList.getSelectedValue() : null,
-            instruction:this.instructionsList.getSelectedValue(),
-            dosage:this.dosageList.getSelectedValue(),
-            timings:this.timingsList.getSelectedValue(),
-            duration: this.getDuration(),
-            mode:this.modeList.getSelectedValue(),
-        }
+        this.treatmentAdviceProperties = this.complexDataCaptureContainer.getDetails();
         return this.treatmentAdviceProperties;
     },
 
-    addSpecAndModeList: function() {
-        var firstColumn = Ext.create('Ext.Container', {
-            layout: "vbox",
-            width: "20%",
+    showSelectionPage: function() {
+        this.complexDataCaptureContainer = Ext.create('Jss.Outpatient.view.util.ComplexDataCaptureContainer', {
+            concepts: this._instructions()
         });
 
-        if(this.medicineDetails.data.specs != null) {
-            this.specsList = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
-                width:'90%',
-            }).addData(this.medicineDetails.data.specs).autoSelectSingleElement();
-            firstColumn.add({xtype: 'container', flex: 1, items: [this.specsList, {xtype: 'titlebar', docked: 'top', title: 'Specs'}]});
+        this.add(this.complexDataCaptureContainer);
+    },
+
+    _instructions: function() {
+        var instructions = [
+            {"name": "Strength", "properties": {"type": "coded", "values": this.medicineDetails.get('specs')}},
+            {"name": "Mode", "properties": {"type": "coded", "values": ["IM", "IV push", "IV drip", "PR", "Intravaginal"]}},
+            {"name": "Notes", "properties": {"type": "textarea"}},
+        ]
+
+        if(this.medicineDetails.get('instructions')) {
+            return instructions.concat(this.medicineDetails.get('instructions'))
         }
 
-        this.modeList = Ext.create("Jss.Outpatient.view.util.ArraySelectionBox", {
-            width:'90%',
-        }).addData(["IV","IM","ID"]);
-        firstColumn.add({xtype: 'container', flex: 1, items: [this.modeList, {xtype: 'titlebar', docked: 'top', title: 'Mode'}]});
-
-        this.add(firstColumn);
-
-        return firstColumn;
+        return instructions;
     },
 
-    addDropsList:function () {
-        var arrayData = ["1/2ml", "1ml", "2ml", "3ml", "4ml", "5ml", "10ml", "15ml"];
-        return this.addSelectionBox(arrayData, "Dosage", "15%");
+    factory : {
+        text: function() {
+            return Ext.create('Ext.field.Text');
+        },
+        coded: function(values) {
+            return new Jss.Outpatient.view.util.ArraySelectionBox().addData(values);
+        }
     },
 
-    addTimingsList:function () {
-        var arrayData = ["Morning", "Noon", "Evening", "Night"];
-        return this.addMultiSelectionBox(arrayData, "Timings", "20%");
-    },
 });
+
+
