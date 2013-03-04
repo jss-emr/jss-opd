@@ -17,7 +17,10 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
 
     getSummary:function () {
         var props = this.treatmentAdviceProperties;
-        var propValues = Object.getOwnPropertyNames(props).map(function(key) { return props[key]});
+        var propValues = Object.getOwnPropertyNames(props).map(function(key) { 
+            return props[key] !=null || props[key] !=undefined ? key + " : " + props[key] : null;
+        });
+        propValues = propValues.filter(function(elem) {return elem != null});
         return {full: [this.medicineDetails.get('name')].concat(propValues),
                 short: [this.medicineDetails.get('name'), props.Strength, props.Mode] };
     },
@@ -39,6 +42,8 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
         var instructions = [
             {"name": "Strength", "properties": {"type": "coded", "values": this.medicineDetails.get('specs')}},
             {"name": "Mode", "properties": {"type": "coded", "values": ["IM", "IV push", "IV drip", "PR", "Intravaginal"]}},
+            {"name": "Course", "properties": {"type": "duration"}},
+            {"name": "Repeat", "properties": {"type": "duration"}},
         ]
 
         if(this.medicineDetails.get('instructions')) {

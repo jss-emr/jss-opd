@@ -37,7 +37,9 @@ Ext.define('Jss.Outpatient.view.util.uiElements.Duration', {
     },
 
     getValueAsString: function() {
-    	return this.quantityList.getSelectedValue() + " " + this.unitsList.getSelectedValue();
+        if(this.quantityList.getSelectedValue() != null && this.unitsList.getSelectedValue() != null)
+        	return this.quantityList.getSelectedValue() + " " + this.unitsList.getSelectedValue();
+        return null;
     },
 
     addObservations: function() {

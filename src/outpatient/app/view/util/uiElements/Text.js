@@ -25,6 +25,9 @@ Ext.define('Jss.Outpatient.view.util.uiElements.Text', {
     },
 
     getValueAsString: function() {
-    	return this.textField.getValue();
+        var value = this.textField.getValue();
+        if(value == "")
+            return null;
+    	return value;
     }
 });

@@ -26,6 +26,9 @@ Ext.define('Jss.Outpatient.view.util.uiElements.Number', {
     },
 
     getValueAsString: function() {
-    	return this.numberField.getValue();
+        var value = this.numberField.getValue();
+        if(value == "")
+            return null;
+        return value;
     }
 });
