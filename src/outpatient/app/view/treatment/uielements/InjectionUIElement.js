@@ -13,15 +13,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
     },
 
     showForEdit: function(treatmentAdviceProperties) {
-        this.specsList.selectRecord(treatmentAdviceProperties.spec, 'value');
-        this.modeList.selectRecord(treatmentAdviceProperties.mode, 'value');
-        this.dosageList.selectRecord(treatmentAdviceProperties.dosage, 'value');
-        if(treatmentAdviceProperties.instruction)
-            this.instructionsList.selectRecord(treatmentAdviceProperties.instruction, 'value');
-        if(treatmentAdviceProperties.timings)
-            this.timingsList.selectRecord(treatmentAdviceProperties.timings, 'value');
-        if(treatmentAdviceProperties.duration)
-            this.selectDurationForEdit(treatmentAdviceProperties.duration);
     },
 
     getSummary:function () {
@@ -56,16 +47,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.InjectionUIElement', {
 
         return instructions.concat([{"name": "Notes", "properties": {"type": "textarea"}}]);
     },
-
-    factory : {
-        text: function() {
-            return Ext.create('Ext.field.Text');
-        },
-        coded: function(values) {
-            return new Jss.Outpatient.view.util.ArraySelectionBox().addData(values);
-        }
-    },
-
 });
 
 

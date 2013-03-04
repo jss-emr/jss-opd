@@ -38,7 +38,7 @@ Ext.define('Jss.Outpatient.store.SymptomsTemplates', {
 		            ],
 		            treatment: [
 		                {name: "Ibuprofen (TAB)", properties: {datatype: "treatmentadvice", medicineDetails: {type: "TAB", specs: ["200mg", "400mg"], }, defaultValue: {spec: "200mg", instruction: ["Thrice a day"], dosage: "1", timings: ["Morning", "Noon", "Night"], duration: "10 Days"}, shortSummary: "200mg - Morning, Noon, Night"}},
-		                {name: "Paracetamol (INJ)", properties: {datatype: "treatmentadvice", medicineDetails: {type: "INJ", specs: ["20ml"], }, defaultValue: {spec: "20ml", mode: "IV", instruction: ["Once a day"], dosage: "5ml", timings: ["Noon"], duration: "1 Days"}, shortSummary: "20ml - Noon"}},
+		                {name: "Paracetamol (INJ)", properties: {datatype: "treatmentadvice", medicineDetails: {type: "INJ", specs: ["20ml"]}}},
 		            ]
 		        }
 		    }
