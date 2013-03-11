@@ -12,12 +12,19 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         {text: "Diagnosis"   , id: 'diagnosis-card'},
         {text: "Treatment"   , id: 'treatment-card'},
         {text: "Instruction" , id: 'instruction-card'},
+        {text: "Templates" , id: 'symptomsTemplateSelect-card'},
     ],
 
     initialize: function() {
+        this.buttonUIPageMap = {};
         this.patient = Ext.getStore('patient');
         this.addHeaderContainer();
         this.add(this.config.content);
+    },
+
+    activate: function() {
+        Ext.getCmp('mainview').setActiveItem(this);
+        this.buttonUIPageMap[this.getId()].setUi('action');
     },
 
     gotoPreviousPage: function() {
@@ -29,18 +36,29 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
             layout: 'hbox',
             docked: 'top',
             cls: 'headerWidget',
+            style: 'margin-bottom: 5px;'
         });
         this.add(this.headerContainer);
 
         this.addDoneButton();
-
         this.headerContainer.add({xtype: 'spacer', flex: 1});
+        this.createPatientDetailsContainer();
+
         this.addToggleButtons();
-        this.addTitleContainer();
 
         this.patient.on('load', function() {
             this.addPatientDetails();
         }, this);
+    },
+
+    createPatientDetailsContainer: function() {
+        this.personDetails = Ext.create('Ext.Container', {
+            flex: 1,
+            html: 'test',
+            cls: 'patientDetails',
+        });
+
+        this.headerContainer.add(this.personDetails);
     },
 
     addDoneButton: function() {
@@ -54,26 +72,10 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         this.headerContainer.add(this.doneButton);
     },
 
-    addTitleContainer: function() {
-        this.titleContainer = Ext.create('Ext.Container', {
-            html: this.config.title,
-            flex: 5,
-            cls: 'title',
-        });
-
-        this.headerContainer.add(this.titleContainer);
-    },
-
     addPatientDetails: function() {
         var patient = this.patient.getAt(0);
-        this.personDetails = Ext.create('Ext.Container', {
-            tpl: '<div>{firstName} {lastName}</div>',
-            data: {firstName: patient.get('firstName'), lastName: patient.get('lastName')},
-            flex: 1,
-            cls: 'patientDetails',
-        });
-
-        this.headerContainer.add(this.personDetails);
+        this.personDetails.setTpl("<div>{firstName} {lastName}</div>");
+        this.personDetails.setData({firstName: patient.get('firstName'), lastName: patient.get('lastName')});
     },
 
     addToggleButtons: function() {
@@ -90,8 +92,10 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
             flex: 1,
         });
 
+        this.buttonUIPageMap[nextPageId] = button;
+
         button.on('tap', function() {
-            Ext.getCmp('mainview').setActiveItem(Ext.getCmp(nextPageId));
+            Ext.getCmp(nextPageId).activate();
         }, this);
         this.headerContainer.add(button)
     },

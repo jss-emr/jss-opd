@@ -22,7 +22,7 @@ Ext.define('Jss.Outpatient.controller.HistoryController', {
     },
 
     gotoEditPage:function () {
-        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('history-card'));
+        Ext.getCmp('history-card').activate();
     },
 
     addObservation:function (observation) {

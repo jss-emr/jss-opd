@@ -18,7 +18,7 @@ Ext.define('Jss.Outpatient.controller.SymptomsTemplateController', {
     },
 
     gotoSelectTemplatePage:function () {
-        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('symptomsTemplateSelect-card'));
+        Ext.getCmp('symptomsTemplateSelect-card').activate();
     },
 
     applyTemplate: function(template, mapping) {

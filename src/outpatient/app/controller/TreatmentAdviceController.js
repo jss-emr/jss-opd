@@ -36,6 +36,6 @@ Ext.define('Jss.Outpatient.controller.TreatmentAdviceController', {
     },
 
     gotoEditPage: function() {
-        Ext.getCmp('mainview').setActiveItem(Ext.getCmp('treatment-card'));
+        Ext.getCmp('treatment-card').activate();
     }
 });
