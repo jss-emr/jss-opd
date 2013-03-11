@@ -41,7 +41,6 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         this.add(this.headerContainer);
 
         this.addDoneButton();
-        this.headerContainer.add({xtype: 'spacer', flex: 1});
         this.createPatientDetailsContainer();
 
         this.addToggleButtons();
@@ -53,7 +52,7 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
 
     createPatientDetailsContainer: function() {
         this.personDetails = Ext.create('Ext.Container', {
-            flex: 1,
+            flex: 2,
             html: 'test',
             cls: 'patientDetails',
         });

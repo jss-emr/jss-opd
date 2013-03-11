@@ -108,8 +108,8 @@
     font-size: 70%;
     background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 84%,#9ecb2d 100%); /* Chrome10+,Safari5.1+ */
     border: 1px solid green;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding: 4px;
+    margin-bottom: 5px;
 }
 
 .headerWidget .title {
@@ -117,6 +117,16 @@
     font-size: 110%;
     font-weight: bold;
     padding-top: 5px;
+}
+
+.headerWidget .x-button {
+    margin-right: 2px;
+}
+
+.headerWidget .patientDetails {
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;    
 }
 
 .smallFont {

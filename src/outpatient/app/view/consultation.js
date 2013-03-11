@@ -3,6 +3,15 @@ Ext.define('Jss.Outpatient.view.consultation', {
     alias: 'widget.consultation',
     id: 'consultationPanel',
 
+    buttonPageMaps: [
+        {text: "History"     , id: "history-card"},
+        {text: "Examination" , id: 'examination-card'},
+        {text: "Diagnosis"   , id: 'diagnosis-card'},
+        {text: "Treatment"   , id: 'treatment-card'},
+        {text: "Instruction" , id: 'instruction-card'},
+        {text: "Templates" , id: 'symptomsTemplateSelect-card'},
+    ],
+
     config: {
         layout: 'card',
         title: 'Consultation',
@@ -66,6 +75,9 @@ Ext.define('Jss.Outpatient.view.consultation', {
 
 
     initialize: function() {
+        this.buttonUIPageMap = {};
+        this.addHeaderMenu();
+
         Ext.create('Jss.Outpatient.view.ContainerWithHeader', {
             title: 'Examinations',
             id: 'examination-card',
@@ -123,5 +135,40 @@ Ext.define('Jss.Outpatient.view.consultation', {
                 flex: 2,
             }]
         });
+    },
+
+    addHeaderMenu: function() {
+        this.headerContainer = Ext.create('Ext.Container', {
+            layout: 'hbox',
+            docked: 'top',
+            cls: 'headerWidget',
+        });
+        this.add(this.headerContainer);
+
+        this.headerContainer.add({xtype: 'button', flex: 2, text: "Consultation", ui: 'action'});
+        this.headerContainer.add({xtype: 'spacer', flex: 1});
+        this.addToggleButtons();
+    },
+
+    addToggleButtons: function() {
+        var self = this;
+        this.buttonPageMaps.forEach(function(button) {
+            self.addToggleButton(button.text, button.id);
+        }, this);
+    },
+
+    addToggleButton: function(text, nextPageId) {
+        var self = this;
+        var button = Ext.create('Ext.Button', {
+            text: text,
+            flex: 1,
+        });
+
+        this.buttonUIPageMap[nextPageId] = button;
+
+        button.on('tap', function() {
+            Ext.getCmp(nextPageId).activate();
+        }, this);
+        this.headerContainer.add(button)
     },
 });
