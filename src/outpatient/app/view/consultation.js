@@ -50,7 +50,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
                     id: 'bottom-panel',
                     layout: 'vbox',
                     flex: 1,
-                    margin: "0 0 0 5",
+                    padding: "0 0 0 5",
                     style: 'background-color: #F5F5F5',
                     items: [
                         {
