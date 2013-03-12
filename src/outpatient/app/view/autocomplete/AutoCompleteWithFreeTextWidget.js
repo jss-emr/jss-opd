@@ -15,7 +15,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     },
 
     addSearchField: function() {
-        this.searchField = Ext.create('Ext.field.Text', {
+        this.searchField = Ext.create('Ext.field.Search', {
             width:'100%',
             height:40,
             placeHolder: this.config.placeHolder,

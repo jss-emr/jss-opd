@@ -19,7 +19,8 @@ Ext.define('Jss.Outpatient.view.examination.ExaminationEdit', {
                 autoCompleteCategory: 'Examination',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
-                flex: 3,
+                autoCompletePlaceHolder: 'Add Examinations ..',
+                flex: 2,
             }
         ]
     }

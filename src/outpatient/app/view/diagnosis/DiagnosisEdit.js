@@ -24,7 +24,8 @@ Ext.define('Jss.Outpatient.view.diagnosis.DiagnosisEdit', {
                 autoCompleteCategory: 'Diagnosis',
                 autoCompleteItemTpl: '{name}',
                 autoCompleteFilterKey: 'name',
-                flex: 3
+                autoCompletePlaceHolder: 'Add Diagnosis ..',
+                flex: 2,
             }
         ]
     },

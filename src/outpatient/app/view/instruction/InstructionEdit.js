@@ -19,7 +19,8 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionEdit', {
                 autoCompleteCategory: 'Instruction',
                 autoCompleteItemTpl:'{name}',
                 autoCompleteFilterKey:'name',
-                flex:3,
+                autoCompletePlaceHolder: 'Add Instructions ..',
+                flex:2,
             }
         ]
     }
