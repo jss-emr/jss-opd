@@ -28,9 +28,12 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         this.store.getProxy().setUrl("/opd-service/concept?name="+keyword+"&category=" + this.category);
         this.store.load({
             callback: function(records, operation, success) {
+                if(!success) //as of sencha 2.1, if server returns empty array, its not a success.
+                    this.store.setData([]);
                 if(onLoadCallBack)
                     onLoadCallBack();
-            }
+            },
+            scope: this
         });
         this.show();
     },
