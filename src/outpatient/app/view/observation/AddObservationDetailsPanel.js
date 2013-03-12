@@ -3,7 +3,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
     alias:"widget.addObservationDetailsPanel",
 
     config:{
-        layout:'vbox',
+        layout:'hbox',
         scroll:'both',
         bubbleEvents: 'observationDetailsCaptured'
     },
@@ -15,8 +15,10 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     addButtonRow: function() {
         this.buttonRow = Ext.create('Ext.Container', {
-            layout: 'hbox',
-            flex: 1,
+            layout: 'vbox',
+            width: '10%',
+            docked: 'right',
+            height: 200,
             items: [this.createAddButton(), this.createDeleteButton()]
         });
 
@@ -29,7 +31,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
             hidden: true,
             flex: 4,
             ui: 'confirm',
-            style: 'margin-right: 20px',
+            style: 'margin-bottom: 10px',
         });
 
         this.addButton.on('tap', this.detailsCaptured, this);
@@ -50,7 +52,6 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
 
     addDetailsPanel: function() {
         var widget = Ext.create('Ext.Container', {
-            flex: 15,
             width: '100%',
             layout: 'fit',
             cls: 'observationDetailsPanel',

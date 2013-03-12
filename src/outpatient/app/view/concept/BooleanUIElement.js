@@ -18,13 +18,10 @@ Ext.define('Jss.Outpatient.view.concept.BooleanUIElement', {
 
         this.add([
             {
-                xtype: 'spacer',
-                width: '20%',
-            },
-            {
                 xtype:'panel',
                 width:'20%',
                 height:300,
+                style: 'margin: 0px auto',
                 items:[this.conceptListBox]
             }
         ]);

@@ -10,12 +10,15 @@ Ext.define('Jss.Outpatient.view.concept.NumericUIElement', {
     for:function (concept) {
         this.concept = concept;
         this.numberfield = Ext.create('Ext.field.Number', {
-            width:'100%',
-            minHeight: 50,
+            width:'80%',
+            minHeight: 40,
             label: this.concept.conceptName(),
             labelWrap: true,
+            labelWidth: '40%',
             autoComplete: false,
-            name:"value"
+            name:"value",
+            placeHolder: "Please enter the value",
+            style: 'margin: 0px auto',
         });
 
         this.add({

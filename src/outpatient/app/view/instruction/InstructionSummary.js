@@ -19,7 +19,7 @@ Ext.define('Jss.Outpatient.view.instruction.InstructionSummary', {
                 items: [{
                     xtype: 'dataview',
                     id: 'instructionSummaryList',
-                    scrollable: 'false',
+                    scrollable: true,
                     store: 'Instructions',
                     itemTpl: Ext.create('Jss.Outpatient.view.observation.SummaryTemplate'),
                     inline: true,

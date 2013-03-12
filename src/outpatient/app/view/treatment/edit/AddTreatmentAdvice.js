@@ -5,7 +5,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
     requires: ['Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel'],
 
     config:{
-        layout:'hbox',
+        layout:'vbox',
         scroll:'both',
     },
 
@@ -16,12 +16,15 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
 
     addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
+            height: 40,
+            width: '30%',
             placeHolder:'Search...',
-            width:'30%',
             store: 'MedicineDetails',
+            category: this.config.autoCompleteCategory,
             itemTpl: '{name}',
             filterKey: 'name',
-            category: this.config.autoCompleteCategory,
+            style: 'margin: 0px auto; margin-bottom: 10px; z-index: 100;',
+
         });
 
         widget.on('itemSelected', this.onTreatmentAdviceSelection, this);
@@ -33,7 +36,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
 
     addDetailsPanel: function() {
         var widget = Ext.create('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', {
-            width:'70%',
+            height: '100%'   ,
             bubbleEvents: ['medicineDetailsCaptured', 'deleteObservation'],
         });
 

@@ -7,7 +7,7 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
     ],
 
     config:{
-        layout:'hbox',
+        layout:'vbox',
         scroll:'both',
     },
 
@@ -18,12 +18,14 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
 
     addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
+            height: 40,
             width: '30%',
             placeHolder:'Search...',
             store: this.config.autoCompleteStore,
             category: this.config.autoCompleteCategory,
             itemTpl: this.config.autoCompleteItemTpl,
             filterKey: this.config.autoCompleteFilterKey,
+            style: 'margin: 0px auto; margin-bottom: 10px; z-index: 100',
         });
 
         widget.on('itemSelected', this.onConceptSelection, this);
@@ -35,7 +37,8 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
 
     addDetailsPanel: function() {
         var widget = Ext.create('Jss.Outpatient.view.observation.AddObservationDetailsPanel', {
-            width:'70%',
+            width:'100%',
+            height: '100%',
             bubbleEvents: 'observationDetailsCaptured',
         });
 

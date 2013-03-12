@@ -3,7 +3,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
     alias:"widget.addTreatmentAdviceDetailsPanel",
 
     config:{
-        layout:'vbox',
+        layout:'hbox',
         scroll:'both',
     },
 
@@ -19,8 +19,10 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
     addButtonRow: function() {
         this.add({
             xtype: 'container',
-            layout: 'hbox',
-            flex: 1,
+            layout: 'vbox',
+            width: '10%',
+            height: 200,
+            docked: 'right',
             items: [this.createAddButton(), this.createDeleteButton()],
         })
     },
@@ -31,7 +33,7 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
             hidden: true,
             ui: 'confirm',
             flex: 4,
-            style: 'margin-right: 10px',
+            style: 'margin-bottom: 10px',
         });
 
         this.addButton.on('tap', this.detailsCaptured, this);
@@ -52,8 +54,8 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdviceDetailsPanel', 
 
     addDetailsPanel: function() {
         var widget = Ext.create('Ext.Container', {
-            flex: 15,
-            width: '100%',
+            width: '95%',
+            height: '100%',
             layout: 'fit',
             cls: 'treatmentAdviceUIElements',
         });

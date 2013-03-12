@@ -27,13 +27,10 @@ Ext.define('Jss.Outpatient.view.concept.CodedUIElement', {
 
         this.add([
             {
-                xtype: 'spacer',
-                width: '10%',
-            },
-            {
                 xtype:'panel',
                 width:'50%',
                 height:300,
+                style: 'margin: 0px auto',
                 items:[this.conceptListBox]
             }
         ]);
