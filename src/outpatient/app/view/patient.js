@@ -7,26 +7,13 @@ Ext.define('Jss.Outpatient.view.patient', {
         layout: 'hbox',
         items: [
             {
-                xtype: 'container',
-                layout:'vbox',
-                flex: 1,
-                items: [
-                    {
-                        xtype: 'list',
-                        flex: 3,
-                        id: 'patientPanel',
-                        scrollable: 'false',
-                        itemTpl: '<table><tr><td>{firstName}, {lastName}</br>Age :{age} years<br/>Village: {village}</td></tr></table>' ,
-                        store: 'patient',
-                    },
-                    {
-                        xtype: 'button',
-                        id: "symptomsTemplateButton",
-                        html: 'Templates',
-                        flex: 1,
-                        width: '90%',
-                    }
-                ],
+                xtype: 'list',
+                flex: 3,
+                id: 'patientPanel',
+                scrollable: 'false',
+                itemTpl: '<table><tr><td>{firstName}, {lastName}</br>Age :{age} years<br/>Village: {village}</td></tr></table>' ,
+                store: 'patient',
+                selectedCls: '',
             },
             {
                 xtype: 'image',
@@ -36,5 +23,4 @@ Ext.define('Jss.Outpatient.view.patient', {
             },
         ]
     }
-})
-
+});
