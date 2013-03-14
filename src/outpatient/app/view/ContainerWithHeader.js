@@ -36,7 +36,6 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
             layout: 'hbox',
             docked: 'top',
             cls: 'headerWidget',
-            style: 'margin-bottom: 5px;'
         });
         this.add(this.headerContainer);
 

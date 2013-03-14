@@ -1,5 +1,6 @@
-body {
-    border: 2px solid white;
+body div.headerWidget + div {
+    border: 5px solid white;
+    border-top: 0px;
 }
 
 #consultation .x-dataview-inner {
@@ -116,9 +117,10 @@ body {
     font-size: 70%;
     background: -webkit-linear-gradient(bottom, #6192b5 1%, #aecfe6 51%);    
     /*background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 84%,#9ecb2d 100%); /* Chrome10+,Safari5.1+ */*/
-    border: 1px solid green;
+    border: 1px solid transparent;
+    border-left: 0px;
     padding: 4px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 
 .headerWidget .title {
@@ -209,4 +211,8 @@ body {
 
 .numericUIElement .x-field-number {
     background-color: white;
+}
+
+.no-border .x-dock.x-dock-horizontal.x-stretched{
+    border: 0px;
 }
