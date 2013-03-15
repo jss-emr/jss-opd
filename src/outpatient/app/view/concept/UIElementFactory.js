@@ -20,16 +20,21 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     getObject: function(concept) {
         var datatype = (concept.data.properties.datatype instanceof Object) ? concept.data.properties.datatype.name : concept.data.properties.datatype;
         var conceptClass = concept.data.properties.conceptClass ;
-        if (datatype == "numeric") {
+        if (datatype == "Numeric") {
             return this.numeric(concept);
         }
-        if (datatype == "duration") {
+        if (datatype == "Duration") {
             return this.duration(concept);
         }
-        if (datatype == "coded") {
+        if (datatype == "Coded") {
+            var answers = concept.data.properties.datatype.properties.answers
+            if(answers == undefined || answers.length == 0){
+                return this.simple(concept);
+            }
+                
             return this.coded(concept);
         }
-        if (datatype == "complex") {
+        if (datatype == "Complex") {
             return this.complex(concept);
         }
         if (datatype == "N/A") {
@@ -38,10 +43,10 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
             }
             return this.simple(concept);
         }
-        if (datatype == "boolean") {
+        if (datatype == "Boolean") {
             return this.booleanConcept(concept);
         }
-        if (datatype == "drug") {
+        if (datatype == "Drug") {
             return this.drugConcept(concept);
         }
     },

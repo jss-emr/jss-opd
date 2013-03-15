@@ -9,6 +9,7 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
 
     initialize: function() {
     	this.list = this.addSummaryList();
+        this.factory = Ext.create('Jss.Outpatient.view.concept.UIElementFactory');
     },
 
     addSummaryList: function() {
@@ -43,7 +44,7 @@ Ext.define('Jss.Outpatient.view.observation.ObservationSummaryPanel', {
     showOptionsPanel:function(list, index, target, record){
         this.selectedObservation = record;
 
-        if(record.get('concept').getDatatype() == "N/A") {
+        if(this.factory.getObject(record.get('concept')).$className == "Jss.Outpatient.view.concept.SimpleUIElement") {
             this.showDeleteMenuOption(target);
             return;
         }
