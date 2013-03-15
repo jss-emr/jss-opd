@@ -48,18 +48,34 @@ body div.headerWidget + div {
     text-decoration: line-through;
 }
 
+
 .diagnosisSummary .final {
     background-color: lightgreen;
     padding: 5px;
     margin: 1px 5px;
-    border-radius: 15px;
-    border: 5px solid ;
+    border-radius: 5px;
+    border: 1px solid ;
+}
+
+.diagnosisSummary .observationVisitPage .final {
+    background-color: lightgreen;
+    padding: 0px 3px;
+    margin: 1px 5px;
+    border-radius: 5px;
+    border: 1px solid ;
 }
 
 .observationSummary .complete-data {
     padding: 5px;
     margin: 1px 5px;
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.observationSummary .incomplete-data {
+    padding: 5px;
+    margin: 1px 5px;
+    border-radius: 5px;
     border: 1px solid;
 }
 
@@ -68,15 +84,9 @@ body div.headerWidget + div {
 }
 
 .complete-data {
-    background-color: lightblue;
+    background-color: #caddef;
 }
 
-.observationSummary .incomplete-data {
-    padding: 5px;
-    margin: 1px 5px;
-    border-radius: 15px;
-    border: 1px solid;
-}
 
 .observationSummary .x-list-item .x-list-item-label {
     padding: 0px;
@@ -90,7 +100,7 @@ body div.headerWidget + div {
 
 .observationVisitPage .incomplete-data, .observationVisitPage .complete-data {
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 3px; 
     margin-right: 3px;
     margin-bottom: 3px;
@@ -160,7 +170,17 @@ body div.headerWidget + div {
 }
 
 .headerWidget .doneButton {
-    background: -webkit-linear-gradient(top, #e4e2e2, #8f8c8c);
+    background: -webkit-linear-gradient(top, #6b7487 0%,#6b7487 38%,#1e2a46 100%);
+    color: white;
+    border: 1px solid #0d1528;
+}
+
+.headerWidget .consultationButton .x-button-label {
+    padding-bottom: 3px;
+}
+
+.headerWidget .doneButton .x-button-label {
+    padding-bottom: 3px;
 }
 
 

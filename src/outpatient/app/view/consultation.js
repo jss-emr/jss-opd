@@ -145,7 +145,7 @@ Ext.define('Jss.Outpatient.view.consultation', {
         });
         this.add(this.headerContainer);
 
-        this.headerContainer.add({xtype: 'button', flex: 1, text: "Consultation", ui: 'action'});
+        this.headerContainer.add({xtype: 'button', flex: 1, text: "Consultation", ui: 'action', cls: 'consultationButton'});
         this.headerContainer.add({xtype: 'container', flex: 2});
 
         this.addToggleButtons();
