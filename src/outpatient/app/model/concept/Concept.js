@@ -12,13 +12,13 @@ Ext.define('Jss.Outpatient.model.concept.Concept', {
         var props = this.get("properties");
         var conceptProperties = props.datatype.properties;
         if (conceptProperties !== null && conceptProperties !== undefined) {
-            return  name + ' (' + conceptProperties.unit + ')';
+            return  conceptProperties.unit != undefined ?  name + ' (' + conceptProperties.unit + ')' : name;
         }
         return name;
     },
     getUnit : function(){
         var properties = this.get("properties").datatype.properties;
-        return properties !== null && properties !== undefined ? properties.unit : '';
+        return properties !== null && properties !== undefined & properties.unit !== undefined ? properties.unit : '';
     } ,
 
     getAnswers : function(){
