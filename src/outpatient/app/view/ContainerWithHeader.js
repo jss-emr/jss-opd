@@ -63,6 +63,7 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
         this.doneButton = Ext.create('Ext.Button', {
             text: 'Done',
             flex: 1,
+            cls: 'doneButton',
         });
 
         this.doneButton.on('tap', this.gotoPreviousPage, this);
