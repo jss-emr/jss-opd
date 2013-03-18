@@ -108,7 +108,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
             width: 50,
         });
 
-        var valueField = Ext.create('Ext.Label',{
+        var valueField = Ext.create('Jss.Outpatient.view.util.TouchableLabel',{
             html: '',
             flex: 1,
             style: 'margin-left: 5px; border-bottom: 1px dashed white;',
@@ -121,6 +121,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         });
 
         keyButton.on('tap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
+        valueField.on('labelTap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
         deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);
 
         rowContainer.add([keyButton, valueField, deleteButton]);

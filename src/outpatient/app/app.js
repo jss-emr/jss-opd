@@ -30,6 +30,7 @@ Ext.application({
     ],
     views: [
         'util.TouchableContainer',
+        'util.TouchableLabel',
         'util.ArraySelectionBox',
         'util.ArrayMultiSelectionBox',
         'util.MenuPanel',
