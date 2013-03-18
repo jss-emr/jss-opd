@@ -5,6 +5,7 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
         height: '100%',
         layout: 'hbox',
         width: '100%',
+        style: 'margin: 0px auto',
     },
 
     for: function (concept) {
@@ -17,10 +18,9 @@ Ext.define('Jss.Outpatient.view.concept.DurationUIElement', {
         }).addData(["days", "months", "years"]);
 
         this.add([
-            {
-                xtype: 'label',
-                html: concept.get('name') + ' for duration',
-                width: '20%',
+            {   
+                xtype: 'spacer',
+                width: '35%',
             },
             {
                 xtype: 'panel',

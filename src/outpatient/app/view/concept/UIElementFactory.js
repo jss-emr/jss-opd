@@ -21,6 +21,9 @@ Ext.define('Jss.Outpatient.view.concept.UIElementFactory', {
     getObject: function(concept) {
         var datatype = (concept.data.properties.datatype instanceof Object) ? concept.data.properties.datatype.name : concept.data.properties.datatype;
         var conceptClass = concept.data.properties.conceptClass ;
+        if(concept.data.name.match(/duration/i) && !concept.data.name.match(/induration/i)) {
+            return this.duration(concept)
+        }
         if (datatype == "Numeric") {
             return this.numeric(concept);
         }
