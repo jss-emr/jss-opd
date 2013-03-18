@@ -20,6 +20,13 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         });
     },
 
+    addSpecsList:function () {
+        if (this.medicineDetails.data.specs == null) {
+            return null;
+        }
+        return this.addSelectionBox(this.medicineDetails.data.specs, "Strength", "20%").autoSelectSingleElement();
+    },
+
     getSummary:function () {
         return {full: [], short: []};
     },
@@ -114,6 +121,7 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
     },
 
     _instructionsList:[
+        "S.O.S",
         "Once a day",
         "Twice a day",
         "Thrice a day",
@@ -128,6 +136,5 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.BaseUIElement', {
         "Thrice a week",
         "Once in three weeks",
         "Monthly",
-        "S.O.S",
     ]
 });

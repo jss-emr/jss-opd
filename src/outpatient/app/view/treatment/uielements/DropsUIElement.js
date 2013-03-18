@@ -28,13 +28,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DropsUIElement', {
         return this.treatmentAdviceProperties;
     },
 
-    addSpecsList:function () {
-        if (this.medicineDetails.data.specs == null) {
-            return null;
-        }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%").autoSelectSingleElement();
-    },
-
     addDropsList:function () {
         var arrayData = ["1", "2", "3", "4", "5", "10", "15"];
         return this.addSelectionBox(arrayData, "Drops", "15%");

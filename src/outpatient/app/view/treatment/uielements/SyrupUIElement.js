@@ -26,15 +26,8 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.SyrupUIElement', {
         return this.treatmentAdviceProperties;
     },
 
-    addSpecsList:function () {
-        if (this.medicineDetails.data.specs == null) {
-            return null;
-        }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "25%").autoSelectSingleElement();
-    },
-
     addQuantityList:function () {
-        var arrayData = ["1 bottle", "2 bottle", "3 bottle"];
+        var arrayData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 20, 25, 30, 35, 40, 45, 50, 55].map(function(elem) {return elem + "ml"});
         return this.addSelectionBox(arrayData, "Dosage", "25%");
     },
 

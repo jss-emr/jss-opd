@@ -26,13 +26,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.CreamUIElement', {
         return this.treatmentAdviceProperties;
     },
 
-    addSpecsList:function () {
-        if (this.medicineDetails.data.specs == null) {
-            return null;
-        }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%").autoSelectSingleElement();
-    },
-
     showForEdit: function(treatmentAdviceProperties) {
         this.specsList.selectRecord(treatmentAdviceProperties.spec, 'value');
         if(treatmentAdviceProperties.instruction)

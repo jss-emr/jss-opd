@@ -29,12 +29,6 @@ Ext.define('Jss.Outpatient.view.treatment.uielements.DrugUIElement', {
         return this.treatmentAdviceProperties;
     },
 
-    addSpecsList:function () {
-        if (this.medicineDetails.data.specs == null) {
-            return null;
-        }
-        return this.addSelectionBox(this.medicineDetails.data.specs, "Specs", "20%").autoSelectSingleElement();
-    },
 
     addDosageList:function () {
         if(this.medicineDetails.get('type') == "CAP")
