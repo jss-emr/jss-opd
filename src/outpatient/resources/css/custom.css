@@ -131,7 +131,7 @@ body div.headerWidget + div {
     padding: 4px;
     /*margin-bottom: 5px;*/
     box-shadow: 0px 2px 5px #888888;
-    hight: 40px;
+    height: 60px;
 }
 
 .headerWidget .title {
@@ -144,6 +144,7 @@ body div.headerWidget + div {
 .headerWidget .x-button {
     border-radius: 0px;
     background: -webkit-linear-gradient(top, #ffffff, #a5a2a2);
+    /*height: 100px;*/
 }
 
 .headerWidget .x-button:first-child {
@@ -186,7 +187,7 @@ body div.headerWidget + div {
 
 .headerWidget .patientDetails {
     text-align: center;
-    padding-top: 4px;
+    padding-top: 16px;
     font-weight: bold;    
 }
 

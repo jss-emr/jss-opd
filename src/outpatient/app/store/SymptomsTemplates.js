@@ -16,7 +16,6 @@ Ext.define('Jss.Outpatient.store.SymptomsTemplates', {
 		                {name:"Syncope", properties:{datatype:"Boolean"}},
 		            ],
 		            examinations:[
-		                {name:"Age", properties:{datatype:"Numeric"}},
 		                {name:"PR", properties:{datatype:"Numeric"}},
 		                {name:"Systolic BP", properties:{datatype:"Numeric"}},
 		                {name:"Diastolic BP", properties:{datatype:"Numeric"}},
