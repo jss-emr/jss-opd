@@ -4,7 +4,7 @@ Ext.define('Jss.Outpatient.view.util.TouchableContainer', {
 
     initialize: function() {
         this.on({
-            doubletap: {
+            tap: {
                 element: 'innerElement',
                 scope: this,
                 fn : function() {
