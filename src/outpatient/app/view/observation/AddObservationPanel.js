@@ -18,14 +18,14 @@ Ext.define('Jss.Outpatient.view.observation.AddObservationPanel', {
 
     addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
-            height: 40,
-            width: '30%',
+            height: 50,
+            width: '50%',
             placeHolder: this.config.autoCompletePlaceHolder,
             store: this.config.autoCompleteStore,
             category: this.config.autoCompleteCategory,
             itemTpl: this.config.autoCompleteItemTpl,
             filterKey: this.config.autoCompleteFilterKey,
-            style: 'margin: 0px auto; margin-bottom: 10px; z-index: 100; font-size: 80%;',
+            style: 'margin: 0px auto; margin-bottom: 10px; z-index: 100; font-size: 100%;',
         });
 
         widget.on('itemSelected', this.onConceptSelection, this);

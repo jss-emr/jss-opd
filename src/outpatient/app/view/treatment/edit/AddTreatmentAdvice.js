@@ -16,8 +16,8 @@ Ext.define('Jss.Outpatient.view.treatment.edit.AddTreatmentAdvice', {
 
     addAutoCompleteWidget: function() {
         var widget = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
-            height: 40,
-            width: '30%',
+            height: 50,
+            width: '50%',
             placeHolder:'Add Treatment advice ...',
             store: 'MedicineDetails',
             category: this.config.autoCompleteCategory,

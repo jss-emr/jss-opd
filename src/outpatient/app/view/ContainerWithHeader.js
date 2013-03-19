@@ -9,9 +9,9 @@ Ext.define('Jss.Outpatient.view.ContainerWithHeader', {
     buttonPageMaps: [
         {text: "History"     , id: "history-card"},
         {text: "Examination" , id: 'examination-card'},
+        {text: "Instruction" , id: 'instruction-card'},
         {text: "Diagnosis"   , id: 'diagnosis-card'},
         {text: "Treatment"   , id: 'treatment-card'},
-        {text: "Instruction" , id: 'instruction-card'},
         {text: "Templates" , id: 'symptomsTemplateSelect-card'},
     ],
 

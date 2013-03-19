@@ -6,9 +6,9 @@ Ext.define('Jss.Outpatient.view.consultation', {
     buttonPageMaps: [
         {text: "History"     , id: "history-card"},
         {text: "Examination" , id: 'examination-card'},
+        {text: "Instruction" , id: 'instruction-card'},
         {text: "Diagnosis"   , id: 'diagnosis-card'},
         {text: "Treatment"   , id: 'treatment-card'},
-        {text: "Instruction" , id: 'instruction-card'},
         {text: "Templates" , id: 'symptomsTemplateSelect-card'},
     ],
 
@@ -33,14 +33,14 @@ Ext.define('Jss.Outpatient.view.consultation', {
                             cls: 'opdSection',
                             flex: 2,
                         },{
-                            xtype: 'diagnosis',
-                            id: 'diagnosisSummaryPanel',
-                            flex: 1,
-                            cls: 'opdSection',
-                        },{
                             xtype: 'instruction',
                             flex: 2,
                             id: 'instructionSummaryPanel',
+                            cls: 'opdSection',
+                        },{
+                            xtype: 'diagnosis',
+                            id: 'diagnosisSummaryPanel',
+                            flex: 1,
                             cls: 'opdSection',
                         }
                     ]

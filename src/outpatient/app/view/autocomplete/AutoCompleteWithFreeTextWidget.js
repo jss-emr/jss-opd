@@ -17,9 +17,10 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
     addSearchField: function() {
         this.searchField = Ext.create('Ext.field.Search', {
             width:'100%',
-            height:40,
+            height:50,
             placeHolder: this.config.placeHolder,
-            bubbleEvents: 'clearicontap'
+            bubbleEvents: 'clearicontap',
+            cls: 'autoCompleteSearch',
         });
 
         this.crossButton = Ext.create('Ext.Button', {
@@ -27,10 +28,14 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             iconMask: true,
             ui: 'action',
             width: 50,
-            height: 38,
+            height: 48,
             cls: 'autocompleteCrossButton',
         });
-        var fieldSet = Ext.create('Ext.form.FieldSet', {width: '90%', height: '100%'});
+
+        var fieldSet = Ext.create('Ext.form.FieldSet', {
+            width: '100%', 
+            height: '100%'
+        });
 
 
         this.searchField.on('keyup', 'onKeyUp', this);
@@ -42,7 +47,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
         var row = Ext.create('Ext.Container', {
             layout: 'hbox',
             width: '100%',
-            height: 40,
+            height: 50,
         })
 
         row.add([fieldSet, this.crossButton]);
