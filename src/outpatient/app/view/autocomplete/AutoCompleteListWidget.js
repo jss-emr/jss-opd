@@ -14,7 +14,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget', {
         this.category = this.config.category;
         this.list = Ext.create('Ext.dataview.List', {
             store: this.config.store,
-            height: 280,
+            height: 380,
             itemTpl: this.config.itemTpl,
             bubbleEvents: 'select',
         });

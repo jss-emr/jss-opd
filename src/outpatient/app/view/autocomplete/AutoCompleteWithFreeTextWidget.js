@@ -58,7 +58,7 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
         this.autoCompleteList = Ext.create('Jss.Outpatient.view.autocomplete.AutoCompleteListWidget',{
             hidden:true,
             width:'100%',
-            height:300,
+            height:400,
             itemTpl: this.config.itemTpl,
             filterKey: this.config.filterKey,
             store: this.config.store,
