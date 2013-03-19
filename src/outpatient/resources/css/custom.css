@@ -271,3 +271,12 @@ body div.headerWidget + div {
 .no-border .x-dock.x-dock-horizontal.x-stretched{
     border: 0px;
 }
+
+.autocompleteCrossButton {
+    position: relative;
+    left: -50px;
+    top: 1px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;    
+
+}

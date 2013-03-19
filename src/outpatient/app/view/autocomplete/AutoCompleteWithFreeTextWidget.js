@@ -21,14 +21,32 @@ Ext.define('Jss.Outpatient.view.autocomplete.AutoCompleteWithFreeTextWidget', {
             placeHolder: this.config.placeHolder,
             bubbleEvents: 'clearicontap'
         });
-        var fieldSet = Ext.create('Ext.form.FieldSet');
+
+        this.crossButton = Ext.create('Ext.Button', {
+            iconCls: 'delete',
+            iconMask: true,
+            ui: 'action',
+            width: 50,
+            height: 38,
+            cls: 'autocompleteCrossButton',
+        });
+        var fieldSet = Ext.create('Ext.form.FieldSet', {width: '90%', height: '100%'});
 
 
         this.searchField.on('keyup', 'onKeyUp', this);
         this.searchField.on('clearicontap', 'clear', this);
+        this.crossButton.on('tap', function() { this.searchField.fireEvent('clearicontap')}, this);
 
         fieldSet.add(this.searchField);
-        this.add(fieldSet);
+
+        var row = Ext.create('Ext.Container', {
+            layout: 'hbox',
+            width: '100%',
+            height: 40,
+        })
+
+        row.add([fieldSet, this.crossButton]);
+        this.add(row);
     },
 
     addAutoCompleteList: function(){
