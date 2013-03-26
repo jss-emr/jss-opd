@@ -40,7 +40,118 @@ Ext.define('Jss.Outpatient.store.SymptomsTemplates', {
 		                {name: "Paracetamol (INJ)", properties: {datatype: "treatmentadvice", medicineDetails: {type: "INJ", specs: ["20ml"]}}},
 		            ]
 		        }
-		    }
+		    },
+		    {
+		        name:'Backache',
+		        sections:{
+		            history:[
+		                {name:"M/C Days", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1-2 Days"}, {name: "2-3 Days"}, {name: "4-5 Days"}, {name: "5-6 Days"}, {name: "10-12 Days"}]}}}},
+		                {name:"M/C Interval", properties:{datatype:{name:"Coded", properties:{answers:[{name: "< 25 Days"}, {name: "25-27 Days"}, {name: "28-30 Days"}, {name: "31-35 Days"}, {name: "35-40 Days"}, {name: "> 40 Days"}]}}}},
+		                {name:"M/C Amount", properties:{datatype:{name:"Coded", properties:{answers:[{name: "Scanty"}, {name: "Average"}, {name: "Heavy"}]}}}},
+		                {name:"G", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"P", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"A", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"BOH", properties:{datatype:"Boolean"}},
+		                {name:"LMP", properties:{datatype:"Text"}},
+		            ],
+		            examinations:[
+		            ],
+		            instructions: [
+		                {name:"Haemoglobin", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		                {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		            ],
+		            treatment: [
+		            ]
+		        }
+
+		    },
+		    {
+		        name:'Abdominal Pain',
+		        sections:{
+		            history:[
+		                {name:"M/C Days", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1-2 Days"}, {name: "2-3 Days"}, {name: "4-5 Days"}, {name: "5-6 Days"}, {name: "10-12 Days"}]}}}},
+		                {name:"M/C Interval", properties:{datatype:{name:"Coded", properties:{answers:[{name: "< 25 Days"}, {name: "25-27 Days"}, {name: "28-30 Days"}, {name: "31-35 Days"}, {name: "35-40 Days"}, {name: "> 40 Days"}]}}}},
+		                {name:"M/C Amount", properties:{datatype:{name:"Coded", properties:{answers:[{name: "Scanty"}, {name: "Average"}, {name: "Heavy"}]}}}},
+		                {name:"G", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"P", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"A", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"BOH", properties:{datatype:"Boolean"}},
+		                {name:"LMP", properties:{datatype:"Text"}},
+		            ],
+		            examinations:[
+		            ],
+		            instructions: [
+		                {name:"Haemoglobin", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		                {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		            ],
+		            treatment: [
+		            ]
+		        }
+
+		    },
+		    {
+		        name:'Menstrual C/O',
+		        sections:{
+		            history:[
+		                {name:"M/C Days", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1-2 Days"}, {name: "2-3 Days"}, {name: "4-5 Days"}, {name: "5-6 Days"}, {name: "10-12 Days"}]}}}},
+		                {name:"M/C Interval", properties:{datatype:{name:"Coded", properties:{answers:[{name: "< 25 Days"}, {name: "25-27 Days"}, {name: "28-30 Days"}, {name: "31-35 Days"}, {name: "35-40 Days"}, {name: "> 40 Days"}]}}}},
+		                {name:"M/C Amount", properties:{datatype:{name:"Coded", properties:{answers:[{name: "Scanty"}, {name: "Average"}, {name: "Heavy"}]}}}},
+		                {name:"G", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"P", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"A", properties:{datatype:{name:"Coded", properties:{answers:[{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}]}}}},
+		                {name:"BOH", properties:{datatype:"Boolean"}},
+		                {name:"LMP", properties:{datatype:"Text"}},
+		            ],
+		            examinations:[
+		            ],
+		            instructions: [
+		                {name:"Haemoglobin", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		                {name:"Urine Microscopy", properties:{ datatype: {name: "N/A"}, conceptClass : "Test"}},
+		            ],
+		            treatment: [
+		            ]
+		        }
+
+		    },
+		    {
+		        name:'Internal Examintation',
+		        sections:{
+		            history:[
+		            ],
+		            examinations:[
+		                {name:"P/S Cervix", properties:{datatype:{name:"Coded", properties:{multi: true, answers:[{name: "Normal"}, {name: "Abnormal - Poly b"}, {name: "Abnormal - Growth"}, {name: "Abnormal - Erosion"}, {name: "V/A Test (+ve)"}, {name: "V/A Test (-ve)"}]}}}},
+		                {name:"P/V Ut", properties:{datatype:{name:"Coded", properties:{multi: true, answers:[{name: "A/V"}, {name: "R/V"}, {name: "Normal"}, {name: "Enlarged"}, {name: "Soft"}, {name: "Firm"}, {name: "Mobile"}, {name: "Restricted Mobile"}]}}}},
+		                {name:"P/V Ut Enlarged Size (Weeks)", properties:{datatype:{name:"Text", properties:{}}}},
+		                {name:"P/R Ut", properties:{datatype:{name:"Coded", properties:{answers:[{name: "Nad"}, {name: "Ab"}]}}}},
+		                {name:"P/Vaginal", properties:{datatype:{name:"Coded", properties:{multi: true, answers:[{name: "OS - Closed"}, {name: "OS - Open"}, {name: "Head"}, {name: "Breach"}, {name: "Hand"}, {name: "Membrane - Present"}, {name: "Membrane - Absent"}]}}}},
+		            ],
+		            instructions: [
+		            ],
+		            treatment: [
+		            ]
+		        }
+
+		    },
+		    {
+		        name:'Obstretic Abdominal Examintation',
+		        sections:{
+		            history:[
+		            ],
+		            examinations:[
+		                {name:"Fundal Height (Weeks)", properties:{datatype:{name:"Text", properties:{}}}},
+		                {name:"Presenting part", properties:{datatype:{name:"Coded", properties:{answers:[{name: "Cephalic"}, {name: "Breech"}, {name: "Transverse"}]}}}},
+		                {name:"FHS", properties:{datatype:{name:"Boolean", properties:{}}}},
+		                {name:"Amount of liquid", properties:{datatype:{name:"Text", properties:{}}}},
+		                {name:"Contractions", properties:{datatype:{name:"Boolean", properties:{}}}},
+		            ],
+		            instructions: [
+		            ],
+		            treatment: [
+		            ]
+		        }
+
+		    },
 		]
-    }
+    },
+
 });

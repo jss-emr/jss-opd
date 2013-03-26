@@ -68,6 +68,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         this.detailsPanel = Ext.create('Ext.Container', {
             flex: 2,
             style: 'margin-left: 5px;',
+
         });
 
         dataRow.add(this.keyValueColumn);
@@ -124,7 +125,7 @@ Ext.define('Jss.Outpatient.view.symptomstemplate.ConfirmationSheet', {
         valueField.on('labelTap', function(){this.showDetailsPanel(concept, keyButton, valueField)}, this);
         deleteButton.on('tap', function(){this.deleteRow(concept, section, rowContainer)}, this);
 
-        rowContainer.add([keyButton, valueField, deleteButton]);
+        rowContainer.add([deleteButton, keyButton, valueField]);
         this.keyValueColumn.add(rowContainer);
     },
 
